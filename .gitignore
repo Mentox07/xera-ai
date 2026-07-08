@@ -1,0 +1,33 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Data
+data/xera.db
+data/chroma/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test / Cache
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Backups
+*.bak
+*.bak-*
