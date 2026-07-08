@@ -9,6 +9,15 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Mentox07/xera-ai/actions/workflows/ci.yml"><img src="https://github.com/Mentox07/xera-ai/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Mentox07/xera-ai" alt="License" /></a>
+  <a href="https://github.com/Mentox07/xera-ai/stargazers"><img src="https://img.shields.io/github/stars/Mentox07/xera-ai" alt="Stars" /></a>
+  <a href="https://github.com/Mentox07/xera-ai/issues"><img src="https://img.shields.io/github/issues/Mentox07/xera-ai" alt="Issues" /></a>
+  <img src="https://img.shields.io/badge/python-3.11%2B-blue" alt="Python" />
+  <img src="https://img.shields.io/badge/docker-ready-blue?logo=docker" alt="Docker" />
+</p>
+
+<p align="center">
   <a href="https://xera-app.com">Live Demo</a> &nbsp;·&nbsp;
   <a href="#features">Features</a> &nbsp;·&nbsp;
   <a href="#architecture">Architecture</a> &nbsp;·&nbsp;
@@ -481,6 +490,18 @@ xera-ai/
 
 ---
 
+## Built With
+
+- [llama.cpp](https://github.com/ggerganov/llama.cpp) — LLM inference with CUDA acceleration
+- [FastAPI](https://fastapi.tiangolo.com/) — Backend framework
+- [React](https://react.dev/) — Frontend UI
+- [SearXNG](https://github.com/searxng/searxng) — Meta search engine
+- [ChromaDB](https://www.trychroma.com/) — Vector database for RAG
+- [Caddy](https://caddyserver.com/) — Reverse proxy with automatic HTTPS
+- [Proxmox VE](https://www.proxmox.com/) — Virtualization platform
+
+---
+
 <p align="center">
-  Built with local LLMs · No cloud · No tracking · 100% private
+  No cloud · No tracking · 100% private
 </p>
