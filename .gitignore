@@ -12,8 +12,7 @@ venv/
 .venv/
 
 # Data
-data/xera.db
-data/chroma/
+data/
 
 # IDE
 .vscode/

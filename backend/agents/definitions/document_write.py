@@ -211,7 +211,7 @@ Wenn der User ein Thema nennt das Fakten, Daten oder aktuelles Wissen erfordert
 
 Beispiel: "PDF über LLMs" → delegiere nacheinander:
 1. delegate_to_agent("web_search", task="Large Language Models Transformer Architektur 2024")
-2. delegate_to_agent("web_search", task="GPT-4 Claude Gemini Llama Vergleich 2024")
+2. delegate_to_agent("web_search", task="GPT-4 Gemini Llama LLM Vergleich 2024")
 3. delegate_to_agent("web_search", task="LLM Anwendungen Praxis Beispiele")
 
 Dann: Schreibe mit ECHTEN Zahlen, Fakten, Modellnamen, Benchmarks aus den Suchergebnissen.

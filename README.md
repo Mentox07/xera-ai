@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="static/assets/xera-logo.png" alt="Xera AI Logo" width="120" />
+  <img src="docs/screenshots/xera-logo.png" alt="Xera AI Logo" width="120" />
 </p>
 
 <h1 align="center">Xera AI</h1>
@@ -323,16 +323,19 @@ xera-app.com {
 
 ```
 xera-ai/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   └── PULL_REQUEST_TEMPLATE.md
 ├── backend/
 │   ├── agents/
 │   │   ├── definitions/       # 23 individual agent definitions
-│   │   │   ├── code.py        # Code review, debugging, generation
-│   │   │   ├── devops.py      # CI/CD, deployments
-│   │   │   ├── proxmox.py     # VM/CT management
-│   │   │   ├── monitoring.py  # Grafana/Prometheus
-│   │   │   ├── web_search.py  # SearXNG integration
-│   │   │   ├── document_write.py  # PDF/DOCX/XLSX generation
-│   │   │   └── ...            # 17 more agents
+│   │   │   ├── code.py
+│   │   │   ├── devops.py
+│   │   │   ├── proxmox.py
+│   │   │   ├── web_search.py
+│   │   │   └── ...
 │   │   ├── base.py            # Base agent runner
 │   │   ├── orchestrator.py    # Agent selection & routing
 │   │   └── registry.py        # Agent registry & lookup
@@ -340,29 +343,37 @@ xera-ai/
 │   ├── chat.py                # Chat streaming (SSE)
 │   ├── config.py              # Environment configuration
 │   ├── database.py            # SQLite operations
-│   ├── docgen.py              # Document generation (PDF/DOCX/XLSX)
-│   ├── docparse.py            # Document parsing (upload)
+│   ├── docgen.py              # Document generation
+│   ├── docparse.py            # Document parsing
 │   ├── learning.py            # Self-learning system
-│   ├── main.py                # FastAPI application & routes
+│   ├── main.py                # FastAPI app & routes
 │   ├── metrics.py             # Prometheus metrics
-│   ├── permissions.py         # Tool permission system (READ/WRITE/ADMIN/BLOCKED)
+│   ├── permissions.py         # Tool permission system
 │   ├── rag.py                 # ChromaDB RAG pipeline
-│   ├── router.py              # Model routing (complexity classification)
-│   └── tools.py               # 17 tool implementations
+│   ├── router.py              # Model routing
+│   └── tools.py               # Tool implementations
+├── docs/
+│   └── screenshots/           # README images
 ├── static/
-│   ├── app.jsx                # React SPA (~4000 lines)
-│   ├── styles.css             # All styles (~5000 lines)
-│   ├── index.html             # Entry point
-│   └── assets/
-│       └── xera-logo.png
+│   ├── app.jsx                # React SPA
+│   ├── styles.css             # Styles
+│   └── index.html             # Entry point
 ├── tests/
-│   ├── test_router.py         # Model routing tests
-│   ├── test_permissions.py    # Permission system tests
-│   └── test_orchestrator.py   # Agent selection tests
-├── .env.example               # Environment template
-├── requirements.txt           # Python dependencies
-├── run.py                     # Application entry point
-└── xera-cli.py                # CLI client
+│   ├── test_router.py
+│   ├── test_permissions.py
+│   └── test_orchestrator.py
+├── .editorconfig
+├── .env.example
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── docker-compose.yml
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── run.py
+├── SECURITY.md
+└── xera-cli.py
 ```
 
 ---
@@ -450,22 +461,22 @@ xera-ai/
 
 ### Landing Page
 <p align="center">
-  <img src="static/assets/screenshot-landing.png" alt="Landing Page" width="100%" />
+  <img src="docs/screenshots/screenshot-landing.png" alt="Landing Page" width="100%" />
 </p>
 
 ### Chat Interface
 <p align="center">
-  <img src="static/assets/screenshot-chat.png" alt="Chat Interface" width="100%" />
+  <img src="docs/screenshots/screenshot-chat.png" alt="Chat Interface" width="100%" />
 </p>
 
 ### Command Palette (Ctrl+K)
 <p align="center">
-  <img src="static/assets/screenshot-cmdk.png" alt="Command Palette" width="100%" />
+  <img src="docs/screenshots/screenshot-cmdk.png" alt="Command Palette" width="100%" />
 </p>
 
 ### Mobile
 <p align="center">
-  <img src="static/assets/screenshot-mobile.png" alt="Mobile View" width="300" />
+  <img src="docs/screenshots/screenshot-mobile.png" alt="Mobile View" width="300" />
 </p>
 
 ---

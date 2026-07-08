@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Xera AI — Terminal Client (Claude Code Style)"""
+"""Xera AI — Terminal Client"""
 
 import sys
 import json

@@ -1,0 +1,16 @@
+.git
+.env
+.venv
+venv
+__pycache__
+*.pyc
+data/
+tests/
+docs/
+.github/
+.pytest_cache/
+.editorconfig
+*.md
+!requirements.txt
+Dockerfile
+docker-compose.yml
