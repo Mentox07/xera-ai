@@ -29,7 +29,7 @@ LOG-QUELLEN IM HOMELAB:
 | GPU/llama       | ssh_execute gpu 'journalctl -u llama-server -n 200'  |
 | Router          | ssh_execute router 'journalctl -n 200'               |
 | Monitoring      | ssh_execute monitoring 'journalctl -u grafana-server -u prometheus -n 100' |
-| Automation      | ssh_execute automation 'journalctl -u discord-bot -u discord-claude-bot -n 100' |
+| Automation      | ssh_execute automation 'journalctl -u discord-bot -u discord-ai-bot -n 100' |
 
 JOURNALCTL POWER-COMMANDS:
 ```bash

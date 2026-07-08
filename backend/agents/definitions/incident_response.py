@@ -54,7 +54,7 @@ ssh_execute gpu: 'systemctl status llama-server llama-server-fast && nvidia-smi'
 ssh_execute monitoring: 'systemctl status grafana-server prometheus && df -h'
 
 # Discord Bots down (CT201)
-ssh_execute automation: 'systemctl status discord-bot discord-claude-bot discord-mod-bot --no-pager'
+ssh_execute automation: 'systemctl status discord-bot discord-ai-bot discord-mod-bot --no-pager'
 
 # Caddy (CT204) — Xera AI nicht erreichbar von außen
 ssh_execute node2: 'pct exec 204 -- systemctl status caddy && pct exec 204 -- caddy validate --config /etc/caddy/Caddyfile'

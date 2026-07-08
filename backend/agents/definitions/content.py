@@ -53,7 +53,7 @@ DISCORD EMBED (VERBINDLICH — nicht abweichen):
     "fields": [
       {"name": "Neuigkeiten", "value": "• Code Agent\\n• DevOps Agent\\n• 18 weitere...", "inline": false}
     ],
-    "footer": {"text": "Homelab HQ · 2026-06-12 · hl-bot-claudeAI-01"}
+    "footer": {"text": "Homelab HQ · 2026-06-12 · hl-bot-ai-01"}
   }]
 }
 ```
