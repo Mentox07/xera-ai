@@ -155,18 +155,18 @@ Press `Ctrl+K` to open a fuzzy-search command palette:
 ## Architecture
 
 ```
-                         ┌─────────────────────────────────────┐
-                         │           Internet / User           │
-                         └──────────────┬──────────────────────┘
+                         ┌──────────────────────────────┐
+                         │        Internet / User       │
+                         └──────────────┬───────────────┘
                                         │
                               ┌─────────▼─────────┐
-                              │  xera-app.com      │
-                              │  (Cloudflare DNS)  │
-                              └─────────┬──────────┘
+                              │  xera-app.com     │
+                              │  (Cloudflare DNS) │
+                              └─────────┬─────────┘
                                         │
                               ┌─────────▼──────────┐
-                              │  Provider Router    │
-                              │  (NAT)              │
+                              │  Provider Router   │
+                              │  (NAT)             │
                               └─────────┬──────────┘
                                         │
                     ┌───────────────────▼───────────────────┐
@@ -180,19 +180,19 @@ Press `Ctrl+K` to open a fuzzy-search command palette:
    VLAN 40 (DMZ)              VLAN 70 (AI/GPU)            VLAN 20 (Server)
             │                           │                           │
   ┌─────────▼──────────┐    ┌──────────▼──────────┐    ┌──────────▼──────────┐
-  │  CT 204             │    │  CT 203              │    │  CT 200              │
-  │  Caddy Reverse      │───▶│  FastAPI :8000       │    │  Grafana :3000       │
-  │  Proxy (TLS)        │    │  (Xera AI Backend)   │    │  Prometheus :9090    │
-  └────────────────────┘    └──────────┬──────────┘    └──────────────────────┘
+  │  CT 204            │    │  CT 203             │    │  CT 200             │
+  │  Caddy Reverse     │───>│  FastAPI :8000      │    │  Grafana :3000      │
+  │  Proxy (TLS)       │    │  (Xera AI Backend)  │    │  Prometheus :9090   │
+  └────────────────────┘    └──────────┬──────────┘    └─────────────────────┘
                                         │
                              ┌──────────▼──────────┐
-                             │  hl-srv-gpu-01       │
-                             │  5x Quadro P4000     │
-                             │  llama.cpp (CUDA)    │
-                             │  :8080 Big Brain     │
-                             │  :8081 Fast Brain    │
-                             │  :8082 Mini Brain    │
-                             │  :8090 Moondream2    │
+                             │  hl-srv-gpu-01      │
+                             │  5x Quadro P4000    │
+                             │  llama.cpp (CUDA)   │
+                             │  :8080 Big Brain    │
+                             │  :8081 Fast Brain   │
+                             │  :8082 Mini Brain   │
+                             │  :8090 Moondream2   │
                              └─────────────────────┘
 ```
 
@@ -449,12 +449,6 @@ xera-ai/
 ## Screenshots
 
 > Coming soon — the UI features a glass-morphism design with ambient glow effects, purple accent theme, command palette, and responsive mobile layout.
-
----
-
-## License
-
-MIT
 
 ---
 
