@@ -448,7 +448,25 @@ xera-ai/
 
 ## Screenshots
 
-> Coming soon — the UI features a glass-morphism design with ambient glow effects, purple accent theme, command palette, and responsive mobile layout.
+### Landing Page
+<p align="center">
+  <img src="static/assets/screenshot-landing.png" alt="Landing Page" width="100%" />
+</p>
+
+### Chat Interface
+<p align="center">
+  <img src="static/assets/screenshot-chat.png" alt="Chat Interface" width="100%" />
+</p>
+
+### Command Palette (Ctrl+K)
+<p align="center">
+  <img src="static/assets/screenshot-cmdk.png" alt="Command Palette" width="100%" />
+</p>
+
+### Mobile
+<p align="center">
+  <img src="static/assets/screenshot-mobile.png" alt="Mobile View" width="300" />
+</p>
 
 ---
 
