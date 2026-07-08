@@ -1878,7 +1878,7 @@ function LandingPage({ navigate, theme, setTheme, openSettings, config, t }) {
         <span className="dot">&bull;</span>
         <span>Qwen3-30B · Gemma 4 E2B · Qwen3-4B · Moondream2</span>
         <span className="dot">&bull;</span>
-        <a href="https://github.com/xera-ai/xera" target="_blank" rel="noopener" className="landing-footer-link">GitHub</a>
+        <a href="https://github.com/Mentox07/xera-ai" target="_blank" rel="noopener" className="landing-footer-link">GitHub</a>
       </footer>
     </div>
   );
