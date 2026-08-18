@@ -30,3 +30,14 @@ htmlcov/
 # Backups
 *.bak
 *.bak-*
+
+# Zugangsdaten — niemals ins Repo
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_ed25519*
+credentials
+*.bak
+*.bak.*

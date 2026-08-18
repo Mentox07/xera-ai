@@ -27,6 +27,17 @@
 
 ---
 
+> [!IMPORTANT]
+> **Xera wird derzeit von Grund auf neu gebaut.** Dieser Stand ist eingefroren und wird
+> nicht mehr weiterentwickelt — er bleibt als Referenz und Historie erhalten.
+>
+> Der Neubau umfasst beide Anwendungen (Web und CLI) auf einem gemeinsamen Kern, einen
+> Master-Agent statt Stichwortsuche, deutlich mehr Fach-Agents mit Testfällen als
+> Qualitätsnachweis, sowie neue Fähigkeiten für Dokumente, Darstellungen und Bilderkennung.
+>
+> **Fortschritt und Planung:** https://github.com/users/Mentox07/projects/1
+
+
 ## What is Xera AI?
 
 Xera AI is a fully self-hosted AI assistant that runs entirely on your own hardware. It combines multiple local language models with a specialized agent system, giving you a powerful AI that understands your infrastructure — without sending a single byte to the cloud.
