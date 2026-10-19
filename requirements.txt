@@ -12,5 +12,5 @@ python-pptx
 reportlab
 PyYAML==6.0.1
 matplotlib==3.10.9
-markitdown==0.1.6
+markitdown==0.1.8
 chromadb==1.5.9
