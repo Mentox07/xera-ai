@@ -3,7 +3,7 @@
  * An einer Stelle beschrieben, damit Leiste, Befehlspalette und Tastenkürzel
  * nicht drei Fassungen derselben Liste führen — genau daran lief das alte
  * Frontend auseinander, als die Reiter „Code" und „Homelab" an drei Orten
- * unterschiedlich hießen.
+ * unterschiedlich hiessen.
  */
 
 import type { BereichsId } from "../daten/typen";

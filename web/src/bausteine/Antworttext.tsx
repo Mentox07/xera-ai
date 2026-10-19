@@ -134,7 +134,7 @@ export const Antworttext = memo(function Antworttext({ text, laeuft }: { text: s
                 </a>
               );
             }
-            // Ohne Sprache und ohne Zeilenumbruch: das ist Code im Fließtext.
+            // Ohne Sprache und ohne Zeilenumbruch: das ist Code im Fliesstext.
             if (!passt && !roh.includes("\n")) {
               return (
                 <code className="code-inline" {...rest}>
@@ -144,7 +144,7 @@ export const Antworttext = memo(function Antworttext({ text, laeuft }: { text: s
             }
             return <Codeblock sprache={passt?.[1] ?? ""} inhalt={roh} />;
           },
-          // Verweise nach außen öffnen in einem neuen Tab, sonst verliert man
+          // Verweise nach aussen öffnen in einem neuen Tab, sonst verliert man
           // das Gespräch. `noreferrer` gehört dazu.
           a({ href, children }) {
             return (

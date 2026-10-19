@@ -1,7 +1,7 @@
 /** Die Fläche, auf der ein Gespräch steht.
  *
  * Alle vier Bereiche benutzen sie — was sie unterscheidet, ist der Modus, die
- * Werkzeuge und der Begrüßungstext, nicht die Darstellung. Vier Fassungen
+ * Werkzeuge und der Begrüssungstext, nicht die Darstellung. Vier Fassungen
  * desselben Verlaufs zu pflegen war einer der Gründe, warum das alte Frontend
  * auf 4 145 Zeilen kam.
  */

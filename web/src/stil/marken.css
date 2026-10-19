@@ -1,6 +1,6 @@
 /* Marken der Oberfläche.
  *
- * Farben, Abstände und Schriftgrößen stehen hier und nirgends sonst. Ein Wert,
+ * Farben, Abstände und Schriftgrössen stehen hier und nirgends sonst. Ein Wert,
  * der nur an einer Stelle im Code steht, liegt beim nächsten Mal daneben.
  *
  * Die Farben sind die bestehenden aus `static/styles.css` — Violett auf einem
@@ -9,7 +9,7 @@
  * Neubau, sondern ein zweites Produkt.
  *
  * Der Akzent steht in oklch statt in Hex: Damit ist ein Ton eine Angabe aus
- * Helligkeit, Buntheit und Winkel. Heller oder gedeckter zu werden heißt dann
+ * Helligkeit, Buntheit und Winkel. Heller oder gedeckter zu werden heisst dann
  * eine Zahl zu ändern, statt einen neuen Hex-Wert zu raten, der daneben liegt.
  */
 
@@ -42,13 +42,13 @@
 
   /* --- Schrift -------------------------------------------------------------
    * IBM Plex: eine Schrift mit Herkunft, in keiner Vorlage der Standard.
-   * Mono trägt die Oberfläche und alles Technische, Sans den Fließtext —
+   * Mono trägt die Oberfläche und alles Technische, Sans den Fliesstext —
    * lange Antworten liest man nicht gern in Monospace.
    */
   --schrift-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --schrift-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
 
-  /* Fünf Größen. Nicht elf. Wer mehr braucht, hat kein Schriftproblem,
+  /* Fünf Grössen. Nicht elf. Wer mehr braucht, hat kein Schriftproblem,
      sondern ein Gliederungsproblem. */
   --gr-klein: 12px;
   --gr-basis: 13px;
@@ -76,7 +76,7 @@
   --rund-gross: 10px;
   --rund-weit: 14px;
 
-  /* --- Maße --- */
+  /* --- Masse --- */
   --leiste: 52px;
   --spalte: 260px;
   --lesebreite: 70ch;
@@ -131,7 +131,7 @@
 
   /* Zwei sehr weite Verläufe, wie in der alten Oberfläche. Sie sollen nicht
      als Verlauf auffallen, sondern nur verhindern, dass eine ganze
-     Bildschirmseite gleichmäßig flach wirkt. */
+     Bildschirmseite gleichmässig flach wirkt. */
   --grund-verlauf:
     radial-gradient(1200px 620px at 50% -12%, oklch(0.32 0.11 282 / 0.3), transparent 62%),
     radial-gradient(900px 520px at 92% 108%, oklch(0.34 0.1 250 / 0.2), transparent 62%),
@@ -141,7 +141,7 @@
 /* ---------- Hell ---------------------------------------------------------
  * Die alte Oberfläche kann beides, also kann es diese auch. Der Akzent wird
  * dunkler und bunter: derselbe Ton, der auf Schwarz leuchtet, verschwindet
- * auf Weiß.
+ * auf Weiss.
  */
 [data-theme="light"] {
   --grund: #fafafb;

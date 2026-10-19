@@ -1,6 +1,6 @@
 /** Was auf dem Server läuft, an einer Stelle.
  *
- * Startseite, Über uns, Lernteil, Diagramme und Begrüßung zeigen diese
+ * Startseite, Über uns, Lernteil, Diagramme und Begrüssung zeigen diese
  * Zahlen. Bis Oktober 2026 standen sie an fünf Stellen einzeln im Text — nach
  * dem Modellwechsel am 30.09. waren alle fünf falsch, und keiner hat es
  * gemerkt. Wer hier etwas ändert, ändert es überall.
@@ -19,9 +19,9 @@ export const SYSTEM = {
   /** Nachschlagetabelle für Wortfolgen, in Milliarden Zahlen. */
   tabelleMrd: 51,
 
-  /** Größe unverändert (16 Bit), in GB. */
+  /** Grösse unverändert (16 Bit), in GB. */
   groesseRohGb: 355,
-  /** Größe nach Quantisierung, in GB. */
+  /** Grösse nach Quantisierung, in GB. */
   groesseGb: 79,
   /** Davon auf den Grafikkarten. */
   aufKartenGb: 50,
@@ -54,6 +54,9 @@ export const SYSTEM = {
 } as const;
 
 /** Zahl mit schmalem Tausendertrenner, wie im Deutschen üblich: 65 536. */
+/** Der Quelltext von Xera, öffentlich (seit 2026-10-19 sauber neu angelegt). */
+export const QUELLTEXT = "https://github.com/Mentox07/xera-ai";
+
 export function zahl(n: number): string {
   return n.toLocaleString("de-CH").replace(/[’']/g, " ");
 }

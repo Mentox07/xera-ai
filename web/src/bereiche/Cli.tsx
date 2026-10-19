@@ -57,7 +57,7 @@ const GRENZEN: [string, string][] = [
   ],
   [
     "Andere Modelle",
-    "OpenCode bietet auch Modelle anderer Anbieter an, manche gratis. Wer eines davon wählt, schickt seinen Code dorthin. Xera heißt in OpenCode xera/xera.",
+    "OpenCode bietet auch Modelle anderer Anbieter an, manche gratis. Wer eines davon wählt, schickt seinen Code dorthin. Xera heisst in OpenCode xera/xera.",
   ],
   [
     "Dein Schlüssel",

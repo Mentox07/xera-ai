@@ -1,7 +1,7 @@
 /** Chat, Code und Homelab teilen sich diesen Bereich.
  *
  * Was sie unterscheidet, sind drei Dinge: der Modus, den das Backend bekommt,
- * die Begrüßung und — bei Homelab — der Hinweis, dass hier Werkzeuge laufen,
+ * die Begrüssung und — bei Homelab — der Hinweis, dass hier Werkzeuge laufen,
  * die etwas anfassen. Alles andere ist gleich, und das gehört auch gleich
  * gebaut.
  */
@@ -30,7 +30,7 @@ interface Eigenschaften {
   platzhalter: string;
   /** Bei Cowork: das gewählte Projekt wird mitgeschickt. */
   projektId?: number;
-  /** Von außen (Befehlspalette): dieses Gespräch öffnen. `n` ändert sich bei
+  /** Von aussen (Befehlspalette): dieses Gespräch öffnen. `n` ändert sich bei
    *  jedem Auftrag, damit dasselbe Gespräch zweimal geöffnet werden kann. */
   oeffnen?: { id: number; n: number } | null;
   hinweis?: React.ReactNode;
@@ -391,7 +391,7 @@ export function Gespraechsbereich({
         }}
         onDragLeave={() => {
           // dragleave feuert auch beim Wechsel auf ein Kind-Element — erst
-          // wenn alle verlassen sind, ist man wirklich draußen.
+          // wenn alle verlassen sind, ist man wirklich draussen.
           ziehZaehler.current = Math.max(0, ziehZaehler.current - 1);
           if (ziehZaehler.current === 0) setZieht(false);
         }}

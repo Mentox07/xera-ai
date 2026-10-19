@@ -1,4 +1,4 @@
-/* Antworten des Modells. Fließtext in der Sans, alles Technische in der Mono. */
+/* Antworten des Modells. Fliesstext in der Sans, alles Technische in der Mono. */
 
 .antworttext > * + * {
   margin-top: var(--a3);

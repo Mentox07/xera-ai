@@ -25,7 +25,7 @@ export interface Anhang {
 
 export const ERLAUBTE_DATEIEN = "image/*,.pdf,.docx,.xlsx,.xls,.pptx,.txt,.csv,.md,.json,.log,.yaml,.yml";
 
-/** Längste Bildkante. Größer bringt dem Modell nichts mehr und kostet nur
+/** Längste Bildkante. Grösser bringt dem Modell nichts mehr und kostet nur
  *  Zeit beim Einlesen — ein Handyfoto hat 4 000 Pixel und mehr. */
 const MAX_KANTE = 1568;
 

@@ -11,7 +11,7 @@
  *
  * Auf dunkler Kachel, weil das Bild einen schwarzen Grund hat — genau wie
  * `.x-mark` in der alten Oberfläche. Ohne Kachel steht im hellen Aussehen ein
- * schwarzer Klotz auf weißem Grund.
+ * schwarzer Klotz auf weissem Grund.
  */
 
 import marke from "../mittel/marke.png";

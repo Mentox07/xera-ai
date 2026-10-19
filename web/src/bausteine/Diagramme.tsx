@@ -1,7 +1,7 @@
 /** Die Erklärgrafiken.
  *
  * Von Hand gezeichnet, kein Bild und keine Bibliothek. Drei Gründe: Sie
- * folgen dem Aussehen mit (hell wie dunkel), sie bleiben bei jeder Größe
+ * folgen dem Aussehen mit (hell wie dunkel), sie bleiben bei jeder Grösse
  * scharf, und sie wiegen zusammen weniger als ein einziges Bildschirmfoto.
  *
  * Jede zeigt einen **Vorgang**, keine Aufzählung. Ein Kasten mit „Modell"

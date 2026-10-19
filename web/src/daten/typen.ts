@@ -3,7 +3,7 @@
  * Die Ereignisse im Antwortstrom sind der heikle Teil: Das Backend schickt
  * Server-Sent Events mit einem `type`-Feld, und jede Sorte trägt andere
  * Felder. Ohne Typen ist an der Empfangsstelle nicht zu sehen, was da
- * ankommen kann — und genau dort saß im alten Frontend die Fehlersuche.
+ * ankommen kann — und genau dort sass im alten Frontend die Fehlersuche.
  */
 
 export type BereichsId = "chat" | "cowork" | "code" | "homelab";

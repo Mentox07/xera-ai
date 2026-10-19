@@ -64,12 +64,12 @@ const KAPITEL: Kapitel[] = [
   {
     nr: "02",
     titel: "Es rät, was als Nächstes kommt",
-    frage: "Woher weiß das Modell, was es antworten soll?",
+    frage: "Woher weiss das Modell, was es antworten soll?",
     bild: <DiagrammVorhersage />,
     text: (
       <>
         <p>
-          Es weiß es nicht. Es schätzt. Für jedes mögliche nächste Stück
+          Es weiss es nicht. Es schätzt. Für jedes mögliche nächste Stück
           berechnet das Modell, wie gut es passt — und nimmt dann eines der
           wahrscheinlichen. Danach hängt es dieses Stück an den Text an und
           rechnet von vorne.
@@ -81,9 +81,9 @@ const KAPITEL: Kapitel[] = [
         </p>
         <p>
           Daraus folgt zweierlei. Erstens:{" "}
-          <strong>Es gibt keinen Plan.</strong> Das Modell weiß am Anfang eines
+          <strong>Es gibt keinen Plan.</strong> Das Modell weiss am Anfang eines
           Satzes nicht, wie er endet. Zweitens: Es kann Unsinn erzeugen, der
-          völlig sicher klingt — denn „passt gut“ heißt nicht „stimmt“.
+          völlig sicher klingt — denn „passt gut“ heisst nicht „stimmt“.
         </p>
       </>
     ),
@@ -98,7 +98,7 @@ const KAPITEL: Kapitel[] = [
       <>
         <p>
           Das Modell hat kein Gedächtnis zwischen den Durchläufen. Was es
-          „weiß“, steht in dem Text, den es gerade vorgelegt bekommt — und
+          „weiss“, steht in dem Text, den es gerade vorgelegt bekommt — und
           dieser Text hat eine feste Obergrenze. Bei uns sind es{" "}
           <strong>{zahl(SYSTEM.kontext)} Stücke</strong>.
         </p>
@@ -125,14 +125,14 @@ const KAPITEL: Kapitel[] = [
   {
     nr: "04",
     titel: `${SYSTEM.parameterMrd} Milliarden in ${SYSTEM.groesseGb} Gigabyte`,
-    frage: "Wie passt ein Modell dieser Größe auf fünf gebrauchte Karten?",
+    frage: "Wie passt ein Modell dieser Grösse auf fünf gebrauchte Karten?",
     bild: <DiagrammQuantisierung />,
     text: (
       <>
         <p>
           Ein Modell besteht aus Zahlen — bei diesem sind es {SYSTEM.parameterMrd} Milliarden,
           dazu eine Nachschlagetabelle mit weiteren {SYSTEM.tabelleMrd} Milliarden. Beim
-          Training ist jede davon 16 Bit groß. Das Ganze wöge damit rund{" "}
+          Training ist jede davon 16 Bit gross. Das Ganze wöge damit rund{" "}
           {SYSTEM.groesseRohGb} Gigabyte und passte auf keine Karte, die wir haben.
         </p>
         <p>
@@ -236,7 +236,7 @@ const KAPITEL: Kapitel[] = [
           mit einer Tatsache statt einer Vermutung.
         </p>
         <p>
-          Für größere Aufgaben beauftragt das Modell <strong>Agents</strong> —
+          Für grössere Aufgaben beauftragt das Modell <strong>Agents</strong> —
           bis zu vier arbeiten gleichzeitig, jeder mit eigenem Auftrag. Ihre
           Dateien liegen in einem Arbeitsordner, der zum Gespräch gehört. Dort
           schreiben, ändern und testen sie, ohne Netz und ohne Zugriff auf den

@@ -6,17 +6,17 @@
  * schon interessiert sind.
  */
 
-import { SYSTEM, zahl } from "../daten/system";
+import { QUELLTEXT, SYSTEM, zahl } from "../daten/system";
 import "./Start.css";
 
 const GRENZEN = [
   [
-    "Es ist langsamer als große Anbieter",
+    "Es ist langsamer als grosse Anbieter",
     `Rund ${SYSTEM.schreibenTs} Token je Sekunde. Eine lange Antwort dauert eine halbe Minute, eine Aufgabe, bei der Agents Dateien bauen und testen, mehrere Minuten.`,
   ],
   [
-    "Es weiß weniger",
-    "Ein Modell dieser Größe auf dieser Hardware kann nicht, was ein Rechenzentrum kann. Bei Randwissen liegt es öfter daneben.",
+    "Es weiss weniger",
+    "Ein Modell dieser Grösse auf dieser Hardware kann nicht, was ein Rechenzentrum kann. Bei Randwissen liegt es öfter daneben.",
   ],
   [
     "Lange Texte brauchen Anlauf",
@@ -74,7 +74,7 @@ export function UeberUns() {
           </p>
           <p>
             Der Quelltext liegt offen auf{" "}
-            <a className="verweis" href="https://github.com/Mentox07/xera-ai" target="_blank" rel="noopener noreferrer">
+            <a className="verweis" href={QUELLTEXT} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
             . Wer nachsehen will, was mit seinen Eingaben geschieht, kann es

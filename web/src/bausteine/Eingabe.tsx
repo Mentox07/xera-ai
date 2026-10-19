@@ -34,7 +34,7 @@ interface Eigenschaften {
   vorsatz?: React.ReactNode;
   /** Über dem Feld schwebend — etwa die @-Vorschläge. */
   ueber?: React.ReactNode;
-  /** Bekommt jede Taste zuerst; `true` heißt „erledigt“. */
+  /** Bekommt jede Taste zuerst; `true` heisst „erledigt“. */
   aufTaste?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => boolean;
 }
 

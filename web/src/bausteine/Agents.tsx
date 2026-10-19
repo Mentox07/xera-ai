@@ -1,7 +1,7 @@
 /** Agents: Übersicht und Auswahl.
  *
  * Normalerweise wählt der Orchestrator den passenden Agent selbst. Wer es
- * genauer weiß, legt ihn fest — über die Übersicht (alle Agents als Karten)
+ * genauer weiss, legt ihn fest — über die Übersicht (alle Agents als Karten)
  * oder mit „@“ im Eingabefeld. Der gewählte Agent bleibt, bis man ihn
  * entfernt; er steht als Marke im Eingabefeld.
  */
@@ -84,7 +84,7 @@ export function AgentUebersicht({
             <h2>Agents</h2>
             <p>Normalerweise arbeitet Xera selbst und gibt Aufträge an Agents ab, wenn es viel Arbeit oder ein Werkzeug braucht — mehrere gleichzeitig. Hier legst du einen fest, den Xera dann sicher beauftragt.</p>
           </div>
-          <button type="button" className="agents-zu" onClick={aufSchliessen} aria-label="Schließen">
+          <button type="button" className="agents-zu" onClick={aufSchliessen} aria-label="Schliessen">
             <Zeichen name="kreuz" groesse={14} />
           </button>
         </header>
@@ -143,7 +143,7 @@ export function AgentVorschlaege({
   aufWahl: (a: Agent) => void;
 }) {
   if (agents.length === 0) {
-    return <div className="agent-vorschlaege"><p className="agents-leer">Kein Agent heißt so.</p></div>;
+    return <div className="agent-vorschlaege"><p className="agents-leer">Kein Agent heisst so.</p></div>;
   }
   return (
     <div className="agent-vorschlaege" role="listbox" aria-label={`Agents zu „${suche}“`}>

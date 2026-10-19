@@ -24,7 +24,7 @@ body {
   overscroll-behavior: none;
 }
 
-/* Fließtext bekommt die Sans. Monospace über einen ganzen Absatz liest sich
+/* Fliesstext bekommt die Sans. Monospace über einen ganzen Absatz liest sich
    zäh — die Mono trägt die Oberfläche, nicht die Antwort. */
 .fliesstext {
   font-family: var(--schrift-sans);

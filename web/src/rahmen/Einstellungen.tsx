@@ -7,7 +7,7 @@
 
 import { useEffect } from "react";
 import type { Nutzer } from "../daten/typen";
-import { SYSTEM, zahl } from "../daten/system";
+import { QUELLTEXT, SYSTEM, zahl } from "../daten/system";
 import { Zeichen } from "../bausteine/Zeichen";
 import { CliZugang } from "./CliZugang";
 import "./Einstellungen.css";
@@ -31,7 +31,7 @@ const TASTEN: [string, string][] = [
   ["Enter", "Senden"],
   ["Umschalt Enter", "Neue Zeile"],
   ["Strg V", "Bild aus der Zwischenablage anhängen"],
-  ["Esc", "Antwort abbrechen, Fenster schließen"],
+  ["Esc", "Antwort abbrechen, Fenster schliessen"],
 ];
 
 export function Einstellungen({ offen, aufSchliessen, nutzer, thema, aufThema, breit, aufBreite }: Eigenschaften) {
@@ -52,7 +52,7 @@ export function Einstellungen({ offen, aufSchliessen, nutzer, thema, aufThema, b
       <aside className="einst" role="dialog" aria-modal="true" aria-label="Konto und Einstellungen">
         <header className="einst-kopf">
           <h2>Konto und Einstellungen</h2>
-          <button type="button" onClick={aufSchliessen} aria-label="Schließen">
+          <button type="button" onClick={aufSchliessen} aria-label="Schliessen">
             <Zeichen name="kreuz" groesse={14} />
           </button>
         </header>
@@ -128,6 +128,9 @@ export function Einstellungen({ offen, aufSchliessen, nutzer, thema, aufThema, b
             Abmelden
           </a>
           <span className="einst-recht">
+            <a href={QUELLTEXT} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
             <a href="/impressum">Impressum</a>
             <a href="/datenschutz">Datenschutz</a>
             {/* Löschung auf Anfrage — wie, steht in der Datenschutzerklärung (Abschnitt „Deine Rechte“) */}

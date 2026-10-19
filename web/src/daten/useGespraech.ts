@@ -1,7 +1,7 @@
 /** Ein laufendes Gespräch.
  *
  * Der ganze Zustand an einer Stelle. Im alten Frontend lag er in elf
- * `useState` nebeneinander, und beim Abbrechen blieb regelmäßig eines davon
+ * `useState` nebeneinander, und beim Abbrechen blieb regelmässig eines davon
  * stehen — dann zeigte die Oberfläche „schreibt…", während längst nichts mehr
  * kam.
  *

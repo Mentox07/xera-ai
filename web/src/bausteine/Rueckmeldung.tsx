@@ -44,7 +44,7 @@ const RueckmeldungsKontext = createContext<Kontext | null>(null);
 
 export function useRueckmeldung(): Kontext {
   const k = useContext(RueckmeldungsKontext);
-  if (!k) throw new Error("useRueckmeldung außerhalb von <RueckmeldungsAnbieter>");
+  if (!k) throw new Error("useRueckmeldung ausserhalb von <RueckmeldungsAnbieter>");
   return k;
 }
 
@@ -90,7 +90,7 @@ export function RueckmeldungsAnbieter({ children }: { children: React.ReactNode 
           >
             <Zeichen name={ZEICHEN[m.art]} groesse={15} />
             <span>{m.text}</span>
-            <button type="button" onClick={() => weg(m.id)} aria-label="Meldung schließen">
+            <button type="button" onClick={() => weg(m.id)} aria-label="Meldung schliessen">
               <Zeichen name="kreuz" groesse={12} />
             </button>
             <i className="meldung-zeit" aria-hidden="true" />

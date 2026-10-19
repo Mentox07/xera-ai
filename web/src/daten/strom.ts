@@ -41,7 +41,7 @@ export interface StromEmpfaenger {
  *
  * Wirft nur, wenn die Anfrage selbst scheitert. Fehler *im* Strom kommen als
  * Ereignis durch — der Server hat dann schon geantwortet, und die halbe
- * Antwort ist mehr wert als eine Ausnahme. Reißt die Verbindung ab, kommt
+ * Antwort ist mehr wert als eine Ausnahme. Reisst die Verbindung ab, kommt
  * `"abgerissen"` zurück: die Antwort läuft auf dem Server weiter.
  */
 export async function stromLesen(
@@ -167,7 +167,7 @@ function verarbeiten(roh: string, empfaenger: StromEmpfaenger): void {
   try {
     daten = JSON.parse(roh);
   } catch {
-    // Ein unlesbares Ereignis darf den Strom nicht abreißen — der Rest der
+    // Ein unlesbares Ereignis darf den Strom nicht abreissen — der Rest der
     // Antwort ist noch brauchbar.
     return;
   }

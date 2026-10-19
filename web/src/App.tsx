@@ -9,7 +9,7 @@ import { Start } from "./bereiche/Start";
 import { UeberUns } from "./bereiche/UeberUns";
 import { Kopfleiste, type Seite } from "./rahmen/Kopfleiste";
 import { api } from "./daten/api";
-import { SYSTEM } from "./daten/system";
+import { QUELLTEXT, SYSTEM } from "./daten/system";
 import type { BereichsId, Nutzer, Sitzung } from "./daten/typen";
 import { Einstellungen } from "./rahmen/Einstellungen";
 import { bereichNach, sichtbareBereiche } from "./rahmen/bereiche";
@@ -53,6 +53,9 @@ function Seitenfuss() {
   return (
     <footer className="seitenfuss">
       <span>Xera AI · ein Projekt aus der Schweiz</span>
+      <a href={QUELLTEXT} target="_blank" rel="noopener noreferrer">
+        Quelltext auf GitHub
+      </a>
       <a href="/impressum">Impressum</a>
       <a href="/datenschutz">Datenschutz</a>
     </footer>
