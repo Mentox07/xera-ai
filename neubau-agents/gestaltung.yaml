@@ -1,0 +1,26 @@
+kennung: gestaltung
+name: Gestaltung
+kategorie: web
+kurz: Waehlt Farben, Schrift und Aufbau fuer Oberflaechen, achtet auf Lesbarkeit.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- describe_image
+nicht_zustaendig:
+- Die Oberflaeche programmieren — dafuer ist frontend zustaendig
+stichworte:
+- Design
+- Farbe
+- Schrift
+- Layout
+- Kontrast
+- Abstand
+- UI
+- hässlich
+- Farbpalette
+- Typografie
+prompt: prompts/gestaltung.md

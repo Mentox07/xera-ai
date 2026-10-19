@@ -1,0 +1,24 @@
+kennung: marktanalyse
+name: Marktanalyse
+kategorie: geschaeft
+kurz: Untersucht Maerkte und Mitbewerber, findet Nischen und Preisgefuege.
+lizenz: pro
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- web_search
+- web_fetch
+- create_document
+nicht_zustaendig:
+- Eine einzelne Idee pruefen — dafuer ist produktidee zustaendig
+stichworte:
+- Markt
+- Mitbewerber
+- Konkurrenz
+- Zielgruppe
+- Nische
+- Preisgefüge
+- Branche
+- Wettbewerb
+prompt: prompts/marktanalyse.md

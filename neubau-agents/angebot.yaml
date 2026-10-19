@@ -1,0 +1,24 @@
+kennung: angebot
+name: Angebote und Rechnungen
+kategorie: geschaeft
+kurz: Erstellt Angebote, Rechnungen und Mahnungen mit den noetigen Pflichtangaben.
+lizenz: pro
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- create_document
+- read_document
+- python_exec
+nicht_zustaendig:
+- Vertraege pruefen — dafuer ist vertrag_lesen zustaendig
+stichworte:
+- Angebot
+- Rechnung
+- Mahnung
+- Pflichtangaben
+- Mehrwertsteuer
+- Zahlungsziel
+- Offerte
+- fakturieren
+prompt: prompts/angebot.md

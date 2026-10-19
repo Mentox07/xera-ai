@@ -1,0 +1,28 @@
+kennung: zugangsdaten
+name: Zugangsdaten
+kategorie: homelab
+kurz: Findet Passwoerter und Schluessel im Klartext, plant und begleitet ihren Wechsel.
+lizenz: homelab
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- ssh_execute
+- shell_execute
+- find_files
+- read_file
+- git_execute
+nicht_zustaendig:
+- Dienste haerten oder CVEs pruefen — dafuer ist sicherheit zustaendig
+stichworte:
+- Passwort
+- Token
+- Secret
+- API-Key
+- geleakt
+- Vaultwarden
+- rotieren
+- Zugangsdaten
+- Anmeldedaten
+- hardcoded
+prompt: prompts/zugangsdaten.md

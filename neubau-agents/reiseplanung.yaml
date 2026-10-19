@@ -1,0 +1,25 @@
+kennung: reiseplanung
+name: Reiseplanung
+kategorie: alltag
+kurz: 'Plant Reisen: Verbindungen, Unterkuenfte, Tagesablaeufe, Papiere und Kosten.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- web_search
+- web_fetch
+- create_document
+nicht_zustaendig:
+- Termine im Kalender fuehren — dafuer ist termine zustaendig
+stichworte:
+- Reise
+- Urlaub
+- Flug
+- Hotel
+- Route
+- Reiseplan
+- Visum
+- packen
+- Verbindung
+prompt: prompts/reiseplanung.md

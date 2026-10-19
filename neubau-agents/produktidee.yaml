@@ -1,0 +1,24 @@
+kennung: produktidee
+name: Produktidee pruefen
+kategorie: geschaeft
+kurz: Prueft Produktideen auf Bedarf, Machbarkeit und Wettbewerb, benennt Annahmen.
+lizenz: pro
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- web_search
+- web_fetch
+- create_document
+nicht_zustaendig:
+- Den vollstaendigen Plan ausarbeiten — dafuer ist geschaeftsplan zustaendig
+stichworte:
+- Idee
+- Produktidee
+- lohnt sich
+- Bedarf
+- machbar
+- Geschäftsidee
+- validieren
+- Annahme
+prompt: prompts/produktidee.md

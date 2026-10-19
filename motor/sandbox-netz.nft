@@ -1,0 +1,17 @@
+#!/usr/sbin/nft -f
+# Netz-Sperre für die Sandkasten-Benutzer von Xera (uid 30000–49999, arbeitsbereich.uid_fuer), seit 2026-10-19.
+# Die OpenCode-Motoren des Code-Bereichs und alles, was sie starten, erreichen nur das Xera-Backend
+# auf 127.0.0.1:8000. Die Shell des Motors läuft zusätzlich ohne Netz (sandbox-sh); diese Regel hält
+# auch dann, wenn jemand OpenCode eine andere Shell oder ein Plugin unterschiebt (Test 2026-10-19:
+# opencode.json im Arbeitsordner → /bin/bash → GPU-Server im eigenen Netz erreichbar).
+# Geladen von xera-sandbox-netz.service; code_motor.py startet ohne diese Tabelle keinen Motor.
+table inet xera_sandbox
+delete table inet xera_sandbox
+table inet xera_sandbox {
+	chain output {
+		type filter hook output priority filter; policy accept;
+		meta skuid 30000-49999 ct state established,related accept
+		meta skuid 30000-49999 oif "lo" ip daddr 127.0.0.1 tcp dport 8000 accept
+		meta skuid 30000-49999 counter reject
+	}
+}

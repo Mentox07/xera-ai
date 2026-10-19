@@ -1,0 +1,27 @@
+kennung: csharp
+name: C# und .NET
+kategorie: sprachen
+kurz: 'Schreibt C# und .NET: LINQ, asynchrone Muster, NuGet, Projektaufbau.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Windows-Verwaltung skripten — dafuer ist powershell zustaendig
+stichworte:
+- .NET
+- LINQ
+- async void
+- Task
+- NuGet
+- IDisposable
+- HttpClient
+- Entity Framework
+- Result blockiert
+- nullable
+prompt: prompts/csharp.md

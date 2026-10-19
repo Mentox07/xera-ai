@@ -1,0 +1,98 @@
+.palette-grund {
+  position: fixed;
+  inset: 0;
+  background: oklch(0 0 0 / 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 14vh;
+  z-index: 100;
+}
+
+.palette {
+  width: min(560px, calc(100vw - var(--a6)));
+  max-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--flaeche);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-gross);
+  box-shadow: var(--schatten);
+  overflow: hidden;
+}
+
+.palette-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  padding: var(--a3) var(--a4);
+  border-bottom: 1px solid var(--kante);
+  color: var(--text-still);
+}
+
+.palette-feld {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: var(--gr-text);
+  color: var(--text);
+}
+.palette-feld::placeholder {
+  color: var(--text-still);
+}
+
+.palette-esc,
+.palette-eintrag kbd {
+  font-family: var(--schrift-mono);
+  font-size: 10px;
+  padding: 2px 5px;
+  border: 1px solid var(--kante-hell);
+  border-radius: 3px;
+  color: var(--text-still);
+  background: var(--grund-tief);
+}
+
+.palette-liste,
+.palette-liste ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.palette-liste {
+  overflow-y: auto;
+  padding: var(--a2) 0;
+}
+
+.palette-gruppe {
+  padding: var(--a2) var(--a4) var(--a1);
+}
+
+.palette-eintrag {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  width: 100%;
+  padding: 7px var(--a4);
+  text-align: left;
+  color: var(--text-leise);
+}
+
+/* Die Auswahl trägt einen Strich, nicht nur eine Färbung — bei
+   Farbfehlsicht bleibt sie sonst unsichtbar. */
+.palette-eintrag.ist-gewaehlt {
+  background: var(--akzent-hauch);
+  color: var(--text);
+  box-shadow: inset 2px 0 0 var(--akzent);
+}
+
+.palette-name {
+  flex: 1;
+}
+
+.palette-leer {
+  padding: var(--a5) var(--a4);
+  color: var(--text-still);
+  text-align: center;
+}

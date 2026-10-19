@@ -1,0 +1,27 @@
+kennung: mobil_app
+name: Mobile Anwendungen
+kategorie: web
+kurz: Baut Anwendungen fuer Android und iOS mit Flutter, React Native oder nativ.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+- str_replace_file
+- shell_execute
+nicht_zustaendig:
+- Weboberflaechen — dafuer ist frontend zustaendig
+stichworte:
+- Android
+- iOS
+- Flutter
+- React Native
+- App
+- Play Store
+- App Store
+- Swift
+- Kotlin
+- Handy-App
+prompt: prompts/mobil_app.md

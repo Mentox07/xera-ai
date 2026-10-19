@@ -1,0 +1,29 @@
+kennung: javascript
+name: JavaScript und TypeScript
+kategorie: sprachen
+kurz: 'Schreibt JavaScript und TypeScript: Module, asynchrone Ablaeufe, Paketverwaltung.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Oberflaechen bauen — dafuer ist frontend zustaendig
+stichworte:
+- node
+- npm
+- TypeScript
+- Promise
+- async await
+- undefined
+- this
+- React import
+- ESM
+- require
+- tsconfig
+- any
+prompt: prompts/javascript.md

@@ -1,0 +1,24 @@
+kennung: fehlerbild
+name: Fehlermeldung im Bild
+kategorie: medien
+kurz: Liest Fehlermeldungen aus Bildschirmfotos, erklärt sie und nennt Abhilfe.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- describe_image
+- web_search
+- rag_search
+nicht_zustaendig:
+- Allgemeine Bildbeschreibung — dafuer ist bild_deuten zustaendig
+stichworte:
+- Fehlermeldung
+- Screenshot Fehler
+- Bluescreen
+- Meldung
+- Dialogfenster
+- was heißt das
+- Fehlercode
+- Popup
+prompt: prompts/fehlerbild.md

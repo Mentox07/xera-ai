@@ -1,0 +1,26 @@
+kennung: bereitstellung
+name: Bereitstellung
+kategorie: homelab
+kurz: Rollt Aenderungen aus, betreut Pipelines und Freigaben, macht Fehlschlaege rueckgaengig.
+lizenz: homelab
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- ssh_execute
+- shell_execute
+- git_execute
+- docker_manage
+- read_file
+nicht_zustaendig:
+- Dienste im Betrieb starten und stoppen — dafuer ist dienste zustaendig
+stichworte:
+- Deployment
+- ausrollen
+- deploy
+- Rollback
+- Release
+- in Betrieb nehmen
+- installieren
+- Update einspielen
+prompt: prompts/bereitstellung.md

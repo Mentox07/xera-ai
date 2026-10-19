@@ -1,0 +1,24 @@
+kennung: umbau
+name: Code umbauen
+kategorie: code
+kurz: Strukturiert bestehenden Code um, kürzt zu lange Funktionen, ohne Verhalten zu ändern.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- read_file
+- str_replace_file
+- write_file
+- python_exec
+- git_execute
+nicht_zustaendig:
+- Neue Fähigkeiten hinzufügen — dafür ist code_schreiben zuständig
+stichworte:
+- Refactoring
+- umbauen
+- aufräumen im Code
+- strukturieren
+- zu lange Funktion
+- entwirren
+prompt: prompts/umbau.md

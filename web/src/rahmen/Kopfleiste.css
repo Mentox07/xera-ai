@@ -1,0 +1,86 @@
+/* Kopfleiste der oeffentlichen Seiten. Zurueckhaltend: eine Linie unten,
+   sonst nichts. Sie soll nicht auffallen, sondern erreichbar sein. */
+
+.kopfleiste {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--a5);
+  padding: var(--a3) var(--a5);
+  border-bottom: 1px solid var(--kante);
+  background: color-mix(in oklab, var(--grund) 85%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.kopf-marke {
+  display: grid;
+  place-items: center;
+  border-radius: var(--rund);
+}
+
+.kopfleiste nav {
+  display: flex;
+  align-items: center;
+  gap: var(--a1);
+  margin-left: auto;
+}
+
+.kopfleiste nav button {
+  padding: 6px var(--a3);
+  border-radius: var(--rund);
+  color: var(--text-still);
+  font-size: var(--gr-basis);
+  transition: color var(--uebergang), background var(--uebergang);
+}
+.kopfleiste nav button:hover {
+  color: var(--text);
+  background: var(--flaeche);
+}
+.kopfleiste nav button {
+  position: relative;
+}
+.kopfleiste nav button::after {
+  content: "";
+  position: absolute;
+  left: var(--a3);
+  right: var(--a3);
+  bottom: 1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--akzent);
+  transform: scaleX(0);
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.kopfleiste nav button.ist-aktiv {
+  color: var(--text);
+}
+.kopfleiste nav button.ist-aktiv::after {
+  transform: scaleX(1);
+  box-shadow: 0 0 10px var(--akzent);
+}
+
+.kopf-anmelden {
+  padding: 6px 15px;
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund);
+  color: var(--text-leise);
+  font-size: var(--gr-basis);
+  transition: color var(--uebergang), border-color var(--uebergang);
+}
+.kopf-anmelden:hover {
+  color: var(--text);
+  border-color: var(--text-still);
+}
+
+@media (max-width: 620px) {
+  .kopfleiste { gap: var(--a3); padding-inline: var(--a3); }
+  .kopfleiste nav button { padding-inline: var(--a2); }
+  .kopf-anmelden { display: none; }
+}
+/* Vier Punkte (seit „CLI“) passen auf 360 px nur etwas enger. */
+@media (max-width: 400px) {
+  .kopfleiste nav { gap: 0; }
+  .kopfleiste nav button { padding-inline: 6px; font-size: var(--gr-klein); }
+}

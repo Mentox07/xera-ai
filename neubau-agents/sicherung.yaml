@@ -1,0 +1,25 @@
+kennung: sicherung
+name: Datensicherung
+kategorie: homelab
+kurz: Richtet Backups ein, prüft ob sie durchgelaufen sind, und stellt Daten wieder her.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- read_file
+- find_files
+nicht_zustaendig:
+- Freien Plattenplatz beschaffen — dafür ist speicher zuständig
+stichworte:
+- Backup
+- Restore
+- Wiederherstellung
+- Snapshot
+- Datensicherung
+- Rücksicherung
+- verloren
+- 3-2-1
+prompt: prompts/sicherung.md

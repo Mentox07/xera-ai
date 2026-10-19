@@ -1,0 +1,24 @@
+kennung: werbetext
+name: Werbetext
+kategorie: schreiben
+kurz: 'Formuliert Texte, die zum Handeln bewegen: Ueberschriften, Beschreibungen, Aufrufe.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- create_document
+- web_search
+- read_file
+nicht_zustaendig:
+- Sachliche Beschreibungen ohne Handlungsaufruf — dafuer ist text_verfassen zustaendig
+stichworte:
+- Werbung
+- Slogan
+- Produktbeschreibung
+- Call to Action
+- verkaufen
+- Anzeige
+- Claim
+- Landingpage
+prompt: prompts/werbetext.md

@@ -1,0 +1,24 @@
+kennung: ankuendigung
+name: Ankündigung
+kategorie: kommunikation
+kurz: Formuliert Mitteilungen für Discord, Aushänge und Wartungsfenster.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- ssh_execute
+- create_document
+- rag_search
+nicht_zustaendig:
+- Den Discord-Server verwalten — dafuer ist discord zustaendig
+stichworte:
+- Ankündigung
+- Wartungsfenster
+- Mitteilung
+- Aushang
+- informieren
+- Bekanntgabe
+- Statusmeldung
+- Downtime
+prompt: prompts/ankuendigung.md

@@ -1,0 +1,26 @@
+kennung: tests_schreiben
+name: Tests schreiben
+kategorie: code
+kurz: Ergänzt fehlende Tests, prüft ob vorhandene noch greifen, deckt Randfälle ab.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- read_file
+- write_file
+- list_files
+- python_exec
+- shell_execute
+nicht_zustaendig:
+- Warum etwas kaputt ist — dafuer ist fehlersuche zustaendig
+stichworte:
+- Test
+- pytest
+- unittest
+- Testabdeckung
+- coverage
+- Mock
+- assert
+- Testfall
+prompt: prompts/tests_schreiben.md

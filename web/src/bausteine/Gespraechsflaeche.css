@@ -1,0 +1,235 @@
+.gespraech {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.gespraech-lauf {
+  max-width: var(--lesebreite);
+  margin: 0 auto;
+  padding: var(--a5) var(--a5) var(--a6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--a5);
+}
+
+.gespraech-leer {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--a6) var(--a5);
+}
+
+/* --- Frage --------------------------------------------------------------
+   Die Frage steht eingerückt und in der Mono — sie ist Eingabe, nicht Text.
+   Keine Sprechblase: die kostet Platz und sagt nichts, was die Einrückung
+   nicht schon sagt. */
+
+.nachricht.ist-frage {
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+.frage-text {
+  padding: var(--a2) var(--a3);
+  background: var(--flaeche);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+  font-family: var(--schrift-mono);
+  font-size: var(--gr-basis);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* --- Antwort ------------------------------------------------------------ */
+
+.nachricht.ist-antwort {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a3);
+}
+
+.agent-marke {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  font-size: var(--gr-klein);
+  color: var(--akzent);
+}
+
+.werkzeugliste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+}
+
+/* --- Zustände ----------------------------------------------------------- */
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  color: var(--text-still);
+  font-size: var(--gr-basis);
+}
+
+.punkte {
+  display: inline-flex;
+  gap: 3px;
+}
+.punkte i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-still);
+  animation: huepfen 1.2s ease-in-out infinite;
+}
+.punkte i:nth-child(2) { animation-delay: 0.15s; }
+.punkte i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes huepfen {
+  0%, 60%, 100% { opacity: 0.3; }
+  30%           { opacity: 1; }
+}
+
+/* Schreibmarke am Ende des laufenden Textes. */
+.strich {
+  display: inline-block;
+  width: 7px;
+  height: 15px;
+  margin-top: calc(var(--a3) * -1);
+  background: var(--akzent);
+  animation: blinken 1s step-end infinite;
+}
+@keyframes blinken {
+  50% { opacity: 0; }
+}
+
+.gespraech-fehler {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  padding: var(--a3);
+  border: 1px solid var(--schlecht);
+  border-radius: var(--rund);
+  background: var(--schlecht-hauch);
+  color: var(--text);
+}
+
+/* --- Anhänge in der Frage ---------------------------------------------- */
+.frage-anhaenge {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--a2);
+  margin-bottom: var(--a2);
+}
+.frage-anhaenge img {
+  max-width: 220px;
+  max-height: 160px;
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-gross);
+  object-fit: cover;
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.frage-anhaenge img:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+.frage-dokument {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund);
+  background: var(--grund-tief);
+  color: var(--text-leise);
+  font-size: var(--gr-klein);
+}
+.frage-dokument svg { color: var(--akzent); }
+
+/* --- Aktionen unter Nachrichten ------------------------------------------
+   Erscheinen beim Überfahren, damit der Verlauf ruhig bleibt; mit der
+   Tastatur sind sie immer erreichbar. */
+.aktionen {
+  display: flex;
+  gap: 2px;
+  margin-top: var(--a1);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.nachricht.ist-frage .aktionen {
+  justify-content: flex-end;
+}
+.nachricht:hover .aktionen,
+.aktionen:focus-within {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: none) {
+  .aktionen { opacity: 1; transform: none; }
+}
+.aktionen button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  transition: color var(--dauer-kurz), background var(--dauer-kurz);
+}
+.aktionen button:hover {
+  color: var(--text);
+  background: var(--flaeche);
+}
+.aktionen button:hover svg {
+  color: var(--akzent);
+  animation: zeichen-rastet 500ms var(--kurve-feder);
+}
+.aktionen button.ist-kopiert {
+  color: var(--gut);
+}
+.aktionen button.ist-kopiert svg {
+  animation: zeichen-ploppt var(--dauer-lang) var(--kurve-feder);
+}
+
+/* --- Ablage beim Hineinziehen ------------------------------------------- */
+.haupt {
+  position: relative;
+}
+.ablage {
+  position: absolute;
+  inset: var(--a3);
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--akzent);
+  border-radius: var(--rund-weit);
+  background: oklch(0.1 0.04 282 / 0.82);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  animation: grund-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+.ablage-kasten {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--a2);
+  color: var(--text);
+  animation: dialog-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+.ablage-kasten svg {
+  color: var(--akzent);
+  animation: schweben 1.6s ease-in-out infinite;
+}
+.ablage-kasten span {
+  color: var(--text-leise);
+  font-size: var(--gr-klein);
+}
+@keyframes schweben {
+  50% { transform: translateY(-8px) rotate(-6deg); }
+}

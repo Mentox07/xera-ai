@@ -1,0 +1,28 @@
+kennung: log_analyse
+name: Log-Analyse
+kategorie: homelab
+kurz: Durchsucht Logs und Journale, findet Fehlermuster und Abstürze, ordnet sie zeitlich ein.
+lizenz: homelab
+einsatzort: beide
+denkmodus: an
+max_token: 10000
+werkzeuge:
+- ssh_execute
+- read_file
+- find_files
+- monitoring_query
+nicht_zustaendig:
+- Dienste neu starten oder Konfiguration ändern — dafür ist dienste zuständig
+- Alarme einrichten — dafür ist monitoring zuständig
+stichworte:
+- journalctl
+- syslog
+- dmesg
+- stacktrace
+- traceback
+- oom-kill
+- Logdatei
+- Fehlermeldung
+- grep
+- Logs durchsuchen
+prompt: prompts/log_analyse.md

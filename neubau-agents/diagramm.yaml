@@ -1,0 +1,26 @@
+kennung: diagramm
+name: Diagramme
+kategorie: darstellung
+kurz: Zeichnet Balken-, Linien- und Kreisdiagramme aus Zahlen, als Bild oder SVG.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- python_exec
+- create_document
+- write_file
+nicht_zustaendig:
+- Tabellen mit Rechenwerten — dafür ist tabelle zuständig
+stichworte:
+- Diagramm
+- Grafik
+- Balken
+- Linie
+- Kreisdiagramm
+- Chart
+- plotten
+- visualisieren
+- matplotlib
+- Kurve
+prompt: prompts/diagramm.md

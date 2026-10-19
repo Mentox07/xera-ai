@@ -1,0 +1,23 @@
+kennung: zusammenfassen
+name: Zusammenfassen
+kategorie: wissen
+kurz: Kürzt lange Texte auf das Wesentliche, ohne den Sinn zu verändern.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- read_document
+- read_file
+- web_fetch
+nicht_zustaendig:
+- Im Internet suchen — dafuer ist recherche zustaendig
+stichworte:
+- zusammenfassen
+- kürzen
+- Kernaussage
+- auf den Punkt
+- tl;dr
+- Kurzfassung
+- worum geht es
+prompt: prompts/zusammenfassen.md

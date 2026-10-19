@@ -1,0 +1,25 @@
+kennung: datenbank_tuning
+name: Datenbank beschleunigen
+kategorie: daten
+kurz: Untersucht langsame Abfragen, schlaegt Indizes vor und prueft Ausfuehrungsplaene.
+lizenz: homelab
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- ssh_execute
+- shell_execute
+- read_file
+- python_exec
+nicht_zustaendig:
+- Gewoehnliche Abfragen ausfuehren — dafuer ist datenbank zustaendig
+stichworte:
+- Index
+- EXPLAIN
+- langsame Abfrage
+- Query Plan
+- Slow Query
+- Sequential Scan
+- optimieren
+- dauert lange
+prompt: prompts/datenbank_tuning.md

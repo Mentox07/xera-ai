@@ -1,0 +1,25 @@
+kennung: email
+name: E-Mail
+kategorie: kommunikation
+kurz: Verfasst und beantwortet E-Mails, achtet auf Anrede, Ton und Anhänge.
+lizenz: pro
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- ssh_execute
+- create_document
+- read_document
+nicht_zustaendig:
+- Laengere Sachtexte — dafuer ist text_verfassen zustaendig
+stichworte:
+- E-Mail
+- Mail
+- Anrede
+- Betreff
+- antworten
+- Nachricht
+- Anhang
+- Grußformel
+- schreiben an
+prompt: prompts/email.md

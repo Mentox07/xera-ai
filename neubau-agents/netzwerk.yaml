@@ -1,0 +1,28 @@
+kennung: netzwerk
+name: Netzwerk
+kategorie: homelab
+kurz: Prüft Erreichbarkeit, DNS-Auflösung, Ping, Ports, Router und VLAN-Einstellungen.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- read_file
+nicht_zustaendig:
+- TLS-Zertifikate — dafür ist zertifikate zuständig
+stichworte:
+- VLAN
+- DNS
+- Ping
+- Firewall
+- Route
+- Subnetz
+- IP
+- DHCP
+- MTU
+- nicht erreichbar
+- timeout
+- Port offen
+prompt: prompts/netzwerk.md

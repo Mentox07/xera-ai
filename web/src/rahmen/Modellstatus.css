@@ -1,0 +1,73 @@
+.modellstatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--a2);
+  width: 36px;
+  height: 22px;
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  animation: grund-kommt var(--dauer-lang) var(--kurve-aus) both;
+}
+.modellstatus.breit {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 0 var(--a3);
+}
+.modellstatus-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modellstatus-punkt {
+  position: relative;
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gut);
+  box-shadow: 0 0 8px var(--gut);
+}
+/* Ein Ring, der sich ausdehnt und verblasst — wie ein Sonar. Bei „bereit“
+   langsam, bei „rechnet“ schnell und in der Akzentfarbe. */
+.modellstatus-punkt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  color: var(--gut);
+  animation: sonar 2.6s var(--kurve-aus) infinite;
+}
+.ist-rechnet .modellstatus-punkt {
+  background: var(--akzent);
+  box-shadow: 0 0 10px var(--akzent);
+}
+.ist-rechnet .modellstatus-punkt::after {
+  color: var(--akzent);
+  animation-duration: 1.1s;
+}
+.ist-wartet .modellstatus-punkt {
+  background: var(--warn);
+  box-shadow: 0 0 10px var(--warn);
+}
+.ist-wartet .modellstatus-punkt::after {
+  color: var(--warn);
+  animation-duration: 0.9s;
+}
+.ist-aus .modellstatus-punkt {
+  background: var(--schlecht);
+  box-shadow: none;
+}
+.ist-aus .modellstatus-punkt::after {
+  animation: none;
+}
+.ist-rechnet .modellstatus-text { color: var(--akzent); }
+.ist-wartet .modellstatus-text { color: var(--warn); }
+.ist-aus .modellstatus-text { color: var(--schlecht); }
+
+@keyframes sonar {
+  from { transform: scale(1); opacity: 0.9; }
+  to { transform: scale(3); opacity: 0; }
+}

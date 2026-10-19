@@ -1,0 +1,25 @@
+kennung: docker
+name: Docker
+kategorie: homelab
+kurz: 'Verwaltet Docker-Container: Status, Neustart, Protokolle, Abbilder und Netzwerke.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- docker_manage
+- ssh_execute
+- read_file
+nicht_zustaendig:
+- LXC-Container und virtuelle Maschinen — dafür ist proxmox zuständig
+stichworte:
+- container
+- compose
+- image
+- Portainer
+- docker ps
+- exit code
+- restart loop
+- Volume
+- Registry
+prompt: prompts/docker.md

@@ -1,0 +1,24 @@
+kennung: schriftverkehr
+name: Schriftverkehr
+kategorie: alltag
+kurz: Verfasst Briefe an Aemter, Versicherungen und Firmen, mit Fristen und Nachweisen.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- create_document
+- read_document
+nicht_zustaendig:
+- Vertraege pruefen — dafuer ist vertrag_lesen zustaendig
+stichworte:
+- Brief
+- Amt
+- Versicherung
+- Widerspruch
+- Kündigung
+- Behörde
+- Einspruch
+- Frist
+- Schreiben an
+prompt: prompts/schriftverkehr.md

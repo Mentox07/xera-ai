@@ -1,0 +1,26 @@
+kennung: abhaengigkeiten
+name: Abhängigkeiten
+kategorie: code
+kurz: Prüft Pakete auf Aktualität, Sicherheitslücken und Verträglichkeit untereinander.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- read_file
+- shell_execute
+- web_search
+- web_fetch
+nicht_zustaendig:
+- Den Versionswechsel im Code durchfuehren — dafuer ist migration zustaendig
+stichworte:
+- Paket
+- Dependency
+- requirements
+- package.json
+- veraltet
+- CVE
+- Update
+- npm audit
+- pip
+prompt: prompts/abhaengigkeiten.md

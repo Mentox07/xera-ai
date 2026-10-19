@@ -1,0 +1,25 @@
+kennung: recherche
+name: Recherche
+kategorie: wissen
+kurz: Sucht im Internet nach Antworten, prüft Quellen und nennt die Fundstellen.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- web_search
+- web_fetch
+- rag_search
+nicht_zustaendig:
+- Eigene Notizen durchsuchen — dafür ist wissensbasis zuständig
+stichworte:
+- recherchieren
+- googeln
+- suchen
+- Quelle
+- stimmt das
+- im Internet
+- nachschlagen
+- aktuell
+- Fakten
+prompt: prompts/recherche.md

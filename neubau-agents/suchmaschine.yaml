@@ -1,0 +1,27 @@
+kennung: suchmaschine
+name: Auffindbarkeit
+kategorie: web
+kurz: 'Verbessert die Auffindbarkeit von Seiten: Titel, Beschreibungen, Aufbau, Ladezeit.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- read_file
+- web_fetch
+- web_search
+- write_file
+nicht_zustaendig:
+- Texte formulieren — dafuer ist texten zustaendig
+stichworte:
+- SEO
+- Google
+- Ranking
+- Meta-Tag
+- sitemap
+- robots.txt
+- Ladezeit
+- Titel
+- gefunden werden
+- Suchergebnis
+prompt: prompts/suchmaschine.md

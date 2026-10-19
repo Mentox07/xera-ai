@@ -1,0 +1,213 @@
+/* Die Lernseite. Eine Lesespalte, jedes Kapitel gleich aufgebaut:
+   Nummer, Titel, Frage, Bild, Text. Wiederholung ist hier ein Vorteil —
+   wer das Muster nach dem ersten Kapitel kennt, liest die uebrigen schneller. */
+
+.lernen {
+  /* Das Rollen macht die Hülle (.oeffentlich), sonst gäbe es zwei
+     Rollbereiche ineinander und die Kopfleiste bliebe nicht stehen. */
+  background: transparent;
+}
+
+.lernen > main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 var(--a5) var(--a7);
+}
+
+/* --- Aufschlag ----------------------------------------------------------- */
+
+.lernen-aufschlag {
+  padding: clamp(var(--a6), 7vh, 72px) 0 var(--a6);
+}
+.lernen-aufschlag h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: var(--a3) 0 var(--a4);
+  text-wrap: balance;
+}
+.lernen-lead {
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-text);
+  line-height: 1.65;
+  color: var(--text-leise);
+  max-width: 58ch;
+}
+
+.lernen-inhalt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--a1);
+  margin-top: var(--a5);
+  padding-top: var(--a4);
+  border-top: 1px solid var(--kante);
+}
+.lernen-inhalt a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--a2);
+  padding: 5px var(--a2);
+  border-radius: var(--rund);
+  color: var(--text-leise);
+  font-size: var(--gr-basis);
+  text-decoration: none;
+  transition: color var(--uebergang), background var(--uebergang);
+}
+.lernen-inhalt a:hover {
+  color: var(--text);
+  background: var(--flaeche);
+  text-decoration: none;
+}
+.lernen-inhalt span {
+  color: var(--akzent);
+  font-size: var(--gr-klein);
+}
+
+/* --- Kapitel -------------------------------------------------------------- */
+
+.kapitel {
+  padding: clamp(var(--a6), 6vh, 64px) 0;
+  border-top: 1px solid var(--kante);
+  scroll-margin-top: 64px;
+}
+
+.kapitel-kopf {
+  display: flex;
+  gap: var(--a4);
+  align-items: baseline;
+  margin-bottom: var(--a5);
+}
+.kapitel-nr {
+  flex: 0 0 auto;
+  font-size: var(--gr-titel);
+  color: var(--akzent);
+}
+.kapitel h2 {
+  font-size: clamp(20px, 3vw, 27px);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--a2);
+}
+.kapitel-frage {
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-text);
+  color: var(--text-still);
+}
+
+/* Das Bild bekommt eine eigene Flaeche — es ist der Kern des Kapitels, nicht
+   eine Beigabe zum Text. */
+.kapitel-bild {
+  margin: 0 0 var(--a5);
+  padding: var(--a5);
+  background: var(--flaeche);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-weit);
+  overflow-x: auto;
+}
+.kapitel-bild .diagramm {
+  min-width: 560px;
+}
+
+.kapitel-text > * + * {
+  margin-top: var(--a3);
+}
+.kapitel-text p {
+  color: var(--text-leise);
+}
+.kapitel-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.kapitel-text em {
+  color: var(--akzent);
+  font-style: normal;
+}
+
+.kapitel-probier {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a1);
+  margin-top: var(--a5);
+  padding: var(--a3) var(--a4);
+  border-left: 2px solid var(--ton-tuerkis);
+  background: color-mix(in oklab, var(--ton-tuerkis) 7%, transparent);
+  border-radius: 0 var(--rund) var(--rund) 0;
+}
+.kapitel-probier .marke { color: var(--ton-tuerkis); }
+.kapitel-probier p {
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-basis);
+  line-height: 1.6;
+  color: var(--text-leise);
+}
+
+/* --- Schluss --------------------------------------------------------------- */
+
+.lernen-schluss {
+  padding: clamp(var(--a6), 7vh, 72px) 0 0;
+  border-top: 1px solid var(--kante);
+}
+.lernen-schluss h2 {
+  font-size: var(--gr-gross);
+  margin-bottom: var(--a3);
+}
+.lernen-schluss p {
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-text);
+  line-height: 1.65;
+  color: var(--text-leise);
+  max-width: 58ch;
+  margin-bottom: var(--a5);
+}
+
+/* --- Bewegung (Oktober 2026) ---------------------------------------------
+ * Das Inhaltsverzeichnis läuft beim Laden ein; jedes Kapitel blendet beim
+ * Hineinscrollen ein, und erst dann zeichnen sich die Linien seines
+ * Diagramms — man sieht den Weg, den das Bild beschreibt, entstehen.
+ */
+.lernen-aufschlag > * {
+  animation: antwort-kommt 700ms var(--kurve-aus) both;
+}
+.lernen-aufschlag > :nth-child(2) { animation-delay: 90ms; }
+.lernen-aufschlag > :nth-child(3) { animation-delay: 180ms; }
+.lernen-aufschlag > :nth-child(4) { animation-delay: 270ms; }
+.lernen-inhalt a {
+  transition: color var(--dauer-kurz), background var(--dauer-kurz), padding-left var(--dauer-mittel) var(--kurve-feder);
+}
+.lernen-inhalt a:hover {
+  padding-left: 18px;
+}
+.kapitel-nr {
+  display: inline-block;
+}
+.kapitel.sichtbar .kapitel-nr {
+  animation: zeichen-springt 800ms var(--kurve-feder) 150ms both;
+}
+.kapitel .diagramm path,
+.kapitel .diagramm line {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+}
+.kapitel.sichtbar .diagramm path,
+.kapitel.sichtbar .diagramm line {
+  animation: linie-zeichnet 1.6s var(--kurve-aus) 350ms forwards;
+}
+.kapitel .diagramm rect {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.kapitel.sichtbar .diagramm rect {
+  animation: kasten-kommt 600ms var(--kurve-feder) both;
+  animation-delay: 250ms;
+}
+@keyframes linie-zeichnet { to { stroke-dashoffset: 0; } }
+@keyframes kasten-kommt {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: none; }
+}
+.kapitel-probier {
+  transition: transform var(--dauer-mittel) var(--kurve-feder), border-color var(--dauer-mittel);
+}
+.kapitel-probier:hover {
+  transform: translateX(6px);
+}

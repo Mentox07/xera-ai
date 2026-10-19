@@ -1,0 +1,29 @@
+kennung: frontend
+name: Oberflaechen
+kategorie: web
+kurz: 'Baut Weboberflaechen mit React, Vue oder ohne Rahmenwerk: Aufbau, Zustand, Formulare.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+- str_replace_file
+- shell_execute
+nicht_zustaendig:
+- Gestaltung und Farbwahl — dafuer ist gestaltung zustaendig
+stichworte:
+- React
+- Vue
+- Svelte
+- Komponente
+- State
+- useState
+- CSS
+- HTML
+- Formular
+- Router
+- Hook
+- Oberflaeche bauen
+prompt: prompts/frontend.md

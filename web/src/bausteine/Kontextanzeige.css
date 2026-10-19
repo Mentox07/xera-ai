@@ -1,0 +1,108 @@
+/* Kontextanzeige: still ab 50 %, Hinweis ab 75 %. */
+
+.kontext {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  margin: 0 auto var(--a2);
+  max-width: var(--lesebreite);
+  width: 100%;
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  animation: kontext-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+
+.kontext.ist-still {
+  justify-content: flex-end;
+  padding: 0 var(--a2);
+}
+
+.kontext.ist-hinweis {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--a3) var(--a4);
+  border-radius: var(--rund-gross);
+  background: var(--warn-hauch);
+  border: 1px solid oklch(0.78 0.15 75 / 0.35);
+  color: var(--text-leise);
+  font-size: var(--gr-basis);
+}
+
+.kontext.ist-voll {
+  animation: kontext-kommt var(--dauer-mittel) var(--kurve-aus) both, kontext-pulsiert 2.4s var(--kurve-ein-aus) 0.4s 2;
+}
+
+.kontext.ist-verdichtet {
+  background: var(--akzent-hauch);
+  border-color: var(--akzent-schein);
+}
+
+.kontext-text {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  flex: 1 1 320px;
+}
+
+.kontext-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.kontext-balken {
+  flex: none;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--flaeche-obenauf);
+  overflow: hidden;
+}
+
+.kontext-balken > span {
+  display: block;
+  height: 100%;
+  transform-origin: left;
+  background: var(--akzent);
+  transition: transform var(--dauer-lang) var(--kurve-aus);
+}
+
+.ist-hinweis .kontext-balken > span { background: var(--warn); }
+.ist-verdichtet .kontext-balken > span { background: var(--akzent); }
+
+.kontext-knoepfe {
+  display: flex;
+  gap: var(--a2);
+  flex-wrap: wrap;
+}
+
+.kontext-knoepfe button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a2);
+}
+
+.kontext-dauer {
+  color: var(--text-still);
+  font-style: italic;
+}
+
+.kontext-kreisel {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--akzent-hauch);
+  border-top-color: var(--akzent);
+  animation: kreisen 0.8s linear infinite;
+}
+
+@keyframes kontext-kommt {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+}
+
+@keyframes kontext-pulsiert {
+  50% { box-shadow: 0 0 0 6px oklch(0.78 0.15 75 / 0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kontext, .kontext.ist-voll { animation: none; }
+}

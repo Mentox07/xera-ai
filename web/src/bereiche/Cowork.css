@@ -1,0 +1,579 @@
+/* --- Übersicht ohne gewähltes Vorhaben ---------------------------------- */
+
+.cowork-uebersicht {
+  overflow-y: auto;
+}
+
+.cowork-mitte {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--a7) var(--a5);
+  width: 100%;
+}
+
+.cowork-kopfzeile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--a5);
+  margin-bottom: var(--a6);
+  flex-wrap: wrap;
+}
+
+.cowork-kopfzeile h1 {
+  font-size: var(--gr-gross);
+  margin-bottom: var(--a2);
+}
+
+.cowork-unter {
+  color: var(--text-leise);
+  line-height: 1.6;
+  max-width: 54ch;
+}
+
+.cowork-kopfzeile .knopf-betont {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.cowork-gitter {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--a3);
+}
+
+.cowork-gitter button {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+  width: 100%;
+  height: 100%;
+  padding: var(--a3);
+  text-align: left;
+  background: var(--flaeche);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+  transition: border-color var(--uebergang), background var(--uebergang);
+}
+.cowork-gitter button:hover {
+  border-color: var(--akzent-tief);
+  background: var(--flaeche-hoch);
+}
+
+.cowork-karte-name {
+  color: var(--text);
+  font-size: var(--gr-text);
+}
+.cowork-karte-text {
+  color: var(--text-leise);
+  font-size: var(--gr-klein);
+  line-height: 1.5;
+}
+.cowork-karte-fuss {
+  margin-top: auto;
+  padding-top: var(--a2);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+}
+
+.cowork-leer,
+.cowork-leer-klein {
+  color: var(--text-still);
+  line-height: 1.6;
+  max-width: 52ch;
+}
+.cowork-leer-klein {
+  font-size: var(--gr-klein);
+  padding: var(--a4) 0;
+}
+
+.cowork-fehler {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  padding: var(--a3);
+  border: 1px solid var(--schlecht);
+  border-radius: var(--rund);
+  background: var(--schlecht-hauch);
+}
+
+/* --- Im Vorhaben --------------------------------------------------------- */
+
+.cowork-spalte {
+  width: var(--spalte);
+  flex: 0 0 var(--spalte);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--kante);
+  min-height: 0;
+}
+
+.cowork-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cowork-zurueck {
+  padding: var(--a3);
+  border-top: 1px solid var(--kante);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  text-align: left;
+}
+.cowork-zurueck:hover { color: var(--akzent); }
+
+.cowork-kopf {
+  padding: var(--a3) var(--a5);
+  border-bottom: 1px solid var(--kante);
+}
+.cowork-kopf h2 {
+  font-size: var(--gr-text);
+}
+.cowork-kopf p {
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  margin-top: 2px;
+}
+
+.cowork-teilung {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.cowork-gespraech {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cowork-tafel {
+  width: 320px;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--kante);
+  background: var(--grund-tief);
+  min-height: 0;
+}
+
+.cowork-reiter {
+  display: flex;
+  border-bottom: 1px solid var(--kante);
+}
+.cowork-reiter button {
+  flex: 1;
+  padding: var(--a2);
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  border-bottom: 2px solid transparent;
+  transition: color var(--uebergang), border-color var(--uebergang);
+}
+.cowork-reiter button:hover { color: var(--text-leise); }
+.cowork-reiter button.ist-aktiv {
+  color: var(--akzent);
+  border-bottom-color: var(--akzent);
+}
+
+.cowork-inhalt {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--a3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--a3);
+  min-height: 0;
+}
+
+.cowork-erklaerung {
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  line-height: 1.55;
+}
+
+.cowork-feld,
+.notiz-neu input,
+.notiz-neu textarea {
+  width: 100%;
+  padding: var(--a2);
+  background: var(--flaeche);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+  outline: none;
+  font-family: var(--schrift-mono);
+  font-size: var(--gr-klein);
+  line-height: 1.55;
+  resize: vertical;
+}
+.cowork-feld { min-height: 200px; flex: 1; }
+.cowork-feld:focus,
+.notiz-neu input:focus,
+.notiz-neu textarea:focus { border-color: var(--akzent-tief); }
+
+.cowork-fussleiste {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--a3);
+}
+.cowork-fussleiste .knopf-betont:disabled {
+  background: var(--kante);
+  border-color: var(--kante);
+  color: var(--text-still);
+  cursor: default;
+}
+.cowork-gespeichert {
+  color: var(--gut);
+  font-size: var(--gr-klein);
+}
+
+.notiz-neu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+  padding-bottom: var(--a3);
+  border-bottom: 1px solid var(--kante);
+}
+.notiz-neu .knopf-still { align-self: flex-start; }
+.notiz-neu .knopf-still:disabled {
+  color: var(--text-still);
+  border-color: var(--kante);
+  cursor: default;
+}
+
+.notiz-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+}
+.notiz-liste li {
+  padding: var(--a2);
+  background: var(--flaeche);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+}
+.notiz-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--a2);
+}
+.notiz-kopf strong {
+  font-weight: 500;
+  font-size: var(--gr-basis);
+}
+.notiz-kopf button {
+  color: var(--text-still);
+  flex: 0 0 auto;
+}
+.notiz-kopf button:hover { color: var(--schlecht); }
+.notiz-liste p {
+  margin-top: var(--a1);
+  color: var(--text-leise);
+  font-size: var(--gr-klein);
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.eingabe-projekt {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--akzent);
+}
+
+/* =========================================================================
+ * Oktober 2026: Kopf mit Umbenennen, vier Reiter mit wanderndem Strich,
+ * Dateien, Gespräche, Notizen bearbeiten.
+ * ========================================================================= */
+
+.cowork-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  padding: var(--a2) var(--a4);
+}
+.cowork-kopf-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cowork-titel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a2);
+  padding: 2px 6px;
+  margin-left: -6px;
+  border-radius: var(--rund);
+  transition: background var(--dauer-kurz);
+}
+.cowork-titel h2 {
+  font-size: var(--gr-titel);
+  animation: block-kommt 520ms var(--kurve-aus) both;
+}
+.cowork-titel svg {
+  color: var(--text-still);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.cowork-titel:hover { background: var(--flaeche); }
+.cowork-titel:hover svg { opacity: 1; transform: none; }
+.cowork-beschreibung {
+  padding: 0 6px;
+  margin-left: -6px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  text-align: left;
+}
+.cowork-beschreibung:hover { color: var(--akzent); }
+.cowork-kopf-aktionen {
+  display: flex;
+  gap: 2px;
+}
+
+/* Reiter mit einem Strich, der zum aktiven wandert. */
+.cowork-reiter {
+  position: relative;
+}
+.cowork-reiter button {
+  position: relative;
+  z-index: 1;
+  border-bottom: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.cowork-reiter button.ist-aktiv {
+  border-bottom: none;
+}
+.cowork-reiter button small {
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--flaeche-hoch);
+  color: var(--text-still);
+  font-size: 10px;
+}
+.cowork-reiter-zeiger {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: calc(100% / var(--anzahl));
+  height: 2px;
+  background: var(--akzent);
+  box-shadow: 0 0 10px var(--akzent);
+  transform: translateX(calc(var(--index) * 100%));
+  transition: transform var(--dauer-lang) var(--kurve-feder);
+}
+
+/* Frühere Gespräche */
+.cowork-gespraechsliste,
+.datei-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cowork-gespraechsliste li,
+.datei-liste li,
+.notiz-liste li {
+  animation: eintrag-kommt var(--dauer-mittel) var(--kurve-aus) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 30ms);
+}
+.cowork-gespraechsliste button {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  width: 100%;
+  padding: 7px var(--a2);
+  border-radius: var(--rund);
+  color: var(--text-leise);
+  text-align: left;
+  transition: background var(--dauer-kurz), color var(--dauer-kurz), padding-left var(--dauer-mittel) var(--kurve-feder);
+}
+.cowork-gespraechsliste button span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cowork-gespraechsliste button small {
+  color: var(--text-still);
+  font-size: 10px;
+}
+.cowork-gespraechsliste button:hover {
+  padding-left: 14px;
+  background: var(--flaeche);
+  color: var(--text);
+}
+.cowork-gespraechsliste button.ist-aktiv {
+  background: var(--akzent-hauch);
+  color: var(--text);
+  box-shadow: inset 2px 0 0 var(--akzent);
+}
+.cowork-gespraechsliste svg { color: var(--text-still); flex: 0 0 auto; }
+
+/* Dateien */
+.datei-ablage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--a2);
+  padding: var(--a5) var(--a3);
+  border: 1.5px dashed var(--kante-hell);
+  border-radius: var(--rund-gross);
+  color: var(--text-still);
+  transition: border-color var(--dauer-kurz), color var(--dauer-kurz), background var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.datei-ablage strong {
+  font-weight: 400;
+  font-size: var(--gr-klein);
+}
+.datei-ablage:hover,
+.cowork-inhalt.zieht .datei-ablage {
+  border-color: var(--akzent);
+  color: var(--akzent);
+  background: var(--akzent-hauch);
+}
+.cowork-inhalt.zieht .datei-ablage {
+  transform: scale(1.03);
+}
+.cowork-inhalt.zieht .datei-ablage svg,
+.datei-ablage:hover svg {
+  animation: schweben 1.6s ease-in-out infinite;
+}
+.datei-liste li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  padding: 8px var(--a2);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+}
+.datei-liste li > svg { color: var(--akzent); flex: 0 0 auto; }
+.datei-liste li.laedt { opacity: 0.75; }
+.datei-liste li.laedt .anhang-ring {
+  position: static;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+.datei-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.datei-liste small {
+  color: var(--text-still);
+  font-size: 10px;
+}
+.datei-liste button {
+  color: var(--text-still);
+  opacity: 0;
+  transition: opacity var(--dauer-kurz), color var(--dauer-kurz);
+}
+.datei-liste li:hover button,
+.datei-liste button:focus-visible { opacity: 1; }
+.datei-liste button:hover { color: var(--schlecht); }
+
+/* Notizen bearbeiten */
+.notiz-knoepfe {
+  display: flex;
+  gap: var(--a2);
+}
+.notiz-neu.ist-bearbeitung input,
+.notiz-neu.ist-bearbeitung textarea {
+  border-color: var(--akzent-tief);
+  box-shadow: 0 0 0 3px var(--akzent-hauch);
+}
+.notiz-kopf span {
+  display: inline-flex;
+  gap: 6px;
+}
+.notiz-kopf button:first-child:hover { color: var(--akzent); }
+.notiz-liste li {
+  transition: border-color var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.notiz-liste li:hover { transform: translateX(3px); }
+.notiz-liste li.ist-aktiv { border-color: var(--akzent); }
+
+/* Übersicht */
+.cowork-karte-fuss {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+}
+.cowork-karte-fuss > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.cowork-karte-fuss > svg:last-child {
+  margin-left: auto;
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.cowork-gitter button:hover .cowork-karte-fuss > svg:last-child {
+  transform: translateX(4px);
+  color: var(--akzent);
+}
+.cowork-skelett {
+  height: 110px;
+  margin: 0;
+  border-radius: var(--rund-gross);
+}
+.cowork-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--a4);
+  padding: var(--a6);
+  border: 1.5px dashed var(--kante-hell);
+  border-radius: var(--rund-weit);
+  color: var(--text-leise);
+  animation: karte-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+.cowork-start > svg { color: var(--akzent); animation: schweben 2.4s ease-in-out infinite; }
+.cowork-start p { max-width: 52ch; line-height: 1.6; font-family: var(--schrift-sans); }
+.cowork-zurueck {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cowork-zurueck svg { transform: rotate(180deg); transition: transform var(--dauer-mittel) var(--kurve-feder); }
+.cowork-zurueck:hover svg { transform: rotate(180deg) translateX(4px); }
+
+.cowork-tafel {
+  width: 340px;
+  flex-basis: 340px;
+}
+
+/* Auf schmalen Fenstern rutscht die Tafel unter das Gespräch. */
+@media (max-width: 1000px) {
+  .cowork-tafel { display: none; }
+}
+@media (max-width: 860px) {
+  .cowork-spalte { display: none; }
+}

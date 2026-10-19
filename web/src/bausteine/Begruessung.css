@@ -1,0 +1,81 @@
+.begruessung {
+  max-width: 480px;
+  text-align: left;
+}
+
+.begruessung-zeichen {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: var(--a4);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund);
+  color: var(--akzent);
+}
+
+.begruessung h2 {
+  font-size: var(--gr-titel);
+  margin-bottom: var(--a2);
+}
+
+.begruessung-text {
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-text);
+  color: var(--text-leise);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+.begruessung-warnung {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--a2);
+  margin-top: var(--a4);
+  padding: var(--a2) var(--a3);
+  border: 1px solid var(--warn);
+  border-radius: var(--rund);
+  background: var(--warn-hauch);
+  color: var(--text);
+  font-size: var(--gr-klein);
+  line-height: 1.5;
+}
+.begruessung-warnung svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--warn);
+}
+
+.begruessung-vorschlaege {
+  list-style: none;
+  margin: var(--a5) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--a1);
+  border-top: 1px solid var(--kante);
+  padding-top: var(--a3);
+}
+
+.begruessung-vorschlaege button {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  width: 100%;
+  padding: 6px var(--a2);
+  border-radius: var(--rund);
+  text-align: left;
+  color: var(--text-leise);
+  transition: color var(--uebergang), background var(--uebergang);
+}
+.begruessung-vorschlaege button:hover {
+  color: var(--text);
+  background: var(--flaeche);
+}
+.begruessung-vorschlaege svg {
+  color: var(--text-still);
+  flex: 0 0 auto;
+}
+.begruessung-vorschlaege button:hover svg {
+  color: var(--akzent);
+}

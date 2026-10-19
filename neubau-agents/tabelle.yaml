@@ -1,0 +1,25 @@
+kennung: tabelle
+name: Tabellenkalkulation
+kategorie: dokumente
+kurz: Erstellt Excel-Tabellen, rechnet Werte aus und wertet Zahlenreihen aus.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- create_document
+- read_document
+nicht_zustaendig:
+- Zahlen grafisch darstellen — dafür ist diagramm zuständig
+stichworte:
+- Excel
+- xlsx
+- Tabelle
+- Formel
+- Spalte
+- Zeile
+- SVERWEIS
+- Pivot
+- Kalkulation
+- Summe
+prompt: prompts/tabelle.md

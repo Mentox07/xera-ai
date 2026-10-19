@@ -1,0 +1,86 @@
+/* Aussehen der Erklaergrafiken.
+ *
+ * Alle Farben ueber Marken, damit sie im hellen wie im dunklen Aussehen
+ * sitzen. Fuellungen sind sehr blass — im Vordergrund stehen die Linien und
+ * die Beschriftung, nicht die Flaechen. */
+
+.diagramm {
+  width: 100%;
+  height: auto;
+  color: var(--text-leise);
+  overflow: visible;
+}
+
+/* --- Kaesten -------------------------------------------------------------- */
+
+.d-kasten {
+  fill: var(--flaeche-hoch);
+  stroke: var(--kante-hell);
+  stroke-width: 1;
+}
+.d-kasten-akzent {
+  fill: var(--akzent-hauch);
+  stroke: var(--akzent-tief);
+  stroke-width: 1;
+}
+.d-kasten-ton {
+  fill: color-mix(in oklab, var(--ton-tuerkis) 12%, transparent);
+  stroke: var(--ton-tuerkis);
+  stroke-width: 1;
+}
+.d-kasten-warn {
+  fill: var(--warn-hauch);
+  stroke: var(--warn);
+  stroke-width: 1;
+}
+.d-kasten-aus {
+  fill: none;
+  stroke: var(--kante);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+.d-fenster {
+  fill: var(--akzent-hauch);
+  stroke: var(--akzent);
+  stroke-width: 1.5;
+}
+
+/* --- Linien --------------------------------------------------------------- */
+
+.d-linie { color: var(--text-still); }
+.d-linie-schwach { color: var(--text-aus); }
+.d-linie-akzent { color: var(--akzent); }
+.d-linie-warn { color: var(--warn); }
+
+.d-trenner {
+  stroke: var(--kante);
+  stroke-width: 1;
+}
+
+/* --- Balken --------------------------------------------------------------- */
+
+.d-balken-grund { fill: var(--flaeche-hoch); }
+.d-balken { fill: var(--ton-blau); opacity: 0.55; }
+.d-balken-voll { fill: var(--akzent); }
+.d-balken-blass { fill: var(--kante-hell); }
+.d-balken-halb { fill: var(--ton-tuerkis); opacity: 0.75; }
+
+/* --- Schrift --------------------------------------------------------------
+   In der Grafik nur zwei Groessen. Mehr wird bei 620 Einheiten Breite unruhig. */
+
+.diagramm text {
+  font-family: var(--schrift-mono);
+  font-size: 13px;
+  fill: var(--text-leise);
+}
+.d-mono { font-size: 13px; }
+.d-klein { font-size: 11px; }
+.d-marke {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  fill: var(--text-aus);
+}
+.d-hell { fill: var(--text); }
+.d-still { fill: var(--text-still); }
+.d-akzent { fill: var(--akzent); }
+.d-warn { fill: var(--warn); }

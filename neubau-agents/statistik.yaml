@@ -1,0 +1,25 @@
+kennung: statistik
+name: Statistik
+kategorie: daten
+kurz: Rechnet und deutet statistische Groessen, prueft ob Unterschiede belastbar sind.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- python_exec
+- read_document
+- read_file
+nicht_zustaendig:
+- Ergebnisse zeichnen — dafuer ist diagramm zustaendig
+stichworte:
+- Signifikanz
+- p-Wert
+- Korrelation
+- Stichprobe
+- Konfidenzintervall
+- Verteilung
+- Standardabweichung
+- belastbar
+- Zufall
+prompt: prompts/statistik.md

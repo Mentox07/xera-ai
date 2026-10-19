@@ -1,0 +1,27 @@
+kennung: auswertung
+name: Datenauswertung
+kategorie: daten
+kurz: Rechnet Kennzahlen, Mittelwerte und Trends aus Daten, findet Auffälligkeiten.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- python_exec
+- read_document
+- read_file
+nicht_zustaendig:
+- Ergebnisse grafisch darstellen — dafür ist diagramm zuständig
+stichworte:
+- Pandas
+- Excel
+- CSV
+- Kennzahl
+- Mittelwert
+- Trend
+- auswerten
+- Durchschnitt
+- Summe
+- Ausreisser
+- DataFrame
+prompt: prompts/auswertung.md

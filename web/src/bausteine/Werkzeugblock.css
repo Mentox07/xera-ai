@@ -1,0 +1,137 @@
+.werkzeug {
+  border: 1px solid var(--kante);
+  border-left-width: 2px;
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  font-size: var(--gr-basis);
+  overflow: hidden;
+}
+
+/* Die Stufe färbt die linke Kante. Sie steht zusätzlich als Wort da —
+   die Farbe ist Zugabe, nicht die Aussage. */
+.werkzeug[data-stufe="READ"]    { border-left-color: var(--kante-hell); }
+.werkzeug[data-stufe="WRITE"]   { border-left-color: var(--warn); }
+.werkzeug[data-stufe="ADMIN"]   { border-left-color: var(--schlecht); }
+.werkzeug[data-stufe="BLOCKED"] { border-left-color: var(--schlecht); }
+
+.werkzeug.ist-wartet {
+  border-color: var(--warn);
+  background: var(--warn-hauch);
+}
+
+.werkzeug-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  padding: var(--a2) var(--a3);
+}
+
+.werkzeug-zustand {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  color: var(--text-still);
+}
+.werkzeug.ist-wartet .werkzeug-zustand { color: var(--warn); }
+.werkzeug.ist-fertig .werkzeug-zustand { color: var(--gut); }
+.werkzeug.ist-abgelehnt .werkzeug-zustand,
+.werkzeug.ist-gesperrt .werkzeug-zustand { color: var(--schlecht); }
+
+.puls {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--akzent);
+  animation: pulsieren 1.1s ease-in-out infinite;
+}
+@keyframes pulsieren {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+
+.werkzeug-name {
+  font-family: var(--schrift-mono);
+  color: var(--text);
+}
+
+.werkzeug-stufe {
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+}
+
+.werkzeug-mehr {
+  margin-left: auto;
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+}
+.werkzeug-mehr:hover { color: var(--akzent); }
+
+/* Argumente offen, nicht eingeklappt: wer freigibt ohne zu sehen was,
+   gibt nichts frei. */
+.werkzeug-args {
+  margin: 0;
+  padding: 0 var(--a3) var(--a2) calc(var(--a3) + 24px);
+  display: grid;
+  gap: 2px;
+  font-size: var(--gr-klein);
+}
+.werkzeug-args > div {
+  display: flex;
+  gap: var(--a2);
+}
+.werkzeug-args dt {
+  color: var(--text-still);
+  min-width: 76px;
+}
+.werkzeug-args dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.werkzeug-args code {
+  font-family: var(--schrift-mono);
+  color: var(--text-leise);
+}
+
+.werkzeug-frage {
+  padding: var(--a3);
+  border-top: 1px solid var(--kante);
+  display: flex;
+  align-items: center;
+  gap: var(--a4);
+  flex-wrap: wrap;
+}
+.werkzeug-frage p {
+  flex: 1;
+  min-width: 200px;
+  color: var(--text);
+}
+
+.werkzeug-knoepfe {
+  display: flex;
+  gap: var(--a2);
+}
+
+/* .knopf-still / .knopf-betont liegen seit Oktober 2026 in stil/knoepfe.css —
+   sie werden überall benutzt, nicht nur hier. */
+
+.werkzeug-hinweis {
+  padding: var(--a2) var(--a3);
+  border-top: 1px solid var(--kante);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+}
+
+.werkzeug-ausgabe {
+  margin: 0;
+  padding: var(--a3);
+  border-top: 1px solid var(--kante);
+  background: var(--grund-tief);
+  font-family: var(--schrift-mono);
+  font-size: var(--gr-klein);
+  line-height: 1.5;
+  max-height: 320px;
+  overflow: auto;
+  color: var(--text-leise);
+  white-space: pre-wrap;
+}

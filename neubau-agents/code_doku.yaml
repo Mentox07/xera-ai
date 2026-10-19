@@ -1,0 +1,23 @@
+kennung: code_doku
+name: Code dokumentieren
+kategorie: code
+kurz: Schreibt Docstrings, Liesmich-Dateien und Schnittstellenbeschreibungen zu Code.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- read_file
+- write_file
+- str_replace_file
+- list_files
+nicht_zustaendig:
+- Anleitungen fuer Menschen ohne Codebezug — dafuer ist dokument_erstellen zustaendig
+stichworte:
+- Docstring
+- README
+- Dokumentation
+- kommentieren
+- Beschreibung
+- API-Doku
+prompt: prompts/code_doku.md

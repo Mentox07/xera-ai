@@ -1,0 +1,27 @@
+kennung: java
+name: Java
+kategorie: sprachen
+kurz: 'Schreibt Java: Objektentwurf, Maven und Gradle, Spring, Umgang mit Altcode.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Abhaengigkeiten in pom.xml bewerten — dafuer ist abhaengigkeiten zustaendig
+stichworte:
+- Maven
+- Gradle
+- Spring
+- NullPointerException
+- JVM
+- Stream
+- Optional
+- hashCode
+- Transactional
+- Bean
+prompt: prompts/java.md

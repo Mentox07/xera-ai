@@ -1,0 +1,26 @@
+kennung: heimautomation
+name: Heimautomation
+kategorie: homelab
+kurz: 'Betreut Home Assistant, MQTT und ESPHome: Geraete, Automatisierungen, Ausfaelle.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- read_file
+- web_fetch
+- monitoring_query
+nicht_zustaendig:
+- Netzwerkprobleme unterhalb des Geraets — dafuer ist netzwerk zustaendig
+stichworte:
+- Home Assistant
+- Zigbee
+- MQTT
+- Smart Home
+- Automation
+- Sensor
+- Schalter
+- Steckdose
+- Lampe
+prompt: prompts/heimautomation.md

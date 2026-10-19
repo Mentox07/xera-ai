@@ -1,0 +1,23 @@
+kennung: uebersetzen
+name: Übersetzen
+kategorie: kommunikation
+kurz: Überträgt Texte in eine andere Sprache und behält Ton und Fachbegriffe bei.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- read_document
+- read_file
+nicht_zustaendig:
+- Texte neu formulieren — dafuer ist lektorat zustaendig
+stichworte:
+- übersetzen
+- Englisch
+- Französisch
+- Translation
+- auf Deutsch
+- Sprache
+- Fachbegriff
+- Übersetzung
+prompt: prompts/uebersetzen.md

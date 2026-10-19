@@ -1,0 +1,24 @@
+kennung: ablaufplan
+name: Ablaufpläne
+kategorie: darstellung
+kurz: Stellt Abläufe, Entscheidungswege und Zustände als Flussdiagramm dar.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- create_document
+- read_file
+nicht_zustaendig:
+- Netzwerkstruktur zeichnen — dafuer ist netzplan zustaendig
+stichworte:
+- Flussdiagramm
+- Ablauf
+- Prozess
+- Mermaid
+- Entscheidungsbaum
+- Zustandsdiagramm
+- Schaubild
+- Workflow
+prompt: prompts/ablaufplan.md

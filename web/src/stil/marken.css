@@ -1,0 +1,200 @@
+/* Marken der Oberfläche.
+ *
+ * Farben, Abstände und Schriftgrößen stehen hier und nirgends sonst. Ein Wert,
+ * der nur an einer Stelle im Code steht, liegt beim nächsten Mal daneben.
+ *
+ * Die Farben sind die bestehenden aus `static/styles.css` — Violett auf einem
+ * fast schwarzen Grund mit Blaustich. Sie kommen aus dem Zeichen und gelten
+ * überall dort, wo Xera vorkommt; eine zweite Farbwelt daneben wäre kein
+ * Neubau, sondern ein zweites Produkt.
+ *
+ * Der Akzent steht in oklch statt in Hex: Damit ist ein Ton eine Angabe aus
+ * Helligkeit, Buntheit und Winkel. Heller oder gedeckter zu werden heißt dann
+ * eine Zahl zu ändern, statt einen neuen Hex-Wert zu raten, der daneben liegt.
+ */
+
+:root {
+  /* --- Akzent -------------------------------------------------------------
+   * Winkel 282 ist das Violett aus dem Zeichen. Die drei Abstufungen sind
+   * derselbe Winkel bei anderer Helligkeit — deshalb passen sie zusammen.
+   */
+  --akzent-winkel: 282;
+  --akzent: oklch(0.72 0.18 var(--akzent-winkel));
+  --akzent-hell: oklch(0.82 0.15 var(--akzent-winkel));
+  --akzent-tief: oklch(0.55 0.2 var(--akzent-winkel));
+  --akzent-hauch: oklch(0.72 0.18 var(--akzent-winkel) / 0.14);
+  --akzent-schein: oklch(0.72 0.18 var(--akzent-winkel) / 0.35);
+
+  /* --- Nebentöne -----------------------------------------------------------
+   * Vier Winkel um den Akzent herum, gleiche Helligkeit und Buntheit. Sie
+   * dienen den Erklärgrafiken: Wenn dort vier Dinge verschiedene Farben
+   * brauchen, sollen es nicht vier beliebige sein, sondern vier, die aus
+   * derselben Familie stammen wie das Zeichen.
+   *
+   * 282 ist der Akzent. 250 geht Richtung Blau, 320 Richtung Magenta,
+   * 210 ins Türkis, 30 ins Warme — der einzige, der ausbricht, und deshalb
+   * nur für das, was hervorstechen soll.
+   */
+  --ton-blau: oklch(0.72 0.15 250);
+  --ton-magenta: oklch(0.74 0.16 320);
+  --ton-tuerkis: oklch(0.75 0.13 210);
+  --ton-warm: oklch(0.78 0.14 60);
+
+  /* --- Schrift -------------------------------------------------------------
+   * IBM Plex: eine Schrift mit Herkunft, in keiner Vorlage der Standard.
+   * Mono trägt die Oberfläche und alles Technische, Sans den Fließtext —
+   * lange Antworten liest man nicht gern in Monospace.
+   */
+  --schrift-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --schrift-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+
+  /* Fünf Größen. Nicht elf. Wer mehr braucht, hat kein Schriftproblem,
+     sondern ein Gliederungsproblem. */
+  --gr-klein: 12px;
+  --gr-basis: 13px;
+  --gr-text: 15px;
+  --gr-titel: 19px;
+  --gr-gross: 25px;
+
+  --zeilen-eng: 1.35;
+  --zeilen-text: 1.65;
+
+  /* --- Abstände ------------------------------------------------------------
+   * Eine Reihe, nichts dazwischen. Zufällige Werte sind der häufigste Grund,
+   * warum eine Oberfläche unfertig aussieht.
+   */
+  --a1: 4px;
+  --a2: 8px;
+  --a3: 12px;
+  --a4: 16px;
+  --a5: 24px;
+  --a6: 32px;
+  --a7: 48px;
+
+  /* Dieselben Radien wie bisher. */
+  --rund: 6px;
+  --rund-gross: 10px;
+  --rund-weit: 14px;
+
+  /* --- Maße --- */
+  --leiste: 52px;
+  --spalte: 260px;
+  --lesebreite: 70ch;
+
+  --uebergang: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Bewegung ------------------------------------------------------------
+   * Drei Dauern, drei Kurven. Bewegung soll man merken — sie zeigt, woher etwas
+   * kommt und wohin es geht —, aber sie darf nie auf sich warten lassen. Deshalb
+   * „aus“ als Standard: schneller Anfang, weiches Ende. Die Feder schwingt
+   * leicht über und ist für Dinge, die man greift (Knöpfe, Dialoge, Karten).
+   */
+  --dauer-kurz: 180ms;
+  --dauer-mittel: 320ms;
+  --dauer-lang: 560ms;
+  --kurve-aus: cubic-bezier(0.16, 1, 0.3, 1);
+  --kurve-feder: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --kurve-ein-aus: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ---------- Dunkel: der Normalfall ---------------------------------------
+ * Die Reihenfolge ist Absicht. `:root` steht mit im Wähler, damit die dunkle
+ * Fassung auch dann gilt, wenn niemand ein `data-theme` gesetzt hat — das ist
+ * der häufigste Fall.
+ */
+[data-theme="dark"],
+:root {
+  --grund: #07070b;
+  --grund-tief: #050509;
+  --flaeche: #0e0e15;
+  --flaeche-hoch: #14141d;
+  --flaeche-obenauf: #1a1a26;
+  --kante: #22222e;
+  --kante-hell: #2e2e3c;
+
+  --text: #f3f3f7;
+  --text-leise: #b6b6c4;
+  --text-still: #7c7c8a;
+  --text-aus: #4a4a55;
+
+  /* Zustände. Eigene Farben, getrennt vom Akzent — und nie allein: Farbe
+     steht immer neben einem Zeichen oder einem Wort. */
+  --gut: oklch(0.72 0.15 155);
+  --warn: oklch(0.78 0.15 75);
+  --schlecht: oklch(0.65 0.19 22);
+  --gut-hauch: oklch(0.72 0.15 155 / 0.12);
+  --warn-hauch: oklch(0.78 0.15 75 / 0.1);
+  --schlecht-hauch: oklch(0.65 0.19 22 / 0.12);
+
+  --schatten: 0 30px 60px -20px oklch(0 0 0 / 0.6);
+  --auf-akzent: #0b0713;
+
+  /* Zwei sehr weite Verläufe, wie in der alten Oberfläche. Sie sollen nicht
+     als Verlauf auffallen, sondern nur verhindern, dass eine ganze
+     Bildschirmseite gleichmäßig flach wirkt. */
+  --grund-verlauf:
+    radial-gradient(1200px 620px at 50% -12%, oklch(0.32 0.11 282 / 0.3), transparent 62%),
+    radial-gradient(900px 520px at 92% 108%, oklch(0.34 0.1 250 / 0.2), transparent 62%),
+    var(--grund);
+}
+
+/* ---------- Hell ---------------------------------------------------------
+ * Die alte Oberfläche kann beides, also kann es diese auch. Der Akzent wird
+ * dunkler und bunter: derselbe Ton, der auf Schwarz leuchtet, verschwindet
+ * auf Weiß.
+ */
+[data-theme="light"] {
+  --grund: #fafafb;
+  --grund-tief: #f4f4f7;
+  --flaeche: #ffffff;
+  --flaeche-hoch: #f4f4f7;
+  --flaeche-obenauf: #ebebf0;
+  --kante: #e6e6ec;
+  --kante-hell: #d4d4dd;
+
+  --text: #0a0a12;
+  --text-leise: #4b4b58;
+  --text-still: #76768a;
+  --text-aus: #b4b4be;
+
+  --akzent: oklch(0.52 0.22 var(--akzent-winkel));
+  --akzent-hell: oklch(0.6 0.22 var(--akzent-winkel));
+  --akzent-tief: oklch(0.4 0.22 var(--akzent-winkel));
+  --akzent-hauch: oklch(0.52 0.22 var(--akzent-winkel) / 0.1);
+  --akzent-schein: oklch(0.52 0.22 var(--akzent-winkel) / 0.18);
+
+  --gut: oklch(0.5 0.15 155);
+  --warn: oklch(0.55 0.14 75);
+  --schlecht: oklch(0.52 0.2 22);
+  --gut-hauch: oklch(0.5 0.15 155 / 0.08);
+  --warn-hauch: oklch(0.55 0.14 75 / 0.08);
+  --schlecht-hauch: oklch(0.52 0.2 22 / 0.08);
+
+  --schatten: 0 30px 60px -30px oklch(0.1 0.05 var(--akzent-winkel) / 0.18);
+  --auf-akzent: #ffffff;
+
+  --ton-blau: oklch(0.52 0.19 250);
+  --ton-magenta: oklch(0.54 0.2 320);
+  --ton-tuerkis: oklch(0.55 0.15 210);
+  --ton-warm: oklch(0.58 0.16 60);
+
+  --grund-verlauf:
+    radial-gradient(1200px 620px at 50% -12%, oklch(0.86 0.09 282 / 0.5), transparent 62%),
+    radial-gradient(900px 520px at 92% 108%, oklch(0.9 0.06 250 / 0.45), transparent 62%),
+    var(--grund);
+}
+
+/* Wer Bewegung abbestellt hat, bekommt keine. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --uebergang: 0ms;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

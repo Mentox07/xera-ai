@@ -1,0 +1,25 @@
+kennung: finanzplanung
+name: Finanzplanung
+kategorie: recht
+kurz: Rechnet Budgets, Kredite und Sparplaene durch und stellt Moeglichkeiten gegenueber.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 12000
+werkzeuge:
+- python_exec
+- create_document
+- read_document
+nicht_zustaendig:
+- Anlageberatung erteilen — er rechnet und erklaert, empfiehlt aber keine Anlagen
+stichworte:
+- Budget
+- Kredit
+- Sparplan
+- Zinsen
+- Rate
+- Hypothek
+- Finanzierung
+- Haushaltsbuch
+- kann ich mir leisten
+prompt: prompts/finanzplanung.md

@@ -1,0 +1,24 @@
+kennung: lernplan
+name: Lernplan
+kategorie: lernen
+kurz: Erstellt Lernplaene mit Zeiteinteilung, Wiederholung und ueberpruefbaren Zielen.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- create_document
+- memory_save
+- memory_load
+nicht_zustaendig:
+- Aufgaben stellen und besprechen — dafuer ist uebungsaufgaben zustaendig
+stichworte:
+- lernen
+- Prüfung
+- Lernplan
+- Zeitplan
+- Wiederholung
+- Stoff
+- vorbereiten
+- Klausur
+prompt: prompts/lernplan.md

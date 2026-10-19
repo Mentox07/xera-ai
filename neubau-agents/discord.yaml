@@ -1,0 +1,24 @@
+kennung: discord
+name: Discord
+kategorie: kommunikation
+kurz: 'Verwaltet den Discord-Server: Kanäle, Rollen, Bots und deren Zustand.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- web_fetch
+nicht_zustaendig:
+- Texte für Mitteilungen formulieren — dafür ist ankuendigung zuständig
+stichworte:
+- Discord
+- Kanal
+- Rolle
+- Bot
+- Server
+- Webhook
+- Mitglied
+- Berechtigung
+- Guild
+prompt: prompts/discord.md

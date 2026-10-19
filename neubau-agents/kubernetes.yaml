@@ -1,0 +1,28 @@
+kennung: kubernetes
+name: Kubernetes
+kategorie: cloud
+kurz: 'Betreut Kubernetes: Manifeste, Dienste, Ingress, Fehlersuche in Pods.'
+lizenz: pro
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- shell_execute
+- read_file
+- write_file
+- ssh_execute
+nicht_zustaendig:
+- Einzelne Docker-Container — dafuer ist docker zustaendig
+stichworte:
+- k8s
+- kubectl
+- Pod
+- Deployment
+- Ingress
+- Helm
+- Namespace
+- CrashLoopBackOff
+- Cluster
+- Service
+- yaml
+prompt: prompts/kubernetes.md

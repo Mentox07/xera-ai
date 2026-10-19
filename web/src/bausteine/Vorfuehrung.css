@@ -1,0 +1,236 @@
+/* Die Vorführung: ein verkleinertes Fenster der echten Oberfläche. */
+
+.vf {
+  display: flex;
+  flex-direction: column;
+  height: clamp(340px, 46vw, 470px);
+  background: var(--grund);
+  font-size: 12px;
+  text-align: left;
+}
+
+.vf-fensterkopf {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--kante);
+  background: var(--grund-tief);
+}
+.vf-fensterkopf i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--kante-hell);
+}
+.vf-fensterkopf i:nth-child(1) { background: oklch(0.65 0.19 22 / 0.7); }
+.vf-fensterkopf i:nth-child(2) { background: oklch(0.78 0.15 75 / 0.7); }
+.vf-fensterkopf i:nth-child(3) { background: oklch(0.72 0.15 155 / 0.7); }
+.vf-fensterkopf span {
+  margin: 0 auto;
+  padding: 2px 14px;
+  border-radius: 999px;
+  background: var(--flaeche);
+  color: var(--text-still);
+  font-size: 10px;
+}
+
+.vf-koerper {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.vf-leiste {
+  position: relative;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-right: 1px solid var(--kante);
+  background: var(--grund-tief);
+  color: var(--text-still);
+}
+.vf-leiste > svg:nth-of-type(1) { color: var(--akzent); }
+.vf-leiste-zeiger {
+  position: absolute;
+  top: 37px;
+  left: 7px;
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  background: var(--akzent-hauch);
+  box-shadow: inset 2px 0 0 var(--akzent);
+}
+
+.vf-verlauf {
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--kante);
+}
+.vf-marke {
+  margin: 0 6px 8px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--text-still);
+}
+.vf-eintrag {
+  padding: 5px 6px;
+  border-radius: 4px;
+  color: var(--text-leise);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: eintrag-kommt var(--dauer-mittel) var(--kurve-aus) both;
+  animation-delay: calc(var(--i) * 70ms + 300ms);
+}
+.vf-eintrag.ist-aktiv {
+  background: var(--flaeche);
+  color: var(--text);
+  box-shadow: inset 2px 0 0 var(--akzent);
+}
+
+.vf-haupt {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.vf-lauf {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 26px;
+  overflow: hidden;
+}
+
+.vf-frage {
+  align-self: flex-end;
+  max-width: 80%;
+  padding: 7px 11px;
+  border: 1px solid var(--kante);
+  border-radius: 8px;
+  background: var(--flaeche);
+  transform-origin: bottom right;
+  animation: frage-steigt var(--dauer-lang) var(--kurve-feder) both;
+}
+
+.vf-antwort {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--schrift-sans);
+  color: var(--text);
+  animation: antwort-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+.vf-titel {
+  font-size: 14px;
+}
+.vf-antwort table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.vf-antwort th,
+.vf-antwort td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--kante);
+  text-align: left;
+}
+.vf-antwort th {
+  color: var(--akzent);
+  font-family: var(--schrift-mono);
+  font-weight: 500;
+}
+.vf-antwort td:first-child {
+  color: var(--text-leise);
+  font-weight: 600;
+}
+.vf-antwort tr {
+  animation: block-kommt 480ms var(--kurve-aus) both;
+}
+.vf-antwort p {
+  color: var(--text-leise);
+  line-height: 1.55;
+  animation: block-kommt 480ms var(--kurve-aus) both;
+}
+
+.vf-marke-strich {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  margin-left: 2px;
+  vertical-align: -2px;
+  border-radius: 1px;
+  background: var(--akzent);
+  box-shadow: 0 0 8px var(--akzent);
+  animation: atmen 1s ease-in-out infinite;
+}
+
+.vf-eingabe {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 26px 16px;
+  padding: 8px 8px 8px 12px;
+  border: 1px solid var(--kante-hell);
+  border-radius: 8px;
+  background: var(--flaeche);
+  font-family: var(--schrift-sans);
+  transition: border-color var(--dauer-mittel), box-shadow var(--dauer-lang) var(--kurve-aus);
+}
+.vf-eingabe em {
+  font-style: normal;
+  color: var(--text-still);
+}
+.vf-eingabe.tippt {
+  border-color: var(--akzent-tief);
+  box-shadow: 0 0 0 3px var(--akzent-hauch);
+}
+.vf-eingabe.laeuft::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--akzent), var(--ton-blau), transparent);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: streifen 1.3s var(--kurve-ein-aus) infinite;
+}
+.vf-senden {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  background: var(--akzent);
+  color: var(--auf-akzent);
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.vf-senden.drueckt {
+  animation: drueckt 500ms var(--kurve-feder);
+}
+.vf-senden svg {
+  animation: zeichen-ploppt var(--dauer-mittel) var(--kurve-feder) both;
+}
+@keyframes drueckt {
+  40% { transform: scale(0.8); box-shadow: 0 0 0 6px var(--akzent-hauch); }
+}
+
+@media (max-width: 720px) {
+  .vf-verlauf { display: none; }
+  .vf-lauf, .vf-eingabe { padding-inline: 14px; margin-inline: 14px; }
+  .vf-lauf { padding-inline: 14px; }
+}

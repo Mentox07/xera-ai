@@ -1,0 +1,23 @@
+kennung: wissensbasis
+name: Wissensbasis
+kategorie: wissen
+kurz: Durchsucht die eigenen Notizen, Unterlagen und abgelegten Dokumente.
+lizenz: pro
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- rag_search
+- knowledge_search
+- read_document
+nicht_zustaendig:
+- Im Internet suchen — dafür ist recherche zuständig
+stichworte:
+- meine Notizen
+- eigene Unterlagen
+- abgelegt
+- wo hab ich
+- Wissensdatenbank
+- intern suchen
+- Dokumente
+prompt: prompts/wissensbasis.md

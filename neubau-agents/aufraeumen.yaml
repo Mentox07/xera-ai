@@ -1,0 +1,25 @@
+kennung: aufraeumen
+name: Aufraeumen
+kategorie: homelab
+kurz: Entfernt alte Schnappschuesse, Protokolle und Abbilder nach festen Regeln.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- find_files
+- docker_manage
+nicht_zustaendig:
+- Finden wer den Platz belegt — dafuer ist speicher zustaendig
+stichworte:
+- aufräumen
+- löschen
+- alte Dateien
+- prune
+- Snapshots weg
+- Platz schaffen
+- Rotation
+- logrotate
+prompt: prompts/aufraeumen.md

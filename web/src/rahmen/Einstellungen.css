@@ -1,0 +1,347 @@
+.einst-grund {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: oklch(0 0 0 / 0.45);
+  backdrop-filter: blur(4px);
+  animation: grund-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+
+.einst {
+  position: absolute;
+  top: var(--a3);
+  bottom: var(--a3);
+  left: calc(var(--leiste) + var(--a3));
+  width: min(420px, calc(100vw - var(--leiste) - var(--a5)));
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-weit);
+  background: var(--flaeche);
+  box-shadow: var(--schatten), 0 0 0 1px var(--akzent-hauch);
+  animation: einst-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+@keyframes einst-kommt {
+  from { opacity: 0; transform: translateX(-30px) scale(0.97); }
+}
+
+.einst-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--a4) var(--a5);
+  border-bottom: 1px solid var(--kante);
+}
+.einst-kopf h2 {
+  font-size: var(--gr-titel);
+}
+.einst-kopf button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  transition: color var(--dauer-kurz), background var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.einst-kopf button:hover {
+  color: var(--text);
+  background: var(--flaeche-hoch);
+  transform: rotate(90deg);
+}
+
+.einst-teil {
+  padding: var(--a4) var(--a5);
+  border-bottom: 1px solid var(--kante);
+  animation: antwort-kommt var(--dauer-lang) var(--kurve-aus) both;
+  animation-delay: calc(var(--i) * 70ms + 100ms);
+}
+.einst-teil h3 {
+  margin-bottom: var(--a3);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.einst-konto {
+  display: flex;
+  align-items: center;
+  gap: var(--a4);
+  margin-bottom: var(--a3);
+}
+.einst-bild {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid var(--akzent-tief);
+  background: var(--flaeche-hoch);
+  box-shadow: 0 0 0 4px var(--akzent-hauch);
+  animation: zeichen-springt 700ms var(--kurve-feder) both;
+}
+.einst-bild img {
+  width: 100%;
+  height: 100%;
+}
+.einst-konto strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--gr-text);
+  font-weight: 500;
+}
+.einst-rolle {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--akzent-tief);
+  border-radius: 999px;
+  background: var(--akzent-hauch);
+  color: var(--akzent);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.einst-rolle.ist-homelab {
+  border-color: var(--warn);
+  background: var(--warn-hauch);
+  color: var(--warn);
+}
+.einst-zeile,
+.einst-hinweis {
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.einst-hinweis {
+  margin-top: var(--a3);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+}
+
+/* Schalter: ein Kippschalter statt eines Kästchens, mit Feder beim Umlegen. */
+.einst-schalter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--a4);
+  padding: var(--a2) 0;
+  cursor: pointer;
+}
+.einst-schalter input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.einst-schalter i {
+  position: relative;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--kante-hell);
+  transition: background var(--dauer-mittel);
+}
+.einst-schalter i::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.3);
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.einst-schalter input:checked + i {
+  background: var(--akzent);
+}
+.einst-schalter input:checked + i::after {
+  transform: translateX(16px);
+}
+.einst-schalter input:focus-visible + i {
+  outline: 2px solid var(--akzent);
+  outline-offset: 2px;
+}
+
+.einst-tasten {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.einst-tasten > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--a3);
+}
+.einst-tasten dt {
+  display: flex;
+  gap: 3px;
+}
+.einst-tasten kbd {
+  padding: 1px 6px;
+  border: 1px solid var(--kante-hell);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--grund-tief);
+  font-family: var(--schrift-mono);
+  font-size: 11px;
+  color: var(--text);
+}
+.einst-tasten dd {
+  margin: 0;
+  color: var(--text-leise);
+  font-size: var(--gr-klein);
+  text-align: right;
+}
+
+.einst-fuss {
+  margin-top: auto;
+  padding: var(--a4) var(--a5);
+}
+.einst-fuss a {
+  text-decoration: none !important;
+}
+
+@media (max-width: 720px) {
+  .einst {
+    left: var(--a3);
+    right: var(--a3);
+    width: auto;
+    bottom: calc(58px + var(--a3));
+  }
+}
+
+.einst-fuss {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.einst-recht {
+  display: flex;
+  gap: var(--a4);
+  font-size: var(--gr-klein);
+}
+.einst-recht a {
+  color: var(--text-still);
+}
+.einst-recht a:hover {
+  color: var(--akzent);
+}
+
+/* CLI (OpenCode): Schlüssel und Befehle. Befehle sind lang — sie brechen um,
+   statt die Tafel breiter zu machen. */
+.cli {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a3);
+}
+.cli code {
+  font-family: var(--schrift-mono);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.cli-zeile {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--a2);
+  padding: var(--a2) var(--a3);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+  background: var(--flaeche-hoch);
+}
+.cli-zeile code {
+  flex: 1;
+  color: var(--text);
+  line-height: 1.5;
+}
+.cli-kopieren {
+  flex: none;
+  padding: 2px 8px;
+  border: 1px solid var(--kante-hell);
+  border-radius: 999px;
+  color: var(--text-still);
+  font-size: 11px;
+  transition: color var(--dauer-kurz), border-color var(--dauer-kurz);
+}
+.cli-kopieren:hover {
+  color: var(--akzent);
+  border-color: var(--akzent-tief);
+}
+.cli-neu {
+  padding: var(--a3);
+  border: 1px solid var(--akzent-tief);
+  border-radius: var(--rund);
+  background: var(--akzent-hauch);
+  animation: antwort-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+.cli-neu strong {
+  display: block;
+  margin-bottom: var(--a2);
+  color: var(--akzent);
+  font-size: 13px;
+  font-weight: 500;
+}
+.cli-liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+  list-style: none;
+  padding: 0;
+}
+.cli-liste li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--a3);
+  color: var(--text-leise);
+  font-size: 13px;
+}
+.cli-liste small {
+  display: block;
+  color: var(--text-still);
+  font-size: 11px;
+}
+.cli-liste button {
+  color: var(--text-still);
+  font-size: 12px;
+  transition: color var(--dauer-kurz);
+}
+.cli-liste button:hover,
+.cli-liste button.ist-frage {
+  color: var(--warn);
+}
+.cli-erzeugen {
+  align-self: flex-start;
+}
+.cli-fehler {
+  color: var(--warn);
+}
+.cli-befehle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a3);
+  list-style: none;
+  padding: 0;
+  counter-reset: schritt;
+}
+.cli-befehle li {
+  counter-increment: schritt;
+}
+.cli-befehle li > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-leise);
+  font-size: 13px;
+}
+.cli-befehle li > span::before {
+  content: counter(schritt) ". ";
+  color: var(--akzent);
+}

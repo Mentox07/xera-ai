@@ -1,0 +1,350 @@
+/* Die Leiste links. Schmal: nur Zeichen, Beschriftung als Fahne beim
+   Überfahren. Breit: Beschriftung daneben. Die Breite ändert sich animiert,
+   der Inhalt daneben rückt mit. Auf dem Handy: Leiste unten. */
+
+.leiste {
+  width: var(--leiste);
+  flex: 0 0 var(--leiste);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--a2);
+  padding: var(--a3) 8px;
+  background: var(--grund-tief);
+  border-right: 1px solid var(--kante);
+  transition:
+    width var(--dauer-lang) var(--kurve-aus),
+    flex-basis var(--dauer-lang) var(--kurve-aus);
+}
+.leiste.breit {
+  width: 200px;
+  flex-basis: 200px;
+}
+
+/* --- Zeichen oben ---------------------------------------------------------- */
+.leiste-marke {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  height: 30px;
+  margin: 0 0 var(--a3) 4px;
+  border-radius: var(--rund);
+  color: var(--text);
+  text-decoration: none !important;
+  transition: filter var(--uebergang);
+}
+.leiste-marke > :first-child {
+  flex: 0 0 auto;
+}
+.leiste-marke:hover {
+  filter: drop-shadow(0 0 8px var(--akzent-schein));
+}
+.leiste-marke:hover > :first-child {
+  animation: marke-dreht 900ms var(--kurve-feder);
+}
+@keyframes marke-dreht {
+  40% { transform: rotate(-14deg) scale(1.1); }
+  100% { transform: none; }
+}
+.leiste-marke-name {
+  font-size: var(--gr-text);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  animation: name-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+
+/* --- Bereiche ------------------------------------------------------------- */
+.leiste-liste {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--a1);
+}
+
+.leiste-fuss {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--a2);
+}
+
+.leiste-knopf {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  width: 100%;
+  height: 36px;
+  padding: 0 9px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  text-align: left;
+  transition: color var(--dauer-kurz), background var(--dauer-kurz);
+}
+.leiste-knopf:hover {
+  color: var(--text);
+}
+.leiste-knopf:not(.ist-aktiv):hover {
+  background: var(--flaeche);
+}
+.leiste-knopf.ist-aktiv {
+  color: var(--akzent);
+}
+.leiste-knopf svg {
+  position: relative;
+  flex: 0 0 auto;
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.leiste-knopf:hover svg {
+  transform: scale(1.12);
+}
+.leiste-knopf:active svg {
+  transform: scale(0.9);
+  transition-duration: 80ms;
+}
+.leiste-knopf.ist-aktiv svg {
+  animation: zeichen-rastet var(--dauer-lang) var(--kurve-feder);
+}
+@keyframes zeichen-rastet {
+  0% { transform: scale(0.7) rotate(-12deg); }
+  60% { transform: scale(1.15) rotate(3deg); }
+  100% { transform: none; }
+}
+
+/* Die wandernde Markierung. Ihre Lage kommt aus --index (Leiste.tsx). */
+.leiste-zeiger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  border-radius: var(--rund);
+  background: var(--akzent-hauch);
+  box-shadow: 0 0 18px -4px var(--akzent-schein);
+  transform: translateY(calc(var(--index, 0) * 40px));
+  transition: transform var(--dauer-lang) var(--kurve-feder);
+  pointer-events: none;
+}
+.leiste-zeiger::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 7px;
+  bottom: 7px;
+  width: 2px;
+  background: var(--akzent);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px var(--akzent);
+}
+
+/* Schmal: Name als Fahne daneben. */
+.leiste-name {
+  position: absolute;
+  left: calc(100% + 12px);
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  padding: 4px 9px;
+  background: var(--flaeche-obenauf);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund);
+  box-shadow: var(--schatten);
+  font-size: var(--gr-klein);
+  color: var(--text);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-8px) scale(0.92);
+  transform-origin: left center;
+  transition: opacity var(--dauer-kurz) var(--kurve-aus), transform var(--dauer-mittel) var(--kurve-feder);
+  z-index: 20;
+}
+.leiste-name kbd,
+.leiste-taste {
+  font-family: var(--schrift-mono);
+  font-size: 10px;
+  padding: 1px 5px;
+  border: 1px solid var(--kante-hell);
+  border-radius: 3px;
+  color: var(--text-still);
+}
+.leiste:not(.breit) .leiste-knopf:hover .leiste-name,
+.leiste:not(.breit) .leiste-knopf:focus-visible .leiste-name {
+  opacity: 1;
+  transform: none;
+}
+
+/* Breit: Name steht in der Zeile. */
+.leiste.breit .leiste-name {
+  position: static;
+  flex: 1;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-size: var(--gr-basis);
+  color: inherit;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  animation: name-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+.leiste-taste {
+  opacity: 0;
+  transition: opacity var(--dauer-kurz);
+}
+.leiste-knopf:hover .leiste-taste {
+  opacity: 1;
+}
+@keyframes name-kommt {
+  from { opacity: 0; transform: translateX(-6px); }
+}
+
+/* --- Nutzer --------------------------------------------------------------- */
+.leiste-nutzer-knopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  width: 100%;
+  padding: 4px 5px;
+  border-radius: var(--rund);
+  text-align: left;
+  transition: background var(--dauer-kurz);
+}
+.leiste-nutzer-knopf:hover {
+  background: var(--flaeche);
+}
+.leiste-nutzer {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--flaeche-hoch);
+  border: 1px solid var(--kante-hell);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--text-leise);
+  transition: transform var(--dauer-mittel) var(--kurve-feder), box-shadow var(--dauer-mittel);
+}
+.leiste-nutzer-knopf:hover .leiste-nutzer {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px var(--akzent-hauch);
+}
+.leiste-nutzer img {
+  display: block;
+  border-radius: 50%;
+}
+.leiste-nutzer-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  animation: name-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+.leiste-nutzer-text strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--text);
+}
+.leiste-nutzer-text small {
+  color: var(--akzent);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --- Handy: Leiste unten ----------------------------------------------------
+ * Die vier Bereiche als Reiter unten, wie bei Apps üblich — dort liegt der
+ * Daumen. Marke, Modellstatus und Breiten-Knopf fallen weg; Befehle und Konto
+ * bleiben als eigene Reiter.
+ */
+@media (max-width: 720px) {
+  .leiste,
+  .leiste.breit {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    width: 100%;
+    height: calc(58px + env(safe-area-inset-bottom));
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    padding: 0 var(--a2) env(safe-area-inset-bottom);
+    border-right: none;
+    border-top: 1px solid var(--kante);
+    background: oklch(0.08 0.01 282 / 0.92);
+    backdrop-filter: blur(12px);
+  }
+  .leiste-marke,
+  .leiste-nur-gross,
+  .modellstatus,
+  .leiste-taste,
+  .leiste-name kbd {
+    display: none;
+  }
+  .leiste-liste {
+    flex: 4;
+    flex-direction: row;
+    gap: 0;
+  }
+  .leiste-liste > li {
+    flex: 1;
+  }
+  .leiste-fuss {
+    flex: 2;
+    flex-direction: row;
+    margin: 0;
+    gap: 0;
+  }
+  .leiste-knopf,
+  .leiste-nutzer-knopf {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    height: 52px;
+    padding: 0;
+  }
+  .leiste-nutzer-text {
+    display: none;
+  }
+  .leiste-name,
+  .leiste.breit .leiste-name {
+    position: static;
+    flex: none;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    font-size: 10px;
+    color: inherit;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .leiste-zeiger {
+    width: 25%;
+    height: 52px;
+    right: auto;
+    transform: translateX(calc(var(--index, 0) * 100%));
+  }
+  .leiste-zeiger::before {
+    left: 30%;
+    right: 30%;
+    top: -3px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+    border-radius: 0 0 2px 2px;
+  }
+}

@@ -1,0 +1,114 @@
+.gedanken {
+  align-self: stretch;
+  animation: antwort-kommt var(--dauer-lang) var(--kurve-aus) both;
+}
+
+/* --- Live ------------------------------------------------------------------ */
+.gedanken.ist-live {
+  overflow: hidden;
+  border: 1px solid var(--akzent-tief);
+  border-radius: var(--rund-gross);
+  background:
+    linear-gradient(180deg, var(--akzent-hauch), transparent 60%),
+    var(--grund-tief);
+  box-shadow: 0 0 0 0 var(--akzent-hauch);
+  animation:
+    antwort-kommt var(--dauer-lang) var(--kurve-aus) both,
+    gedanken-puls 2.4s ease-in-out infinite;
+}
+@keyframes gedanken-puls {
+  50% { box-shadow: 0 0 0 4px var(--akzent-hauch), 0 12px 40px -18px var(--akzent-schein); }
+}
+.gedanken-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  padding: var(--a2) var(--a3);
+  border-bottom: 1px solid var(--kante);
+  font-size: var(--gr-basis);
+}
+.gedanken-zeit {
+  margin-left: auto;
+  color: var(--text-still);
+  font-variant-numeric: tabular-nums;
+}
+.gedanken-fenster {
+  height: 128px;
+  overflow: hidden;
+  padding: var(--a3);
+  color: var(--text-still);
+  font-family: var(--schrift-sans);
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  /* Oben weich ausblenden: Das Ältere zieht nach oben weg. */
+  mask-image: linear-gradient(to bottom, transparent 0, #000 45%);
+}
+
+/* --- Danach: aufklappbar ---------------------------------------------------- */
+.gedanken-schalter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 8px;
+  border: 1px solid var(--kante-hell);
+  border-radius: 999px;
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  transition: color var(--dauer-kurz), border-color var(--dauer-kurz), background var(--dauer-kurz);
+}
+.gedanken-schalter:hover {
+  color: var(--text);
+  border-color: var(--akzent-tief);
+  background: var(--akzent-hauch);
+}
+.gedanken-schalter svg:first-child {
+  color: var(--akzent);
+}
+.gedanken-schalter svg:last-child {
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.gedanken.offen .gedanken-schalter svg:last-child {
+  transform: rotate(90deg);
+}
+.gedanken-klappe {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dauer-mittel) var(--kurve-aus);
+}
+.gedanken.offen .gedanken-klappe {
+  grid-template-rows: 1fr;
+}
+.gedanken-klappe > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.gedanken-text {
+  margin-top: var(--a2);
+  max-height: 340px;
+  overflow-y: auto;
+  padding: var(--a3);
+  border-left: 2px solid var(--akzent-tief);
+  color: var(--text-still);
+  font-family: var(--schrift-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* „Jetzt antworten“ (seit 2026-10-19): beendet das Nachdenken. */
+.gedanken-jetzt {
+  padding: 3px 10px;
+  border: 1px solid oklch(0.6 0.14 60 / 0.7);
+  border-radius: 999px;
+  color: var(--ton-warm);
+  font-size: 12px;
+  transition: background var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder), opacity var(--dauer-kurz);
+}
+.gedanken-jetzt:hover:not(:disabled) {
+  background: oklch(0.78 0.14 60 / 0.14);
+  transform: scale(1.05);
+}
+.gedanken-jetzt:disabled {
+  opacity: 0.5;
+}

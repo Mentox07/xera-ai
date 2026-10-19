@@ -1,0 +1,25 @@
+kennung: protokoll
+name: Protokoll
+kategorie: kommunikation
+kurz: Hält Besprechungen, Entscheidungen und ihre Begründungen schriftlich fest.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- create_document
+- write_file
+- memory_save
+- memory_load
+nicht_zustaendig:
+- Termine und Fristen verwalten — dafuer ist termine zustaendig
+stichworte:
+- Protokoll
+- Besprechung
+- Meeting
+- Notizen
+- Beschluss
+- Entscheidung
+- festhalten
+- Sitzung
+prompt: prompts/protokoll.md

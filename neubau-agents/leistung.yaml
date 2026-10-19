@@ -1,0 +1,26 @@
+kennung: leistung
+name: Laufzeitverhalten
+kategorie: code
+kurz: 'Findet heraus, warum etwas langsam ist: Engpaesse, Wartezeiten, teure Stellen.'
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- python_exec
+- read_file
+- shell_execute
+- monitoring_query
+nicht_zustaendig:
+- Falsches Verhalten und Abstuerze — dafuer ist fehlersuche zustaendig
+stichworte:
+- langsam
+- Performance
+- Profiler
+- Engpass
+- dauert lange
+- optimieren
+- N+1
+- Bottleneck
+- Laufzeit
+prompt: prompts/leistung.md

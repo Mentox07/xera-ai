@@ -1,0 +1,57 @@
+{
+  // Xera als Anbieter für OpenCode 2 (die Xera-CLI, seit 2026-10-17).
+  // Ablage: ~/.config/opencode/opencode.jsonc — Schlüssel aus xera-app.com → Einstellungen → CLI
+  // mit `opencode auth login xera` hinterlegen. XERA_API_KEY als Variable sieht der
+  // Hintergrunddienst von OpenCode 2 nicht (nur mit `opencode --standalone`).
+  "$schema": "https://opencode.ai/config.json",
+  "model": "xera/xera",
+  "update": "notify",
+  // Gemeinsame Xera-Regeln für CLI und Web-Code-Bereich (Sprache, eine Datei in einem Zug, kein Netz).
+  // OpenCode 2.0.29 lädt "instructions" noch nicht — darum zusätzlich als ~/.config/opencode/AGENTS.md
+  // (Befehl in den Einstellungen). Bleibt hier für neuere Versionen.
+  "instructions": ["https://xera-app.com/cli/regeln.md"],
+  // OpenCodes eigene Websuche läuft über fremde Dienste (Exa, Tavily …) — aus.
+  "websearch": false,
+  "providers": {
+    "xera": {
+      "name": "Xera",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "env": ["XERA_API_KEY"],
+      "settings": {
+        "baseURL": "https://xera-app.com/v1",
+        "timeout": false,
+        // Ein langer Verlauf wird minutenlang eingelesen, bevor das erste Wort kommt.
+        "headerTimeout": 1800000,
+        "chunkTimeout": 1800000
+      },
+      "models": {
+        "xera": {
+          "name": "Xera (Qwen3.8-Flash-Next)",
+          "limit": { "context": 131072, "output": 16384 },
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text"], "temperature": false },
+          "compatibility": { "reasoningField": "reasoning_content", "maxTokensField": "max_tokens" },
+          // Denkaufwand wie /effort im Web — Modell xera/xera#hoch usw. Auch max ist begrenzt
+          // (Token und Zeit), und Code im Denken beendet das Denken (backend/aufwand.py).
+          "variants": [
+            { "id": "niedrig", "body": { "xera_aufwand": "niedrig" } },
+            { "id": "mittel", "body": { "xera_aufwand": "mittel" } },
+            { "id": "hoch", "body": { "xera_aufwand": "hoch" } },
+            { "id": "max", "body": { "xera_aufwand": "max" } }
+          ]
+        },
+        "xera-klein": {
+          "name": "Xera klein (Titel, Zusammenfassungen)",
+          "limit": { "context": 131072, "output": 2048 },
+          "capabilities": { "tools": false, "input": ["text"], "output": ["text"], "temperature": false },
+          "compatibility": { "maxTokensField": "max_tokens" }
+        }
+      }
+    }
+  },
+  // Titel und Zusammenfassungen über das kleine Modell: eigener Slot bei Xera,
+  // damit der grosse Verlauf im CLI-Slot liegen bleibt.
+  "agents": {
+    "title": { "model": "xera/xera-klein" },
+    "summary": { "model": "xera/xera-klein" }
+  }
+}

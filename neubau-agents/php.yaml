@@ -1,0 +1,28 @@
+kennung: php
+name: PHP
+kategorie: sprachen
+kurz: 'Schreibt PHP: Composer, Laravel und Symfony, Umgang mit gewachsenem Code.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Oberflaechen bauen — dafuer ist frontend zustaendig
+stichworte:
+- Composer
+- Laravel
+- Symfony
+- WordPress
+- SQL Injection
+- htmlspecialchars
+- POST
+- GET
+- md5
+- include
+- Warning
+prompt: prompts/php.md

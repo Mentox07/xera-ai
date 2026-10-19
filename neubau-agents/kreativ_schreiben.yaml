@@ -1,0 +1,25 @@
+kennung: kreativ_schreiben
+name: Kreatives Schreiben
+kategorie: schreiben
+kurz: Schreibt Geschichten, Gedichte und Szenen, entwickelt Figuren und Handlung.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 8192
+werkzeuge:
+- create_document
+- write_file
+- read_file
+nicht_zustaendig:
+- Sachtexte nach Vorgabe — dafuer ist text_verfassen zustaendig
+stichworte:
+- Geschichte
+- Roman
+- Gedicht
+- Szene
+- Figur
+- Handlung
+- Erzählung
+- Kurzgeschichte
+- Dialog
+prompt: prompts/kreativ_schreiben.md

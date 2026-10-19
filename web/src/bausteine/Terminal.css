@@ -1,0 +1,170 @@
+/* Terminal-Vorführung der Seite „CLI“ (Terminal.tsx).
+ *
+ * Ein Terminal ist dunkel, auch im hellen Aussehen — darum eigene Farben statt
+ * der Themenfarben. Eingeblendet wird nur über Deckkraft: Was noch kommt, steht
+ * schon im Aufbau, die Höhe springt nicht. */
+
+.term {
+  --t-grund: #0b0b11;
+  --t-kopf: #14141c;
+  --t-kante: #23232f;
+  --t-flaeche: #15151f;
+  --t-text: #e6e6ee;
+  --t-leise: #a3a3b4;
+  --t-still: #6d6d7e;
+  --t-blau: oklch(0.72 0.15 250);
+  --t-gruen: oklch(0.76 0.15 155);
+
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+  overflow: hidden;
+  background: var(--t-grund);
+  color: var(--t-text);
+  font-family: var(--schrift-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.term-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  padding: 10px 14px;
+  background: var(--t-kopf);
+  border-bottom: 1px solid var(--t-kante);
+}
+.term-punkte {
+  display: inline-flex;
+  gap: 6px;
+}
+.term-punkte span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3a3a48;
+}
+.term-punkte span:nth-child(1) { background: oklch(0.65 0.17 25); }
+.term-punkte span:nth-child(2) { background: oklch(0.8 0.14 85); }
+.term-punkte span:nth-child(3) { background: oklch(0.72 0.15 150); }
+.term-titel {
+  color: var(--t-still);
+  font-size: 12px;
+}
+
+.term-inhalt {
+  padding: 18px 20px 20px;
+}
+.term-inhalt p { margin: 0; }
+
+.term-zeile { margin-bottom: 14px !important; }
+.term-prompt { color: var(--t-gruen); }
+
+.term-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.15em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--t-text);
+  animation: term-blinkt 1s steps(1) infinite;
+}
+@keyframes term-blinkt {
+  50% { opacity: 0; }
+}
+.term-rest { visibility: hidden; }
+
+/* OpenCode selbst: erscheint, sobald der Befehl abgeschickt ist. */
+.term-tui {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 120ms, transform 120ms;
+}
+.term-tui.ist-an {
+  opacity: 1;
+  transform: none;
+  transition: opacity 500ms var(--kurve-aus), transform 600ms var(--kurve-feder);
+}
+
+/* Die Frage: Balken links, wie in OpenCode. */
+.term-frage {
+  margin-bottom: 14px !important;
+  padding: 8px 12px;
+  border-left: 3px solid var(--t-blau);
+  background: var(--t-flaeche);
+}
+
+.term-werkzeug {
+  padding-left: 12px;
+  margin-bottom: 4px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 120ms, transform 120ms;
+}
+.term-werkzeug.ist-an {
+  opacity: 1;
+  transform: none;
+  transition: opacity 400ms var(--kurve-aus), transform 500ms var(--kurve-feder);
+}
+.term-werkzeug > p:first-child {
+  display: flex;
+  gap: 10px;
+}
+.term-status {
+  flex: 0 0 1.2ch;
+  color: var(--t-still);
+  text-align: center;
+}
+/* Läuft noch: pocht. Fertig: der Haken springt herein. */
+.term-werkzeug.ist-an .term-status:not(.ist-fertig) {
+  animation: term-pocht 0.9s ease-in-out infinite;
+}
+.term-status.ist-fertig {
+  color: var(--t-gruen);
+  animation: zeichen-ploppt var(--dauer-lang) var(--kurve-feder) both;
+}
+@keyframes term-pocht {
+  50% { opacity: 0.3; }
+}
+.term-wname {
+  flex: 0 0 5.5ch;
+  color: var(--t-leise);
+}
+.term-ziel {
+  color: var(--t-text);
+  overflow-wrap: anywhere;
+}
+.term-ausgabe {
+  margin-left: calc(1.2ch + 10px) !important;
+  color: var(--t-still);
+  opacity: 0;
+  transition: opacity 120ms;
+}
+.term-ausgabe.ist-an {
+  opacity: 1;
+  transition: opacity 400ms var(--kurve-aus);
+}
+
+.term-antwort {
+  margin-top: 14px !important;
+  padding-left: 12px;
+}
+
+.term-fuss {
+  margin-top: 12px !important;
+  padding-left: 12px;
+  color: var(--t-still);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 120ms;
+}
+.term-fuss.ist-an {
+  opacity: 1;
+  transition: opacity 600ms var(--kurve-aus);
+}
+.term-modus { color: var(--t-blau); }
+
+@media (max-width: 560px) {
+  .term { font-size: 12px; }
+  .term-inhalt { padding: 14px 14px 16px; }
+}

@@ -1,0 +1,23 @@
+kennung: erklaeren
+name: Erklaeren
+kategorie: lernen
+kurz: Erklaert schwierige Sachverhalte verstaendlich, mit Beispielen und Vergleichen.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- rag_search
+- web_search
+- read_document
+nicht_zustaendig:
+- Uebungen zum Nachrechnen — dafuer ist uebungsaufgaben zustaendig
+stichworte:
+- erklär mir
+- verstehe nicht
+- wie funktioniert
+- einfach erklärt
+- was ist
+- Beispiel
+- begreifen
+prompt: prompts/erklaeren.md

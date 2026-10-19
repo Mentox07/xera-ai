@@ -1,0 +1,27 @@
+kennung: git
+name: Versionsverwaltung
+kategorie: code
+kurz: Verwaltet Zweige, Zusammenführungen, Konflikte und die Historie von Projekten.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- git_execute
+- read_file
+- list_files
+nicht_zustaendig:
+- Was im Code steht — dafuer sind code_pruefen und umbau zustaendig
+stichworte:
+- commit
+- branch
+- merge
+- rebase
+- Konflikt
+- push
+- pull
+- reset
+- reflog
+- Historie
+- cherry-pick
+prompt: prompts/git.md

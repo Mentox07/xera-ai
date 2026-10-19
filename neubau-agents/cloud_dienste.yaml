@@ -1,0 +1,28 @@
+kennung: cloud_dienste
+name: Cloud-Dienste
+kategorie: cloud
+kurz: 'Berat zu AWS, Azure und Google Cloud: Dienste waehlen, Kosten schaetzen, einrichten.'
+lizenz: pro
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- shell_execute
+- web_search
+- web_fetch
+- read_file
+nicht_zustaendig:
+- Infrastruktur als Code schreiben — dafuer ist terraform zustaendig
+stichworte:
+- AWS
+- Azure
+- Google Cloud
+- GCP
+- S3
+- EC2
+- Lambda
+- Kosten
+- Cloud
+- Rechnung
+- Region
+prompt: prompts/cloud_dienste.md

@@ -1,0 +1,23 @@
+kennung: prompt_entwurf
+name: Prompts entwerfen
+kategorie: daten
+kurz: Verbessert Anweisungen an Sprachmodelle, prueft sie an Beispielen, findet Schwaechen.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+nicht_zustaendig:
+- Modelle trainieren — dafuer ist maschinelles_lernen zustaendig
+stichworte:
+- Prompt
+- Systemprompt
+- LLM
+- Anweisung
+- Modell antwortet falsch
+- few-shot
+- Temperatur
+- halluziniert
+prompt: prompts/prompt_entwurf.md

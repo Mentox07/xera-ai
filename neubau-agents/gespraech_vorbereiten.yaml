@@ -1,0 +1,23 @@
+kennung: gespraech_vorbereiten
+name: Gespraech vorbereiten
+kategorie: beruf
+kurz: Bereitet auf Vorstellungs-, Kritik- und Verhandlungsgespraeche vor, uebt Antworten.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- create_document
+- web_search
+- memory_load
+nicht_zustaendig:
+- Anschreiben und Lebenslauf — dafuer ist bewerbung zustaendig
+stichworte:
+- Vorstellungsgespräch
+- Interview
+- Gehaltsverhandlung
+- Kritikgespräch
+- vorbereiten
+- Fragen üben
+- Verhandlung
+prompt: prompts/gespraech_vorbereiten.md

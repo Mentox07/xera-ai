@@ -1,0 +1,162 @@
+.gkopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  min-height: 48px;
+  padding: var(--a2) var(--a4);
+  border-bottom: 1px solid var(--kante);
+  background: var(--grund);
+  backdrop-filter: blur(8px);
+}
+
+.gkopf-titel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+}
+.gkopf-bereich {
+  flex: 0 0 auto;
+  padding: 2px 7px;
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  color: var(--text-still);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.gkopf-name {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a2);
+  min-width: 0;
+  padding: 3px 6px;
+  border-radius: var(--rund);
+  color: var(--text);
+  font-size: var(--gr-text);
+  font-weight: 500;
+  transition: background var(--dauer-kurz);
+}
+.gkopf-name span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* Ein neuer Titel (nach der ersten Antwort oder nach Umbenennen) blendet
+     ein, statt einfach dazustehen. */
+  animation: block-kommt 520ms var(--kurve-aus) both;
+}
+.gkopf-name svg {
+  flex: 0 0 auto;
+  color: var(--text-still);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+button.gkopf-name:hover {
+  background: var(--flaeche);
+}
+button.gkopf-name:hover svg {
+  opacity: 1;
+  transform: none;
+}
+.gkopf-name.ist-neu {
+  color: var(--text-still);
+  font-weight: 400;
+}
+.gkopf-feld {
+  flex: 1;
+  min-width: 0;
+  max-width: 480px;
+  padding: 3px 6px;
+  border: 1px solid var(--akzent);
+  border-radius: var(--rund);
+  background: var(--grund-tief);
+  font-size: var(--gr-text);
+  box-shadow: 0 0 0 3px var(--akzent-hauch);
+  outline: none;
+  animation: grund-kommt var(--dauer-kurz) both;
+}
+
+.gkopf-marke {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--akzent-tief);
+  border-radius: 999px;
+  background: var(--akzent-hauch);
+  color: var(--akzent);
+  font-size: var(--gr-klein);
+  animation: marke-schnappt var(--dauer-lang) var(--kurve-feder) both;
+}
+.gkopf-marke.ist-web {
+  border-color: oklch(0.55 0.13 210);
+  background: oklch(0.75 0.13 210 / 0.12);
+  color: var(--ton-tuerkis);
+}
+
+.gkopf-aktionen {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.gkopf-knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  transition: color var(--dauer-kurz), background var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.gkopf-knopf:hover {
+  color: var(--text);
+  background: var(--flaeche);
+  transform: translateY(-1px);
+}
+.gkopf-knopf:active {
+  transform: scale(0.92);
+}
+.gkopf-knopf.ist-gefahr:hover {
+  color: var(--schlecht);
+}
+.gkopf-knopf.ist-neu {
+  border: 1px solid var(--kante-hell);
+  color: var(--text-leise);
+}
+.gkopf-knopf.ist-neu:hover {
+  border-color: var(--akzent-tief);
+  color: var(--akzent);
+}
+.gkopf-knopf.ist-neu:hover svg {
+  transform: rotate(90deg);
+}
+.gkopf-knopf svg {
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+
+/* Der Verlaufsknopf erscheint nur, wenn der Verlauf eine Schublade ist. */
+.gkopf-verlauf {
+  display: none;
+}
+@media (max-width: 860px) {
+  .gkopf-verlauf { display: inline-flex; }
+  .gkopf { padding-inline: var(--a2); }
+}
+@media (max-width: 520px) {
+  .gkopf-bereich,
+  .gkopf-knopf.ist-neu span {
+    display: none;
+  }
+}
+
+.gkopf-marke.ist-denken {
+  border-color: oklch(0.6 0.14 60);
+  background: oklch(0.78 0.14 60 / 0.12);
+  color: var(--ton-warm);
+}

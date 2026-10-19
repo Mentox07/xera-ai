@@ -1,0 +1,26 @@
+kennung: dokument_erstellen
+name: Dokument erstellen
+kategorie: dokumente
+kurz: Erzeugt PDF- und Word-Dateien aus vorgegebenem Inhalt, mit Gliederung und Format.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 8192
+werkzeuge:
+- create_document
+- read_file
+- rag_search
+nicht_zustaendig:
+- Tabellen mit Rechenwerten — dafür ist tabelle zuständig
+- Foliensätze — dafür ist praesentation zuständig
+stichworte:
+- PDF
+- Word
+- docx
+- Dokument erstellen
+- Bericht
+- Gliederung
+- Deckblatt
+- exportieren
+- Datei erzeugen
+prompt: prompts/dokument_erstellen.md

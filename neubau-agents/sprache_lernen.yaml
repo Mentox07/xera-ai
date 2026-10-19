@@ -1,0 +1,24 @@
+kennung: sprache_lernen
+name: Sprachen lernen
+kategorie: lernen
+kurz: 'Uebt Fremdsprachen: Wortschatz, Grammatik, Gespraeche, verbessert Geschriebenes.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- create_document
+- memory_save
+- memory_load
+nicht_zustaendig:
+- Fertige Texte uebertragen — dafuer ist uebersetzen zustaendig
+stichworte:
+- Vokabeln
+- Grammatik
+- Fremdsprache
+- Spanisch
+- Englisch üben
+- Konversation
+- Aussprache
+- Sprachkurs
+prompt: prompts/sprache_lernen.md

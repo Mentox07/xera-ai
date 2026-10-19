@@ -1,0 +1,26 @@
+kennung: terraform
+name: Infrastruktur als Code
+kategorie: cloud
+kurz: 'Schreibt Terraform und OpenTofu: Zustandsdateien, Module, Planen und Anwenden.'
+lizenz: pro
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Was die Cloud kostet — dafuer ist cloud_dienste zustaendig
+stichworte:
+- OpenTofu
+- tfstate
+- terraform plan
+- apply
+- Modul
+- Provider
+- Infrastructure as Code
+- IaC
+- HCL
+prompt: prompts/terraform.md

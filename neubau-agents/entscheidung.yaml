@@ -1,0 +1,23 @@
+kennung: entscheidung
+name: Entscheidungshilfe
+kategorie: beruf
+kurz: 'Strukturiert schwierige Entscheidungen: Kriterien, Gewichtung, Folgen, blinde Flecken.'
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 10000
+werkzeuge:
+- create_document
+- web_search
+- rag_search
+nicht_zustaendig:
+- Zwei Produkte gegenueberstellen — dafuer ist vergleich zustaendig
+stichworte:
+- Entscheidung
+- soll ich
+- Kriterien
+- abwägen
+- unsicher
+- Für und Wider
+- wie entscheiden
+prompt: prompts/entscheidung.md

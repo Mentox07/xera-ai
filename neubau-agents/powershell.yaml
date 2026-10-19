@@ -1,0 +1,27 @@
+kennung: powershell
+name: PowerShell
+kategorie: sprachen
+kurz: Schreibt PowerShell fuer Windows-Verwaltung, Active Directory und Automatisierung.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+nicht_zustaendig:
+- Linux-Systeme verwalten — dafuer ist shell_skript zustaendig
+stichworte:
+- Active Directory
+- Get-ADUser
+- cmdlet
+- WhatIf
+- PSVersion
+- Windows
+- AD
+- Exchange
+- pipeline
+- Import-Module
+- Where-Object
+prompt: prompts/powershell.md

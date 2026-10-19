@@ -1,0 +1,27 @@
+# Geheimnisse und Standort — nie ins Repo
+.env
+privat/
+standort.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+.venv/
+
+# Laufzeitdaten
+data/
+
+# Oberfläche
+node_modules/
+web/dist/
+*.tsbuildinfo
+
+# OpenCode-Programm (wird separat installiert)
+motor/opencode
+
+# IDE
+.vscode/
+.idea/

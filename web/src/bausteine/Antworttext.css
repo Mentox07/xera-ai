@@ -1,0 +1,200 @@
+/* Antworten des Modells. Fließtext in der Sans, alles Technische in der Mono. */
+
+.antworttext > * + * {
+  margin-top: var(--a3);
+}
+
+.antworttext h1 { font-size: var(--gr-titel); margin-top: var(--a5); }
+.antworttext h2 { font-size: var(--gr-text); margin-top: var(--a5); letter-spacing: 0; }
+.antworttext h3 { font-size: var(--gr-text); color: var(--text-leise); margin-top: var(--a4); }
+
+.antworttext ul,
+.antworttext ol {
+  margin: 0;
+  padding-left: 1.4em;
+}
+.antworttext li + li {
+  margin-top: var(--a1);
+}
+
+.antworttext strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.antworttext blockquote {
+  margin: 0;
+  padding-left: var(--a3);
+  border-left: 2px solid var(--kante-hell);
+  color: var(--text-leise);
+}
+
+/* Bilder aus Antworten (z. B. Diagramme, die ein Agent erzeugt hat) passen
+   sich der Spalte an — vorher ragte ein 1200 px breites PNG aus der Antwort. */
+.antworttext img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--rund);
+  border: 1px solid var(--kante);
+  background: #fff;
+}
+/* Fremdes Bild: nur ein Link mit Hinweis (Antworttext.tsx, eigenesBild). */
+.antworttext .bild-fremd {
+  color: var(--text-still);
+  font-size: var(--gr-basis);
+}
+
+.antworttext hr {
+  border: none;
+  border-top: 1px solid var(--kante);
+  margin: var(--a5) 0;
+}
+
+.code-inline {
+  font-family: var(--schrift-mono);
+  font-size: 0.88em;
+  padding: 1px 5px;
+  background: var(--flaeche-hoch);
+  border: 1px solid var(--kante);
+  border-radius: 3px;
+  color: var(--akzent);
+}
+
+/* --- Codeblock ----------------------------------------------------------- */
+
+.codeblock {
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+  background: var(--grund-tief);
+  overflow: hidden;
+}
+
+.codeblock-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--a1) var(--a3);
+  border-bottom: 1px solid var(--kante);
+  background: var(--flaeche);
+}
+
+.codeblock-kopf button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  transition: color var(--uebergang);
+}
+.codeblock-kopf button:hover {
+  color: var(--akzent);
+}
+
+.codeblock pre {
+  margin: 0;
+  padding: var(--a3);
+  font-family: var(--schrift-mono);
+  font-size: var(--gr-basis);
+  line-height: 1.55;
+}
+
+.codeblock code {
+  font-family: inherit;
+}
+
+/* --- Tabellen ------------------------------------------------------------ */
+
+/* Sans statt Mono: Tabellen aus Antworten sind Text, keine Daten, und die
+   Mono macht jede Spalte so breit, dass die letzte abgeschnitten wird. Die
+   volle Breite der Antwort wird genutzt, Zellen brechen um. */
+.antworttext .roller:has(> table) {
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+}
+.antworttext table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--schrift-sans);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.antworttext th,
+.antworttext td {
+  padding: 8px var(--a3);
+  border-bottom: 1px solid var(--kante);
+  text-align: left;
+  vertical-align: top;
+  /* Klein genug, dass vier Spalten in die Lesebreite passen; breitere
+     Tabellen rollen im .roller zur Seite. */
+  min-width: 72px;
+  overflow-wrap: break-word;
+}
+.antworttext tr:last-child td {
+  border-bottom: none;
+}
+.antworttext th {
+  background: var(--flaeche);
+  color: var(--akzent-hell);
+  font-family: var(--schrift-mono);
+  font-size: var(--gr-basis);
+  font-weight: 500;
+}
+.antworttext td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+.antworttext tbody tr {
+  transition: background var(--dauer-kurz);
+}
+.antworttext tbody tr:hover {
+  background: var(--akzent-hauch);
+}
+/* Zahlen rechtsbündig und untereinander. */
+.antworttext td:has(> em),
+.antworttext .zahlen {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Hervorhebung --------------------------------------------------------
+   Eigene Farben statt eines fertigen Themas: die üblichen sind für hellen
+   Grund gemacht oder zu bunt. Vier Töne reichen. */
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in { color: oklch(0.78 0.13 320); }
+
+.hljs-string,
+.hljs-attr { color: oklch(0.8 0.13 145); }
+
+.hljs-number,
+.hljs-literal { color: var(--akzent); }
+
+.hljs-comment,
+.hljs-quote { color: var(--text-still); font-style: italic; }
+
+.hljs-title,
+.hljs-function .hljs-title,
+.hljs-section { color: oklch(0.78 0.11 240); }
+
+.hljs-variable,
+.hljs-name,
+.hljs-type { color: var(--text); }
+
+/* --- Formeln (KaTeX) -------------------------------------------------------- */
+.antworttext .katex {
+  font-size: 1.08em;
+}
+.antworttext .katex-display {
+  margin: var(--a3) 0;
+  padding: var(--a3) var(--a4);
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+  background: var(--grund-tief);
+}
+.antworttext .katex-error {
+  color: var(--schlecht);
+  font-family: var(--schrift-mono);
+}

@@ -1,0 +1,26 @@
+kennung: maschinelles_lernen
+name: Maschinelles Lernen
+kategorie: daten
+kurz: 'Begleitet Modelle: Merkmale waehlen, trainieren, bewerten, Ueberanpassung erkennen.'
+lizenz: pro
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- python_exec
+- read_file
+- write_file
+- shell_execute
+nicht_zustaendig:
+- Statistische Belastbarkeit pruefen — dafuer ist statistik zustaendig
+stichworte:
+- ML
+- Modell trainieren
+- Overfitting
+- Features
+- scikit-learn
+- PyTorch
+- Genauigkeit
+- Trainingsdaten
+- Vorhersage
+prompt: prompts/maschinelles_lernen.md

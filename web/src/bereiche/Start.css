@@ -1,0 +1,409 @@
+/* Die oeffentlichen Seiten.
+ *
+ * Zurueckhaltend: eine Spalte, viel Luft, wenige Farben. Der Akzent kommt an
+ * drei Stellen vor — Knopf, Verweis, Kapitelnummer — und sonst nirgends. Das
+ * ist der Unterschied zwischen einer Farbe, die etwas bedeutet, und einer,
+ * die nur da ist.
+ */
+
+.seite {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 var(--a5) var(--a7);
+}
+
+/* --- Aufschlag ------------------------------------------------------------ */
+
+.aufschlag {
+  padding: clamp(var(--a7), 12vh, 130px) 0 var(--a6);
+  max-width: 640px;
+}
+
+.aufschlag h1 {
+  font-size: clamp(38px, 6.5vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: var(--a4);
+}
+
+.aufschlag-satz {
+  font-family: var(--schrift-sans);
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.55;
+  color: var(--text-leise);
+  margin-bottom: var(--a5);
+  max-width: 42ch;
+}
+
+.aufschlag-knoepfe {
+  display: flex;
+  align-items: center;
+  gap: var(--a4);
+  flex-wrap: wrap;
+}
+
+.knopf-voll {
+  padding: 10px 22px;
+  border-radius: var(--rund);
+  background: var(--akzent);
+  color: var(--auf-akzent);
+  font-size: var(--gr-text);
+  font-weight: 500;
+  transition: background var(--uebergang);
+}
+.knopf-voll:hover { background: var(--akzent-hell); }
+
+.knopf-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-leise);
+  font-size: var(--gr-text);
+  transition: color var(--uebergang);
+}
+.knopf-text:hover { color: var(--akzent); }
+
+/* --- Produktbild ----------------------------------------------------------
+   Nur eine Kante, kein Schein und kein Schatten. Das Bild soll gezeigt
+   werden, nicht inszeniert. */
+
+.bild {
+  margin: 0 0 var(--a7);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+  overflow: hidden;
+  background: var(--grund-tief);
+}
+.bild img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- Abschnitte ------------------------------------------------------------ */
+
+.abschnitt {
+  padding: var(--a6) 0;
+  border-top: 1px solid var(--kante);
+}
+
+.abschnitt h2 {
+  font-size: var(--gr-titel);
+  margin-bottom: var(--a5);
+}
+
+.raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--a5);
+}
+.raster svg { color: var(--text-still); }
+.raster h3 {
+  margin: var(--a2) 0 var(--a1);
+  font-size: var(--gr-text);
+}
+.raster p {
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-basis);
+  line-height: 1.6;
+}
+
+.daten {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+.daten > div {
+  display: flex;
+  gap: var(--a5);
+  padding: var(--a3) 0;
+  border-bottom: 1px solid var(--kante);
+}
+.daten > div:first-child { border-top: 1px solid var(--kante); }
+.daten dt {
+  flex: 0 0 160px;
+  color: var(--text-still);
+  font-size: var(--gr-basis);
+}
+.daten dd {
+  margin: 0;
+  color: var(--text-leise);
+  font-size: var(--gr-basis);
+}
+
+.notiz {
+  margin-top: var(--a4);
+  color: var(--text-still);
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-basis);
+  line-height: 1.6;
+}
+
+.verweis {
+  color: var(--akzent);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* --- Schluss --------------------------------------------------------------- */
+
+.schluss {
+  display: flex;
+  align-items: center;
+  gap: var(--a5);
+  flex-wrap: wrap;
+  padding: var(--a6) 0 0;
+  border-top: 1px solid var(--kante);
+}
+.schluss p {
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+}
+
+/* --- Über uns -------------------------------------------------------------- */
+
+.rolle {
+  color: var(--akzent) !important;
+  font-size: var(--gr-klein) !important;
+  margin-bottom: var(--a2);
+}
+
+.text > * + * { margin-top: var(--a3); }
+.text p { color: var(--text-leise); }
+.text em {
+  color: var(--text);
+  font-style: normal;
+}
+
+.liste {
+  display: grid;
+  gap: var(--a4);
+}
+.liste > div {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--a5);
+  padding-bottom: var(--a4);
+  border-bottom: 1px solid var(--kante);
+}
+.liste strong {
+  font-weight: 500;
+  color: var(--text);
+}
+.liste p {
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-basis);
+  line-height: 1.6;
+}
+
+@media (max-width: 680px) {
+  .liste > div { grid-template-columns: 1fr; gap: var(--a1); }
+  .daten > div { flex-direction: column; gap: 2px; }
+  .daten dt { flex: none; }
+}
+
+/* =========================================================================
+ * Bewegung der öffentlichen Seiten (Oktober 2026)
+ *
+ * Deutlich spürbar, aber nichts, was auf sich warten lässt: Der Aufschlag ist
+ * nach gut einer Sekunde vollständig da, alles darunter erscheint erst, wenn
+ * es ins Bild scrollt.
+ * ========================================================================= */
+
+/* Zwei weiche Lichtflecken hinter dem Aufschlag, die langsam wandern. */
+.aufschlag {
+  position: relative;
+  isolation: isolate;
+}
+.aufschlag::before,
+.aufschlag::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.aufschlag::before {
+  width: 420px;
+  height: 320px;
+  top: 10%;
+  left: -12%;
+  background: var(--akzent-schein);
+  animation: treiben-a 14s ease-in-out infinite alternate;
+}
+.aufschlag::after {
+  width: 360px;
+  height: 280px;
+  top: 30%;
+  left: 55%;
+  background: oklch(0.6 0.16 250 / 0.3);
+  animation: treiben-b 17s ease-in-out infinite alternate;
+}
+@keyframes treiben-a {
+  to { transform: translate(140px, 60px) scale(1.25); }
+}
+@keyframes treiben-b {
+  to { transform: translate(-160px, -40px) scale(0.85); }
+}
+
+/* Der Titel baut sich Buchstabe für Buchstabe auf. */
+.buchstabe {
+  display: inline-block;
+  animation: buchstabe-kommt 780ms var(--kurve-feder) both;
+  animation-delay: calc(var(--i) * 55ms + 80ms);
+}
+@keyframes buchstabe-kommt {
+  from { opacity: 0; transform: translateY(0.55em) rotate(8deg) scale(0.8); filter: blur(6px); }
+}
+.aufschlag h1:hover .buchstabe {
+  animation: buchstabe-huepft 600ms var(--kurve-feder);
+  animation-delay: calc(var(--i) * 35ms);
+}
+@keyframes buchstabe-huepft {
+  40% { transform: translateY(-0.12em); color: var(--akzent-hell); }
+}
+
+.aufschlag-satz { animation: antwort-kommt 700ms var(--kurve-aus) 420ms both; }
+.aufschlag-knoepfe { animation: antwort-kommt 700ms var(--kurve-aus) 560ms both; }
+
+/* Der Hauptknopf: hebt sich, und ein Lichtstreifen fährt darüber. */
+.knopf-voll {
+  position: relative;
+  overflow: hidden;
+  transition:
+    background var(--dauer-kurz),
+    transform var(--dauer-mittel) var(--kurve-feder),
+    box-shadow var(--dauer-mittel) var(--kurve-aus);
+}
+.knopf-voll::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+.knopf-voll:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -12px var(--akzent-schein);
+}
+.knopf-voll:hover::after {
+  transform: translateX(120%);
+  transition: transform 700ms var(--kurve-aus);
+}
+.knopf-voll:active {
+  transform: scale(0.96);
+  transition-duration: 70ms;
+}
+.knopf-text svg {
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.knopf-text:hover svg {
+  transform: translateX(5px);
+}
+
+/* Die Vorführung kippt beim Laden aus der Tiefe nach vorn. */
+.bild {
+  perspective: 1400px;
+  box-shadow: 0 40px 80px -40px var(--akzent-schein);
+  transform-origin: top center;
+  animation: bild-kippt 1100ms var(--kurve-aus) 450ms both;
+}
+@keyframes bild-kippt {
+  from { opacity: 0; transform: perspective(1400px) rotateX(18deg) translateY(40px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Abschnitte: kommen herein, sobald sie sichtbar werden; ihre Teile versetzt. */
+.einblenden > * {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 700ms var(--kurve-aus),
+    transform 800ms var(--kurve-aus);
+}
+.einblenden.sichtbar > * {
+  opacity: 1;
+  transform: none;
+}
+.einblenden.sichtbar > :nth-child(2) { transition-delay: 110ms; }
+.einblenden.sichtbar > :nth-child(3) { transition-delay: 220ms; }
+.einblenden.sichtbar > :nth-child(4) { transition-delay: 330ms; }
+
+/* Die vier Bereiche: Karten, die sich heben, und deren Zeichen wackelt. */
+.raster > article {
+  padding: var(--a4);
+  margin: calc(var(--a4) * -1);
+  border-radius: var(--rund-gross);
+  transition:
+    background var(--dauer-mittel),
+    transform var(--dauer-mittel) var(--kurve-feder),
+    box-shadow var(--dauer-mittel) var(--kurve-aus);
+}
+.einblenden .raster > article {
+  opacity: 0;
+  transform: translateY(22px) scale(0.96);
+}
+.einblenden.sichtbar .raster > article {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 600ms var(--kurve-aus) calc(var(--i, 0) * 90ms + 150ms),
+    transform 700ms var(--kurve-feder) calc(var(--i, 0) * 90ms + 150ms),
+    background var(--dauer-mittel),
+    box-shadow var(--dauer-mittel);
+}
+.einblenden.sichtbar .raster > article:hover {
+  background: var(--flaeche);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -24px var(--akzent-schein);
+  transition-delay: 0s;
+}
+.raster > article:hover svg {
+  color: var(--akzent);
+  animation: zeichen-rastet 600ms var(--kurve-feder);
+}
+
+/* Die vier gemessenen Zahlen als Kacheln, die hochzählen. */
+.kacheln {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--a3);
+  margin-bottom: var(--a5);
+}
+.kachel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a1);
+  padding: var(--a4);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+  background: linear-gradient(160deg, var(--flaeche), var(--grund));
+  transition: border-color var(--dauer-mittel), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.kachel:hover {
+  border-color: var(--akzent-tief);
+  transform: translateY(-3px);
+}
+.kachel-wert {
+  font-size: var(--gr-gross);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.kachel-name {
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+}
+.einblenden.sichtbar .kachel-wert {
+  animation: wert-leuchtet 1.6s var(--kurve-aus) 200ms both;
+}
+@keyframes wert-leuchtet {
+  0% { color: var(--akzent-hell); text-shadow: 0 0 18px var(--akzent-schein); }
+  100% { color: var(--text); text-shadow: none; }
+}

@@ -1,0 +1,25 @@
+kennung: bestand
+name: Bestandsaufnahme
+kategorie: homelab
+kurz: 'Sagt, was wo laeuft: Hosts, Dienste, Versionen, Ports und ihre Abhaengigkeiten.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- ssh_execute
+- shell_execute
+- docker_manage
+- system_info
+- create_document
+nicht_zustaendig:
+- Auslastung und Messwerte — dafuer ist monitoring zustaendig
+stichworte:
+- Inventar
+- Übersicht
+- was läuft wo
+- Dokumentation
+- Liste
+- welche Geräte
+- Bestandsaufnahme
+prompt: prompts/bestand.md

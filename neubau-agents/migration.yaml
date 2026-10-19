@@ -1,0 +1,25 @@
+kennung: migration
+name: Migration
+kategorie: code
+kurz: Überträgt Code auf neue Versionen von Sprache, Rahmenwerk oder Schnittstelle.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 10000
+werkzeuge:
+- read_file
+- str_replace_file
+- find_files
+- web_search
+- python_exec
+nicht_zustaendig:
+- Ob sich das Aktualisieren lohnt — dafuer ist abhaengigkeiten zustaendig
+stichworte:
+- Versionswechsel
+- upgrade
+- breaking change
+- umstellen
+- portieren
+- neue Version
+- deprecated
+prompt: prompts/migration.md

@@ -1,0 +1,25 @@
+kennung: text_verfassen
+name: Text verfassen
+kategorie: schreiben
+kurz: 'Schreibt Sachtexte nach Vorgabe: Aufbau, Argumentation, angemessener Ton.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- create_document
+- rag_search
+- web_search
+- read_file
+nicht_zustaendig:
+- Bestehende Texte ueberarbeiten — dafuer ist lektorat zustaendig
+stichworte:
+- Text schreiben
+- Aufsatz
+- Bericht
+- formulieren
+- Artikel
+- Sachtext
+- Ausarbeitung
+- Begründung
+prompt: prompts/text_verfassen.md

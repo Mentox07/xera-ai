@@ -1,0 +1,24 @@
+kennung: praesentation
+name: Präsentation
+kategorie: dokumente
+kurz: Baut Foliensätze aus Stichpunkten, mit Gliederung und Sprechernotizen.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- create_document
+- read_file
+- rag_search
+nicht_zustaendig:
+- Zahlen grafisch darstellen — dafuer ist diagramm zustaendig
+stichworte:
+- PowerPoint
+- pptx
+- Folien
+- Präsentation
+- Slides
+- Vortrag
+- Sprechernotizen
+- Foliensatz
+prompt: prompts/praesentation.md

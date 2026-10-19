@@ -1,0 +1,26 @@
+kennung: konfiguration
+name: Konfiguration
+kategorie: homelab
+kurz: Liest und aendert Konfigurationsdateien von nginx, Caddy, systemd und aehnlichem.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- ssh_execute
+- read_file
+- str_replace_file
+- write_file
+- find_files
+nicht_zustaendig:
+- Warum ein Dienst nicht startet — dafuer ist log_analyse zustaendig
+stichworte:
+- Config
+- Konfigurationsdatei
+- Einstellung
+- yaml
+- conf
+- Parameter
+- reload
+- greift nicht
+prompt: prompts/konfiguration.md

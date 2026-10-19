@@ -1,0 +1,25 @@
+kennung: projektplanung
+name: Projektplanung
+kategorie: beruf
+kurz: Zerlegt Vorhaben in Schritte, schaetzt Aufwand, erkennt Abhaengigkeiten und Risiken.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- create_document
+- memory_save
+- write_file
+- memory_load
+nicht_zustaendig:
+- Termine und Fristen verwalten — dafuer ist termine zustaendig
+stichworte:
+- Projektplan
+- Meilenstein
+- Aufwand
+- Zeitplan
+- Abhängigkeit
+- Risiko
+- Schritte
+- Gantt
+prompt: prompts/projektplanung.md

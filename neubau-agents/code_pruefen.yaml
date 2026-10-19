@@ -1,0 +1,24 @@
+kennung: code_pruefen
+name: Code prüfen
+kategorie: code
+kurz: Liest fremden Code, findet Schwachstellen und Fehler, schlägt Verbesserungen vor.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- read_file
+- list_files
+- find_files
+- git_execute
+nicht_zustaendig:
+- Änderungen selbst vornehmen — er schlägt vor, umbau setzt um
+stichworte:
+- Review
+- Code Review
+- durchschauen
+- Schwachstelle
+- prüf den Code
+- was ist schlecht
+- Qualität
+prompt: prompts/code_pruefen.md

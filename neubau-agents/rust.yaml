@@ -1,0 +1,28 @@
+kennung: rust
+name: Rust
+kategorie: sprachen
+kurz: 'Schreibt Rust: Besitzverhaeltnisse, Lebensdauern, Cargo, verbreitete Fallstricke.'
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Bestehenden Rust-Code umbauen — dafuer ist umbau zustaendig
+stichworte:
+- cargo
+- borrow checker
+- ownership
+- lifetime
+- moved value
+- unwrap
+- clone
+- tokio
+- Result
+- panic
+- does not live long enough
+prompt: prompts/rust.md

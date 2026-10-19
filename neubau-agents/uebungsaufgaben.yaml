@@ -1,0 +1,23 @@
+kennung: uebungsaufgaben
+name: Uebungsaufgaben
+kategorie: lernen
+kurz: Stellt Uebungsaufgaben mit steigender Schwierigkeit und bespricht die Loesungen.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- create_document
+- python_exec
+nicht_zustaendig:
+- Den Stoff erklaeren — dafuer ist erklaeren zustaendig
+stichworte:
+- Übung
+- Aufgabe
+- rechnen
+- Quiz
+- testen
+- Lösung
+- trainieren
+- Beispielaufgabe
+prompt: prompts/uebungsaufgaben.md

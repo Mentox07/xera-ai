@@ -1,0 +1,295 @@
+.agent-zeichen {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: color-mix(in oklch, var(--farbe) 18%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--farbe) 55%, transparent);
+  color: color-mix(in oklch, var(--farbe) 80%, white);
+  font-family: var(--schrift-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* --- Übersicht ------------------------------------------------------------- */
+.agents-grund {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: var(--a4);
+  background: oklch(0 0 0 / 0.5);
+  backdrop-filter: blur(5px);
+  animation: grund-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+.agents {
+  display: flex;
+  flex-direction: column;
+  width: min(860px, 100%);
+  max-height: min(720px, 100%);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-weit);
+  background: var(--flaeche);
+  box-shadow: var(--schatten), 0 0 0 1px var(--akzent-hauch);
+  overflow: hidden;
+  animation: dialog-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+.agents-kopf {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--a4);
+  padding: var(--a5) var(--a5) var(--a3);
+}
+.agents-kopf h2 {
+  font-size: var(--gr-gross);
+  margin-bottom: var(--a1);
+}
+.agents-kopf p {
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+  font-size: 14px;
+}
+.agents-zu {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  transition: transform var(--dauer-mittel) var(--kurve-feder), background var(--dauer-kurz), color var(--dauer-kurz);
+}
+.agents-zu:hover {
+  color: var(--text);
+  background: var(--flaeche-hoch);
+  transform: rotate(90deg);
+}
+.agents-suche {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  margin: 0 var(--a5) var(--a3);
+  padding: 9px var(--a3);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-gross);
+  background: var(--grund-tief);
+  color: var(--text-still);
+  transition: border-color var(--dauer-kurz), box-shadow var(--dauer-mittel) var(--kurve-aus);
+}
+.agents-suche:focus-within {
+  border-color: var(--akzent);
+  box-shadow: 0 0 0 4px var(--akzent-hauch);
+}
+.agents-suche input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: var(--gr-text);
+}
+.agents-gitter {
+  list-style: none;
+  margin: 0;
+  padding: var(--a2) var(--a5) var(--a5);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--a2);
+  overflow-y: auto;
+}
+.agents-gitter li {
+  animation: karte-kommt var(--dauer-lang) var(--kurve-feder) both;
+  animation-delay: calc(min(var(--i, 0), 18) * 25ms);
+}
+.agents-gitter button {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--a3);
+  width: 100%;
+  height: 100%;
+  padding: var(--a3);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund-gross);
+  text-align: left;
+  transition:
+    border-color var(--dauer-kurz),
+    background var(--dauer-kurz),
+    transform var(--dauer-mittel) var(--kurve-feder),
+    box-shadow var(--dauer-mittel) var(--kurve-aus);
+}
+.agents-gitter button:hover {
+  border-color: color-mix(in oklch, var(--farbe, var(--akzent)) 60%, transparent);
+  background: color-mix(in oklch, var(--farbe, var(--akzent)) 7%, transparent);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -18px color-mix(in oklch, var(--farbe, var(--akzent)) 60%, transparent);
+}
+.agents-gitter button:hover .agent-zeichen {
+  animation: zeichen-rastet 600ms var(--kurve-feder);
+}
+.agents-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.agents-text strong {
+  font-weight: 500;
+}
+.agents-text span {
+  color: var(--text-still);
+  font-family: var(--schrift-sans);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.agents-marke {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0 6px;
+  border: 1px solid var(--warn);
+  border-radius: 999px;
+  color: var(--warn);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.agents-leer {
+  padding: var(--a4);
+  color: var(--text-still);
+}
+
+/* --- @-Vorschläge über dem Eingabefeld -------------------------------------- */
+.agent-vorschlaege {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 8px);
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  padding: var(--a1);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-gross);
+  background: var(--flaeche-obenauf);
+  box-shadow: var(--schatten);
+  transform-origin: bottom center;
+  animation: vorschlaege-kommen var(--dauer-mittel) var(--kurve-feder) both;
+}
+@keyframes vorschlaege-kommen {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+}
+.agent-vorschlaege button {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  padding: 6px var(--a2);
+  border-radius: var(--rund);
+  text-align: left;
+  animation: eintrag-kommt var(--dauer-mittel) var(--kurve-aus) both;
+  animation-delay: calc(var(--i) * 25ms);
+  transition: background var(--dauer-kurz), padding-left var(--dauer-mittel) var(--kurve-feder);
+}
+.agent-vorschlaege button strong {
+  flex: 0 0 auto;
+  font-weight: 500;
+}
+.agent-vorschlaege button span:last-child {
+  overflow: hidden;
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.agent-vorschlaege button.ist-gewaehlt {
+  padding-left: 14px;
+  background: var(--akzent-hauch);
+  box-shadow: inset 2px 0 0 var(--akzent);
+}
+
+/* Der gewählte Agent als Marke im Eingabefeld. */
+.agent-gewaehlt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 4px 3px 4px;
+  border: 1px solid color-mix(in oklch, var(--farbe) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--farbe) 12%, transparent);
+  font-size: var(--gr-klein);
+  animation: marke-schnappt var(--dauer-lang) var(--kurve-feder) both;
+}
+.agent-gewaehlt strong {
+  font-weight: 500;
+}
+.agent-gewaehlt button {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: var(--text-still);
+}
+.agent-gewaehlt button:hover {
+  background: var(--flaeche-hoch);
+  color: var(--text);
+}
+
+/* --- Neu / Bisher ------------------------------------------------------------ */
+.agents-gruppen {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  margin: 0 var(--a5) var(--a3);
+}
+.agents-gruppen button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--kante-hell);
+  border-radius: 999px;
+  color: var(--text-leise);
+  transition: color var(--dauer-kurz), border-color var(--dauer-kurz), background var(--dauer-kurz);
+}
+.agents-gruppen button small {
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--flaeche-hoch);
+  font-size: 10px;
+}
+.agents-gruppen button.ist-aktiv {
+  border-color: var(--akzent);
+  background: var(--akzent-hauch);
+  color: var(--text);
+}
+.agents-hinweis {
+  margin-left: var(--a2);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+}
+.agents-kategorie {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--flaeche-hoch);
+  color: var(--text-still);
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+.agent-neu {
+  flex: 0 0 auto;
+  padding: 0 5px;
+  border: 1px solid var(--akzent-tief);
+  border-radius: 4px;
+  color: var(--akzent);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 640px) {
+  .agents-hinweis { display: none; }
+}

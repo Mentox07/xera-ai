@@ -1,0 +1,14 @@
+[Unit]
+Description=Xera: Netz-Sperre fuer Sandkasten-Benutzer (nftables, /opt/xera-ai/motor/sandbox-netz.nft)
+After=nftables.service
+PartOf=nftables.service
+Before=xera-ai.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/nft -f /opt/xera-ai/motor/sandbox-netz.nft
+ExecStop=/usr/sbin/nft delete table inet xera_sandbox
+
+[Install]
+WantedBy=multi-user.target nftables.service

@@ -1,0 +1,76 @@
+/* Knöpfe, die überall gelten.
+ *
+ * Lagen bis Oktober 2026 in Werkzeugblock.css, weil sie dort zuerst gebraucht
+ * wurden — und wurden von Cowork, Dialogen und der Anmeldung mitbenutzt, ohne
+ * dass man es der Datei ansah.
+ *
+ * Bewegung: Beim Überfahren hebt sich ein Knopf um einen Pixel, beim Drücken
+ * gibt er nach. Das ist die kleinste Bewegung, die man trotzdem spürt — sie
+ * sagt „das hier reagiert“, bevor irgendetwas passiert ist.
+ */
+
+.knopf-still,
+.knopf-betont,
+.knopf-gefahr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--a2);
+  padding: 6px 14px;
+  border-radius: var(--rund);
+  font-size: var(--gr-basis);
+  transition:
+    background var(--dauer-kurz) var(--kurve-aus),
+    border-color var(--dauer-kurz) var(--kurve-aus),
+    color var(--dauer-kurz) var(--kurve-aus),
+    box-shadow var(--dauer-mittel) var(--kurve-aus),
+    transform var(--dauer-kurz) var(--kurve-feder);
+}
+
+.knopf-still:not(:disabled):hover,
+.knopf-betont:not(:disabled):hover,
+.knopf-gefahr:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+.knopf-still:not(:disabled):active,
+.knopf-betont:not(:disabled):active,
+.knopf-gefahr:not(:disabled):active {
+  transform: translateY(0) scale(0.96);
+  transition-duration: 60ms;
+}
+.knopf-still:disabled,
+.knopf-betont:disabled,
+.knopf-gefahr:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.knopf-still {
+  border: 1px solid var(--kante-hell);
+  color: var(--text-leise);
+}
+.knopf-still:not(:disabled):hover {
+  border-color: var(--text-still);
+  color: var(--text);
+}
+
+.knopf-betont {
+  border: 1px solid var(--akzent-tief);
+  background: var(--akzent);
+  color: var(--auf-akzent);
+  font-weight: 500;
+}
+.knopf-betont:not(:disabled):hover {
+  background: var(--akzent-hell);
+  box-shadow: 0 8px 24px -8px var(--akzent-schein);
+}
+
+.knopf-gefahr {
+  border: 1px solid var(--schlecht);
+  background: var(--schlecht);
+  color: #fff;
+  font-weight: 500;
+}
+.knopf-gefahr:not(:disabled):hover {
+  box-shadow: 0 8px 24px -8px var(--schlecht);
+}

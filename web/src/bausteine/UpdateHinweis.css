@@ -1,0 +1,79 @@
+/* Update-Hinweis oben in der App (UpdateHinweis.tsx). Fällt herein und federt nach —
+   deutlich, aber ohne den Arbeitsbereich zu verdecken. */
+
+.update-hinweis {
+  position: fixed;
+  z-index: 40;
+  top: var(--a3);
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  width: min(680px, calc(100vw - 2 * var(--a4)));
+  padding: var(--a3) var(--a3) var(--a3) var(--a4);
+  border: 1px solid var(--akzent-tief);
+  border-radius: var(--rund-gross);
+  background: color-mix(in oklab, var(--flaeche-obenauf) 92%, transparent);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px -20px var(--akzent-schein), var(--schatten);
+  transform: translateX(-50%);
+  animation: update-kommt 700ms var(--kurve-feder) 600ms both;
+}
+@keyframes update-kommt {
+  from { opacity: 0; transform: translate(-50%, -140%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.update-hinweis p {
+  flex: 1;
+  margin: 0;
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-basis);
+  line-height: 1.5;
+}
+.update-hinweis strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.update-hinweis a {
+  color: var(--akzent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.update-hinweis code {
+  font-family: var(--schrift-mono);
+  font-size: 0.92em;
+  color: var(--text);
+}
+
+.update-punkt {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gut);
+  box-shadow: 0 0 10px var(--gut);
+  animation: atmen 2.4s ease-in-out infinite;
+}
+
+.update-hinweis button {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  transition: color var(--dauer-kurz), background var(--dauer-kurz), transform var(--dauer-mittel) var(--kurve-feder);
+}
+.update-hinweis button:hover {
+  color: var(--text);
+  background: var(--flaeche);
+  transform: rotate(90deg);
+}
+
+/* Handy: unter der Kopfzeile — unten läge er über dem Eingabefeld. */
+@media (max-width: 560px) {
+  .update-hinweis { top: calc(52px + var(--a2)); }
+}

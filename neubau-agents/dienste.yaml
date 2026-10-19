@@ -1,0 +1,24 @@
+kennung: dienste
+name: Dienste
+kategorie: homelab
+kurz: Startet, stoppt und prüft systemd-Dienste, liest Unit-Dateien und Startprobleme.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- read_file
+nicht_zustaendig:
+- Warum ein Dienst abstürzt — dafür ist log_analyse zuständig
+stichworte:
+- systemd
+- systemctl
+- Unit
+- failed
+- start-limit
+- daemon-reload
+- Autostart
+- Service startet nicht
+prompt: prompts/dienste.md

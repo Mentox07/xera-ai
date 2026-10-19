@@ -1,0 +1,27 @@
+kennung: speicher
+name: Speicherplatz
+kategorie: homelab
+kurz: Überwacht Festplatten, Dateisysteme und freien Platz, findet Speicherfresser.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- system_info
+- find_files
+nicht_zustaendig:
+- Datensicherungen — dafür ist sicherung zuständig
+stichworte:
+- Platte voll
+- df
+- du
+- Festplatte
+- SMART
+- RAID
+- inode
+- kein Platz
+- no space left
+- Speicherplatz
+prompt: prompts/speicher.md

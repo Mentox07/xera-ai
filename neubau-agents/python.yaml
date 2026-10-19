@@ -1,0 +1,28 @@
+kennung: python
+name: Python
+kategorie: sprachen
+kurz: 'Schreibt Python nach gaengiger Praxis: Typangaben, virtuelle Umgebungen, Paketierung.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- python_exec
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Datenauswertung mit Pandas — dafuer ist auswertung zustaendig
+stichworte:
+- pip
+- venv
+- pandas import
+- mutable default
+- f-string
+- pyproject
+- ImportError
+- IndentationError
+- dataclass
+- asyncio
+prompt: prompts/python.md

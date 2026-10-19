@@ -1,0 +1,27 @@
+kennung: stoerung
+name: Störungsbehebung
+kategorie: homelab
+kurz: 'Geht Ausfällen nach: findet die Ursache, behebt sie und hält fest, was getan wurde.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- ssh_execute
+- shell_execute
+- monitoring_query
+- docker_manage
+- read_file
+- delegate_to_agent
+nicht_zustaendig:
+- Reine Logdeutung ohne Ausfall — dafür ist log_analyse zuständig
+stichworte:
+- Ausfall
+- geht nicht mehr
+- down
+- outage
+- kaputt
+- Notfall
+- hilft nichts
+- funktioniert nicht
+prompt: prompts/stoerung.md

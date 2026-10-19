@@ -1,0 +1,9 @@
+{
+  "ssh_ziele": {
+    "server1": {"host": "root@192.0.2.10", "label": "Beispiel-Server"},
+    "gpu":     {"host": "admin@192.0.2.20", "label": "GPU-Server", "use_key": true}
+  },
+  "texte": {
+    "netze": "Netz A (`192.0.2.x`) trägt den GPU-Server, Netz B (`198.51.100.x`) die Dienste."
+  }
+}

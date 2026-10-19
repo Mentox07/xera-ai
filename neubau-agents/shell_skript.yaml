@@ -1,0 +1,27 @@
+kennung: shell_skript
+name: Shell-Skripte
+kategorie: sprachen
+kurz: Schreibt Bash- und Zsh-Skripte, die auch bei Leerzeichen und Fehlern standhalten.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+nicht_zustaendig:
+- Dienste und Container verwalten — dafuer sind dienste und docker zustaendig
+stichworte:
+- Bash
+- zsh
+- set -e
+- rm -rf
+- Skript
+- Shebang
+- Variable leer
+- Leerzeichen
+- cronjob
+- pipe
+- stdout
+prompt: prompts/shell_skript.md

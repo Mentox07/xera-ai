@@ -1,0 +1,26 @@
+kennung: zertifikate
+name: Zertifikate
+kategorie: homelab
+kurz: 'Verwaltet TLS-Zertifikate: prüft Laufzeiten, erneuert sie, findet abgelaufene.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- read_file
+nicht_zustaendig:
+- Erreichbarkeit und Namensaufloesung — dafuer ist netzwerk zustaendig
+stichworte:
+- SSL
+- TLS
+- HTTPS
+- Lets Encrypt
+- abgelaufen
+- expired
+- Caddy
+- Handshake
+- selbstsigniert
+- certbot
+prompt: prompts/zertifikate.md

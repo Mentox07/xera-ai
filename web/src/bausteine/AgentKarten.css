@@ -1,0 +1,212 @@
+/* Agent-Karten: parallele Aufträge des Modells. Deutlich spürbar, aber ruhig:
+   Karten fächern nacheinander auf, laufende atmen, fertige setzen sich. */
+
+.agentkarten {
+  margin: var(--a2) 0 var(--a4);
+}
+
+.agentkarten-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a2);
+  margin-bottom: var(--a3);
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  letter-spacing: 0.02em;
+}
+
+.agentkarten-raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--a3);
+}
+
+.agentkarten-raster[data-anzahl="1"] { grid-template-columns: 1fr; }
+
+.agentkarte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+  padding: var(--a3);
+  border-radius: var(--rund-gross);
+  background: var(--flaeche-hoch);
+  border: 1px solid color-mix(in oklch, var(--farbe) 30%, transparent);
+  overflow: hidden;
+  animation: karte-faechert var(--dauer-lang) var(--kurve-feder) both;
+  animation-delay: calc(var(--i) * 90ms);
+  transition: border-color var(--dauer-mittel) var(--kurve-aus), box-shadow var(--dauer-mittel) var(--kurve-aus);
+}
+
+.agentkarte.ist-offen { grid-column: 1 / -1; }
+
+.agentkarte.ist-laeuft {
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--farbe) 18%, transparent), 0 8px 28px -14px var(--farbe);
+}
+
+.agentkarte.ist-fertig {
+  border-color: var(--gut-hauch);
+  animation: karte-faechert var(--dauer-lang) var(--kurve-feder) both, karte-setzt var(--dauer-lang) var(--kurve-aus);
+}
+
+.agentkarte.ist-fehler { border-color: oklch(0.65 0.2 25 / 0.5); }
+
+.agentkarte.wartet {
+  border-color: var(--warn);
+  animation: karte-faechert var(--dauer-lang) var(--kurve-feder) both, karte-ruft 1.6s var(--kurve-ein-aus) infinite;
+}
+
+.agentkarte-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.agentkarte-titel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.agentkarte-titel strong {
+  font-size: var(--gr-basis);
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agentkarte-tut {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ist-fertig .agentkarte-tut { color: var(--gut); }
+.wartet .agentkarte-tut { color: var(--warn); }
+
+.agentkarte-puls {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--farbe);
+  animation: atmen 1.4s var(--kurve-ein-aus) infinite;
+}
+
+.agentkarte-zeit {
+  font-family: var(--schrift-mono);
+  font-size: var(--gr-klein);
+  color: var(--text-aus);
+  font-variant-numeric: tabular-nums;
+}
+
+.agentkarte-auftrag {
+  margin: 0;
+  font-size: var(--gr-klein);
+  line-height: var(--zeilen-eng);
+  color: var(--text-leise);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ist-offen .agentkarte-auftrag { -webkit-line-clamp: unset; }
+
+/* Laufbalken unten an der Karte: wandernder Schimmer in der Agent-Farbe. */
+.agentkarte-balken {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--farbe), transparent);
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  animation: karte-balken 1.6s var(--kurve-ein-aus) infinite;
+}
+
+.agentkarte-inhalt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a3);
+  animation: karte-oeffnet var(--dauer-mittel) var(--kurve-aus);
+}
+
+.agentkarte-bericht {
+  padding: var(--a3);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  font-size: var(--gr-basis);
+}
+
+.agentkarte-bericht-titel {
+  display: block;
+  margin-bottom: var(--a2);
+  font-size: var(--gr-klein);
+  color: var(--text-still);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Kompakt bei fertigen Antworten. */
+.agentkarten-zeile {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a2);
+  margin: 0 0 var(--a3);
+  padding: 4px var(--a3) 4px 4px;
+  border-radius: 999px;
+  border: 1px solid var(--flaeche-obenauf);
+  background: var(--flaeche-hoch);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  cursor: pointer;
+  transition: color var(--uebergang), border-color var(--uebergang);
+}
+
+.agentkarten-zeile:hover { color: var(--text); border-color: var(--akzent-schein); }
+
+.agentkarten-stapel { display: inline-flex; }
+.agentkarten-stapel > * + * { margin-left: -6px; }
+
+@keyframes karte-faechert {
+  from { opacity: 0; transform: translateY(14px) scale(0.94) rotate(-1.5deg); }
+}
+
+@keyframes karte-setzt {
+  40% { transform: scale(1.025); }
+}
+
+@keyframes karte-ruft {
+  50% { box-shadow: 0 0 0 5px oklch(0.78 0.15 75 / 0.16); }
+}
+
+@keyframes karte-balken {
+  from { background-position: -40% 0; }
+  to { background-position: 140% 0; }
+}
+
+@keyframes karte-oeffnet {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agentkarte, .agentkarte.ist-fertig, .agentkarte.wartet, .agentkarte-balken, .agentkarte-puls, .agentkarte-inhalt {
+    animation: none;
+  }
+}

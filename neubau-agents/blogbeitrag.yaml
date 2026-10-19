@@ -1,0 +1,25 @@
+kennung: blogbeitrag
+name: Blogbeitrag
+kategorie: schreiben
+kurz: Schreibt Beitraege fuer Blogs und Newsletter, mit Aufhaenger und klarer Gliederung.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- create_document
+- web_search
+- rag_search
+- read_file
+nicht_zustaendig:
+- Auffindbarkeit bei Suchmaschinen — dafuer ist suchmaschine zustaendig
+stichworte:
+- Blog
+- Newsletter
+- Beitrag
+- Artikel
+- Aufhänger
+- Überschrift
+- Post
+- veröffentlichen
+prompt: prompts/blogbeitrag.md

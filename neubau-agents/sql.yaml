@@ -1,0 +1,28 @@
+kennung: sql
+name: SQL
+kategorie: sprachen
+kurz: 'Schreibt SQL-Abfragen: Verknuepfungen, Gruppierungen, Fensterfunktionen, Schemata.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- python_exec
+nicht_zustaendig:
+- Langsame Abfragen beschleunigen — dafuer ist datenbank_tuning zustaendig
+stichworte:
+- SELECT
+- JOIN
+- GROUP BY
+- LEFT JOIN
+- 'NULL'
+- Abfrage
+- Query
+- PostgreSQL
+- MySQL
+- Fensterfunktion
+- DELETE
+- UPDATE
+prompt: prompts/sql.md

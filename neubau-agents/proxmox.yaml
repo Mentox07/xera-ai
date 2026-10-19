@@ -1,0 +1,26 @@
+kennung: proxmox
+name: Proxmox
+kategorie: homelab
+kurz: 'Verwaltet VMs und LXC-Container auf den Hypervisoren: anlegen, starten, sichern.'
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- ssh_execute
+- shell_execute
+- system_info
+nicht_zustaendig:
+- Docker-Container innerhalb einer VM — dafür ist docker zuständig
+stichworte:
+- LXC
+- VM
+- qm
+- pct
+- Cluster
+- Node
+- Snapshot
+- Virtualisierung
+- KVM
+- Hypervisor
+prompt: prompts/proxmox.md

@@ -1,0 +1,22 @@
+kennung: bild_deuten
+name: Bilder deuten
+kategorie: medien
+kurz: Beschreibt, was auf einem Bild, Foto oder Bildschirmfoto zu sehen ist.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- describe_image
+nicht_zustaendig:
+- Fehlermeldungen aus Bildern erklären — dafür ist fehlerbild zuständig
+stichworte:
+- Bild
+- Foto
+- Screenshot
+- was ist da
+- beschreiben
+- Bildschirmfoto
+- erkennen
+- Aufnahme
+prompt: prompts/bild_deuten.md

@@ -1,0 +1,25 @@
+kennung: termine
+name: Termine
+kategorie: kommunikation
+kurz: Plant Termine und Fristen, erinnert an Faelliges, erstellt Wochenuebersichten.
+lizenz: pro
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- memory_save
+- memory_load
+- create_document
+nicht_zustaendig:
+- Besprechungen festhalten — dafuer ist protokoll zustaendig
+stichworte:
+- Termin
+- Kalender
+- Frist
+- Erinnerung
+- Deadline
+- Woche
+- planen
+- fällig
+- Wiedervorlage
+prompt: prompts/termine.md

@@ -1,0 +1,27 @@
+kennung: sicherheit
+name: Sicherheit
+kategorie: homelab
+kurz: Prueft auf Schwachstellen und offene Zugaenge, haertet Dienste, recherchiert CVEs.
+lizenz: homelab
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- ssh_execute
+- shell_execute
+- read_file
+- web_search
+- web_fetch
+nicht_zustaendig:
+- Zugangsdaten verwalten oder wechseln — dafuer ist zugangsdaten zustaendig
+stichworte:
+- Härtung
+- Angriff
+- fail2ban
+- offene Ports
+- CVE
+- Einbruch
+- verdächtig
+- Absicherung
+- Patch
+prompt: prompts/sicherheit.md

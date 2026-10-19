@@ -1,0 +1,24 @@
+kennung: bewerbung
+name: Bewerbung
+kategorie: beruf
+kurz: Schreibt Anschreiben und Lebenslaeufe, passt sie auf Stellenausschreibungen an.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- create_document
+- read_document
+- web_fetch
+- web_search
+nicht_zustaendig:
+- Auf das Gespraech vorbereiten — dafuer ist gespraech_vorbereiten zustaendig
+stichworte:
+- Bewerbung
+- Lebenslauf
+- Anschreiben
+- CV
+- Stellenanzeige
+- bewerben
+- Motivationsschreiben
+prompt: prompts/bewerbung.md

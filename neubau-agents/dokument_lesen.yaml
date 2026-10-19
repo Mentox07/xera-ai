@@ -1,0 +1,24 @@
+kennung: dokument_lesen
+name: Dokument lesen
+kategorie: dokumente
+kurz: Liest hochgeladene Dateien, fasst sie zusammen und beantwortet Fragen dazu.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- read_document
+- read_file
+- rag_search
+nicht_zustaendig:
+- Neue Dokumente erzeugen — dafuer ist dokument_erstellen zustaendig
+stichworte:
+- PDF lesen
+- zusammenfassen
+- hochgeladen
+- Anhang
+- Vertrag lesen
+- was steht drin
+- Datei auswerten
+- Zusammenfassung
+prompt: prompts/dokument_lesen.md

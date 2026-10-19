@@ -1,0 +1,23 @@
+kennung: geschaeftsplan
+name: Geschaeftsplan
+kategorie: geschaeft
+kurz: 'Erarbeitet Geschaeftsplaene: Angebot, Zielgruppe, Zahlenteil, Wettbewerb.'
+lizenz: pro
+einsatzort: beide
+denkmodus: an
+max_token: 8192
+werkzeuge:
+- create_document
+- web_search
+- python_exec
+nicht_zustaendig:
+- Den Markt untersuchen — dafuer ist marktanalyse zustaendig
+stichworte:
+- Businessplan
+- Geschäftsplan
+- Gründung
+- Finanzplan
+- Umsatzplanung
+- Startup
+- Konzept
+prompt: prompts/geschaeftsplan.md

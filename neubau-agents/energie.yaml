@@ -1,0 +1,26 @@
+kennung: energie
+name: Stromverbrauch
+kategorie: homelab
+kurz: Beziffert Verbrauch und Kosten der Hardware, findet Sparmoeglichkeiten.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- ssh_execute
+- monitoring_query
+- python_exec
+- system_info
+nicht_zustaendig:
+- Auslastung im Zeitverlauf — dafuer ist monitoring zustaendig
+stichworte:
+- Strom
+- Watt
+- kWh
+- Verbrauch
+- Stromkosten
+- Netzteil
+- USV
+- sparen
+- Leerlauf
+prompt: prompts/energie.md

@@ -1,0 +1,43 @@
+/* Das Bild hat einen schwarzen Grund. Die Kachel macht daraus etwas, das auf
+   hellem wie auf dunklem Grund sitzt — dieselbe Loesung wie in der alten
+   Oberflaeche, nur ohne den Dauerleuchteffekt. */
+
+.marke-kachel {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: #000;
+  border-radius: var(--rund);
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Im hellen Aussehen braucht die Kachel eine Kante, sonst schwebt ein
+   schwarzes Feld im Weissen. */
+[data-theme="light"] .marke-kachel {
+  box-shadow: 0 0 0 1px var(--kante-hell);
+}
+
+/* Die quadratische Fassung fuellt die Kachel. */
+.marke-kachel:not(.ist-breit) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Die breite Fassung bestimmt die Breite selbst: Hoehe steht fest, das Bild
+   gibt das Verhaeltnis vor. `width: 100%` waere hier ein Zirkelschluss —
+   die Kachel hat keine eigene Breite, aus der sich Prozent rechnen liessen,
+   und der Schriftzug wurde abgeschnitten. */
+.marke-kachel.ist-breit {
+  width: auto;
+  height: auto;
+  padding: var(--a2) var(--a3);
+}
+.marke-kachel.ist-breit img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}

@@ -1,0 +1,25 @@
+kennung: kochen
+name: Kochen
+kategorie: alltag
+kurz: Schlaegt Rezepte nach Vorraeten und Vorlieben vor, rechnet Mengen um.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- web_search
+- create_document
+- memory_load
+nicht_zustaendig:
+- Naehrwerte statistisch auswerten — dafuer ist auswertung zustaendig
+stichworte:
+- Rezept
+- kochen
+- Zutaten
+- Menge
+- Vorrat
+- Essen
+- backen
+- Portionen
+- umrechnen
+prompt: prompts/kochen.md

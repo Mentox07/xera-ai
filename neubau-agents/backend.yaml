@@ -1,0 +1,29 @@
+kennung: backend
+name: Server und Schnittstellen
+kategorie: web
+kurz: 'Baut Server und Schnittstellen: Routen, Anmeldung, Fehlerbehandlung, Datenzugriff.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+- str_replace_file
+- shell_execute
+nicht_zustaendig:
+- Die Oberflaeche bauen — dafuer ist frontend zustaendig
+stichworte:
+- API
+- REST
+- Endpunkt
+- Route
+- FastAPI
+- Express
+- Django
+- Authentifizierung
+- JWT
+- Middleware
+- Server
+- CORS
+prompt: prompts/backend.md

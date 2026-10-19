@@ -1,0 +1,220 @@
+.verlauf {
+  width: var(--spalte);
+  flex: 0 0 var(--spalte);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--kante);
+  background: var(--grund);
+  min-height: 0;
+}
+
+.verlauf-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--a3) var(--a3) var(--a2);
+}
+
+.verlauf-kopf button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+  transition: color var(--uebergang), background var(--uebergang);
+}
+.verlauf-kopf button:hover {
+  color: var(--akzent);
+  background: var(--flaeche);
+}
+
+.verlauf-suche {
+  margin: 0 var(--a3) var(--a2);
+  padding: 4px var(--a2);
+  background: var(--flaeche);
+  border: 1px solid var(--kante);
+  border-radius: var(--rund);
+  outline: none;
+  font-size: var(--gr-klein);
+}
+.verlauf-suche:focus {
+  border-color: var(--akzent-tief);
+}
+
+.verlauf-liste {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: var(--a4);
+}
+
+.verlauf-liste ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.verlauf-liste li {
+  display: flex;
+  align-items: center;
+}
+
+.verlauf-raum {
+  padding: var(--a3) var(--a3) var(--a1);
+  font-weight: 400;
+}
+
+.verlauf-eintrag {
+  flex: 1;
+  min-width: 0;
+  padding: 5px var(--a3);
+  text-align: left;
+  color: var(--text-leise);
+  border-radius: 0;
+  transition: color var(--uebergang), background var(--uebergang);
+}
+
+.verlauf-titel {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.verlauf-liste li:hover .verlauf-eintrag {
+  color: var(--text);
+  background: var(--flaeche);
+}
+
+/* Der aktive Eintrag bekommt einen Strich, nicht nur eine Färbung. */
+.verlauf-eintrag.ist-aktiv {
+  color: var(--text);
+  background: var(--akzent-hauch);
+  box-shadow: inset 2px 0 0 var(--akzent);
+}
+
+.verlauf-weg {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: var(--text-still);
+  opacity: 0;
+  transition: opacity var(--uebergang), color var(--uebergang);
+}
+.verlauf-liste li:hover .verlauf-weg,
+.verlauf-weg:focus-visible {
+  opacity: 1;
+}
+.verlauf-weg:hover {
+  color: var(--schlecht);
+}
+
+.verlauf-leer {
+  padding: var(--a5) var(--a3);
+  color: var(--text-still);
+  font-size: var(--gr-klein);
+  text-align: center;
+}
+
+.verlauf-ordnen:hover {
+  color: var(--akzent);
+}
+
+/* --- Ordner ---------------------------------------------------------------- */
+.verlauf-ordner-kopf {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  color: var(--text-leise);
+  transition: color var(--dauer-kurz);
+}
+.verlauf-ordner-kopf:hover {
+  color: var(--text);
+}
+.verlauf-ordner-kopf svg:first-child {
+  transform: rotate(90deg);
+  transition: transform var(--dauer-mittel) var(--kurve-feder);
+}
+.verlauf-ordner.zu .verlauf-ordner-kopf svg:first-child {
+  transform: none;
+}
+.verlauf-ordner-kopf svg:nth-child(2) {
+  color: var(--akzent);
+}
+.verlauf-ordner-kopf span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.verlauf-ordner-kopf small {
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--flaeche-hoch);
+  color: var(--text-still);
+  font-size: 10px;
+}
+/* Zuklappen mit 0fr/1fr, damit es ohne gemessene Höhe gleitet. */
+.verlauf-ordner > ul {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--dauer-mittel) var(--kurve-aus);
+}
+.verlauf-ordner.zu > ul {
+  grid-template-rows: 0fr;
+}
+.verlauf-ordner > ul > li {
+  min-height: 0;
+  overflow: hidden;
+}
+.verlauf-ordner .verlauf-eintrag {
+  padding-left: 30px;
+}
+
+/* --- Schmale Fenster: Verlauf als Schublade -------------------------------
+ * Die Spalte gleitet von links herein (Knopf in der Kopfzeile des Gesprächs)
+ * und legt sich über den Inhalt, statt ihn auf eine unlesbare Breite zu
+ * quetschen.
+ */
+.verlauf-grund {
+  display: none;
+}
+@media (max-width: 860px) {
+  .verlauf {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    width: min(320px, 86vw);
+    box-shadow: var(--schatten);
+    transform: translateX(-105%);
+    transition: transform var(--dauer-lang) var(--kurve-aus);
+    animation: none !important;
+  }
+  .verlauf.offen {
+    transform: none;
+  }
+  .verlauf-grund {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    background: oklch(0 0 0 / 0.5);
+    backdrop-filter: blur(3px);
+    animation: grund-kommt var(--dauer-mittel) var(--kurve-aus) both;
+  }
+  .verlauf-weg {
+    opacity: 1;
+  }
+}
+@media (max-width: 720px) {
+  .verlauf {
+    bottom: calc(58px + env(safe-area-inset-bottom));
+  }
+}

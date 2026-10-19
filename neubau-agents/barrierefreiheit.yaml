@@ -1,0 +1,26 @@
+kennung: barrierefreiheit
+name: Barrierefreiheit
+kategorie: web
+kurz: Prueft Seiten auf Bedienbarkeit mit Tastatur, Vorlesegeraet und bei Sehschwaeche.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- read_file
+- web_fetch
+- write_file
+nicht_zustaendig:
+- Farben und Schrift waehlen — dafuer ist gestaltung zustaendig
+stichworte:
+- Accessibility
+- a11y
+- WCAG
+- Screenreader
+- Tastatur
+- Kontrast
+- alt-Text
+- ARIA
+- Sehschwäche
+- Vorlesegerät
+prompt: prompts/barrierefreiheit.md

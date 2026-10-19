@@ -1,0 +1,24 @@
+kennung: lektorat
+name: Lektorat
+kategorie: schreiben
+kurz: 'Ueberarbeitet fremde Texte: Rechtschreibung, Satzbau, Verstaendlichkeit, Kuerzung.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 6000
+werkzeuge:
+- read_document
+- read_file
+- create_document
+nicht_zustaendig:
+- Neue Texte schreiben — dafuer ist text_verfassen zustaendig
+stichworte:
+- korrigieren
+- Rechtschreibung
+- überarbeiten
+- kürzen
+- Korrektur
+- verständlicher
+- Grammatik
+- Stil
+prompt: prompts/lektorat.md

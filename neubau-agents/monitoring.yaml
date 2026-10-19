@@ -1,0 +1,26 @@
+kennung: monitoring
+name: Überwachung
+kategorie: homelab
+kurz: Prüft Auslastung, Messwerte und Alarme von CPU, Speicher und Diensten über Grafana.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 2048
+werkzeuge:
+- monitoring_query
+- ssh_execute
+- system_info
+nicht_zustaendig:
+- Ursachen in Logdateien suchen — dafür ist log_analyse zuständig
+stichworte:
+- Grafana
+- Prometheus
+- SNMP
+- Alert
+- Dashboard
+- NoData
+- Metrik
+- Alarm
+- Schwellwert
+- Auslastung
+prompt: prompts/monitoring.md

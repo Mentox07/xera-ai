@@ -1,0 +1,25 @@
+kennung: vertrag_lesen
+name: Vertrag lesen
+kategorie: recht
+kurz: Erklaert Vertraege in einfacher Sprache und benennt heikle Klauseln und Fristen.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- read_document
+- rag_search
+- create_document
+nicht_zustaendig:
+- Rechtsberatung erteilen — er erklaert und bereitet vor, ersetzt aber keinen Anwalt
+stichworte:
+- Vertrag
+- Klausel
+- Kleingedrucktes
+- AGB
+- Mietvertrag
+- Arbeitsvertrag
+- Frist
+- unterschreiben
+- Haftung
+prompt: prompts/vertrag_lesen.md

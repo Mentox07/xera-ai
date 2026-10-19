@@ -1,0 +1,27 @@
+kennung: fehlersuche
+name: Fehlersuche
+kategorie: code
+kurz: Geht Abstürzen, Ausnahmen und falschem Verhalten in Programmen auf den Grund.
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 12000
+werkzeuge:
+- read_file
+- python_exec
+- shell_execute
+- find_files
+- git_execute
+nicht_zustaendig:
+- Fehler im Betrieb der Server — dafür ist stoerung zuständig
+stichworte:
+- Bug
+- crash
+- Absturz
+- Exception
+- stacktrace
+- traceback
+- warum geht das nicht
+- debuggen
+- reproduzieren
+prompt: prompts/fehlersuche.md

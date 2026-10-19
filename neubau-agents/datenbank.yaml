@@ -1,0 +1,27 @@
+kennung: datenbank
+name: Datenbank
+kategorie: daten
+kurz: Führt SQL-Abfragen aus, prüft Schemata und wertet Tabelleninhalte aus.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- ssh_execute
+- shell_execute
+- python_exec
+- read_file
+nicht_zustaendig:
+- Kennzahlen aus Daten berechnen — dafür ist auswertung zuständig
+stichworte:
+- Datenbank
+- Tabelle
+- Abfrage
+- Schema
+- PostgreSQL
+- MySQL
+- SQLite
+- Spalte
+- Zeilen
+- Datensatz
+prompt: prompts/datenbank.md

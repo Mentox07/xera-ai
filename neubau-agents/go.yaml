@@ -1,0 +1,27 @@
+kennung: go
+name: Go
+kategorie: sprachen
+kurz: 'Schreibt Go: Nebenlaeufigkeit, Fehlerbehandlung, Module und Werkzeugkette.'
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Nebenlaeufige Ablaeufe im Betrieb beobachten — dafuer ist leistung zustaendig
+stichworte:
+- goroutine
+- channel
+- deadlock
+- context
+- defer
+- nil pointer
+- go mod
+- WaitGroup
+- data race
+- err != nil
+prompt: prompts/go.md

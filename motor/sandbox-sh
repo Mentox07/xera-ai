@@ -1,0 +1,6 @@
+#!/bin/sh
+# Shell für das bash-Werkzeug des OpenCode-Motors im Web-Code-Bereich (seit 2026-10-19).
+# Jeder Befehl läuft in einem eigenen Netz-Namensraum (kein Netz, auch nicht zu Xera
+# oder ins Homelab) und mit Grenzen: 4 GB Speicher, 600 s Rechenzeit, 256 Prozesse,
+# Dateien höchstens 100 MB (bis 2026-10-19: 1 GB — die Platte von CT 203 wäre schnell voll gewesen). Der Motor selbst läuft schon als Sandkasten-Benutzer des Nutzers.
+exec unshare -rn -- prlimit --as=4294967296 --cpu=600 --nproc=256 --fsize=104857600 -- /bin/bash "$@"

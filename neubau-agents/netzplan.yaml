@@ -1,0 +1,25 @@
+kennung: netzplan
+name: Netzpläne
+kategorie: darstellung
+kurz: Zeichnet Netzwerkstruktur, Verbindungen, Adressbereiche und VLAN-Aufteilung.
+lizenz: homelab
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- ssh_execute
+- create_document
+- read_file
+nicht_zustaendig:
+- Netzwerkprobleme untersuchen — dafür ist netzwerk zuständig
+stichworte:
+- Netzwerkplan
+- Topologie
+- VLAN
+- Schema
+- Verkabelung
+- Adressbereich
+- Netzdiagramm
+- Übersicht Netz
+prompt: prompts/netzplan.md

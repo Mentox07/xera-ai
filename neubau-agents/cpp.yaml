@@ -1,0 +1,28 @@
+kennung: cpp
+name: C und C++
+kategorie: sprachen
+kurz: 'Schreibt C und C++: Speicherverwaltung, Uebersetzungseinheiten, CMake, Zeigerfehler.'
+lizenz: frei
+einsatzort: beide
+denkmodus: an
+max_token: 6000
+werkzeuge:
+- write_file
+- read_file
+- shell_execute
+- str_replace_file
+nicht_zustaendig:
+- Abstuerze im laufenden Programm untersuchen — dafuer ist fehlersuche zustaendig
+stichworte:
+- segfault
+- Segmentation fault
+- Zeiger
+- pointer
+- memory leak
+- CMake
+- unique_ptr
+- undefined behavior
+- dangling
+- valgrind
+- g++
+prompt: prompts/cpp.md

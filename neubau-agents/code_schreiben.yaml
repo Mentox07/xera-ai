@@ -1,0 +1,25 @@
+kennung: code_schreiben
+name: Code schreiben
+kategorie: code
+kurz: Schreibt neue Funktionen, Skripte und Programme nach Beschreibung, mit Doku.
+lizenz: frei
+einsatzort: beide
+denkmodus: aus
+max_token: 4096
+werkzeuge:
+- write_file
+- read_file
+- list_files
+- str_replace_file
+- python_exec
+nicht_zustaendig:
+- Bestehenden Code umstrukturieren — dafür ist umbau zuständig
+- Fehler in laufendem Code suchen — dafür ist fehlersuche zuständig
+stichworte:
+- Funktion schreiben
+- Skript
+- implementieren
+- programmieren
+- bau mir
+- erstelle
+prompt: prompts/code_schreiben.md

@@ -1,0 +1,165 @@
+/* Meldungen (unten rechts) und Dialoge. */
+
+/* --- Meldungen ------------------------------------------------------------ */
+
+.meldungen {
+  position: fixed;
+  right: var(--a5);
+  bottom: var(--a5);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: var(--a2);
+  pointer-events: none;
+}
+
+.meldung {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--a3);
+  min-width: 260px;
+  max-width: 420px;
+  padding: var(--a3) var(--a3) var(--a3) var(--a4);
+  overflow: hidden;
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-gross);
+  background: var(--flaeche-obenauf);
+  box-shadow: var(--schatten);
+  font-size: var(--gr-basis);
+  pointer-events: auto;
+  /* Kommt von rechts und federt leicht nach. */
+  animation: meldung-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+.meldung.geht {
+  animation: meldung-geht var(--dauer-mittel) var(--kurve-ein-aus) both;
+}
+.meldung span {
+  flex: 1;
+}
+.meldung button {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--rund);
+  color: var(--text-still);
+}
+.meldung button:hover {
+  background: var(--flaeche-hoch);
+  color: var(--text);
+}
+
+.meldung.ist-info svg { color: var(--akzent); }
+.meldung.ist-gut svg:first-child { color: var(--gut); }
+.meldung.ist-fehler { border-color: var(--schlecht); }
+.meldung.ist-fehler svg:first-child { color: var(--schlecht); }
+
+/* Die Zeit bis zum Verschwinden, als Strich, der unten abläuft. */
+.meldung-zeit {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--akzent);
+  transform-origin: left;
+  animation: meldung-zeit var(--meldung-dauer, 4s) linear both;
+  opacity: 0.7;
+}
+.meldung.ist-gut .meldung-zeit { background: var(--gut); }
+.meldung.ist-fehler .meldung-zeit { background: var(--schlecht); }
+
+@keyframes meldung-kommt {
+  from { opacity: 0; transform: translateX(40px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes meldung-geht {
+  to { opacity: 0; transform: translateX(24px) scale(0.96); }
+}
+@keyframes meldung-zeit {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* --- Dialog --------------------------------------------------------------- */
+
+.dialog-grund {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: var(--a4);
+  background: oklch(0.05 0.02 282 / 0.55);
+  backdrop-filter: blur(6px);
+  animation: grund-kommt var(--dauer-mittel) var(--kurve-aus) both;
+}
+.dialog-grund.geht {
+  animation: grund-geht 200ms var(--kurve-ein-aus) both;
+}
+
+.dialog {
+  width: min(440px, 100%);
+  padding: var(--a5);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund-weit);
+  background: var(--flaeche);
+  box-shadow: var(--schatten), 0 0 0 1px var(--akzent-hauch);
+  animation: dialog-kommt var(--dauer-lang) var(--kurve-feder) both;
+}
+.dialog-grund.geht .dialog {
+  animation: dialog-geht 200ms var(--kurve-ein-aus) both;
+}
+
+.dialog h2 {
+  font-size: var(--gr-titel);
+}
+.dialog-text {
+  margin-top: var(--a2);
+  color: var(--text-leise);
+  font-family: var(--schrift-sans);
+  font-size: var(--gr-text);
+  line-height: var(--zeilen-text);
+}
+.dialog-feld {
+  width: 100%;
+  margin-top: var(--a4);
+  padding: 9px var(--a3);
+  border: 1px solid var(--kante-hell);
+  border-radius: var(--rund);
+  background: var(--grund-tief);
+  transition: border-color var(--dauer-kurz), box-shadow var(--dauer-mittel) var(--kurve-aus);
+}
+.dialog-feld:focus {
+  border-color: var(--akzent);
+  box-shadow: 0 0 0 4px var(--akzent-hauch);
+}
+.dialog-knoepfe {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--a2);
+  margin-top: var(--a5);
+}
+
+@keyframes grund-kommt { from { opacity: 0; } }
+@keyframes grund-geht { to { opacity: 0; } }
+@keyframes dialog-kommt {
+  from { opacity: 0; transform: translateY(16px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dialog-geht {
+  to { opacity: 0; transform: translateY(8px) scale(0.97); }
+}
+
+@media (max-width: 640px) {
+  .meldungen {
+    left: var(--a3);
+    right: var(--a3);
+    bottom: calc(var(--a3) + 64px);
+  }
+  .meldung {
+    min-width: 0;
+    max-width: none;
+  }
+}
