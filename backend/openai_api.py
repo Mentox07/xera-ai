@@ -347,16 +347,66 @@ def anfrage_bauen(body: dict) -> tuple[str, dict]:
     anfrage["id_slot"] = MODELLE[modell]
     if anfrage.get("stream"):
         anfrage["stream_options"] = {"include_usage": True}
-        # Fortschritt beim Einlesen — geht als SSE-Kommentar an OpenCode und hält die
-        # Verbindung offen, solange llama-server minutenlang einliest.
+        # Fortschritt beim Einlesen — hält die Verbindung offen, solange llama-server
+        # minutenlang einliest, und wird ab und zu als Denk-Text sichtbar (Einlesen).
         anfrage["return_progress"] = True
     anfrage["max_tokens"] += aufwand.anfrage_ergaenzen(anfrage, stufe)
     return modell, anfrage
 
 
-def stueck_umschreiben(nutzlast: str) -> tuple[str | None, dict | None, str]:
+def _zahl(n: int) -> str:
+    return f"{n:,}".replace(",", " ")
+
+
+def _dauer(sekunden: float) -> str:
+    return "noch unter einer Minute" if sekunden < 60 else f"noch etwa {round(sekunden / 60)} min"
+
+
+class Einlesen:
+    """Fortschritt beim Einlesen als Denk-Text, den OpenCode anzeigt (seit 2026-10-20).
+
+    Vorher ging er nur als SSE-Kommentar hinaus, und den zeigt OpenCode nicht: Nach
+    der Kompaktierung im Bug-Export vom 2026-10-19 las Xera 113k Tokens ein (~17 min)
+    und die CLI sah so lange tot aus — der Nutzer brach zweimal ab. Gemeldet wird erst ab
+    AB_TOKENS neuen Tokens, dann alle SCHRITT Prozent. OpenCode schickt Gedanken nicht
+    zurück (siehe stufe_aus), der Cache des nächsten Schritts bleibt also gleich.
+
+    ``processed`` von llama-server zählt den Cache mit — neu ist nur, was darüber liegt."""
+
+    AB_TOKENS = 8000   # ≈ 1 min bei 130–175 Tokens/s Einlesen
+    SCHRITT = 10
+
+    def __init__(self) -> None:
+        self.gemeldet: int | None = None
+
+    def meldung(self, p: dict) -> str:
+        try:
+            cache = int(p.get("cache") or 0)
+            neu = int(p.get("total") or 0) - cache
+            fertig = int(p.get("processed") or 0) - cache
+            sekunden = float(p.get("time_ms") or 0) / 1000
+        except (TypeError, ValueError):
+            return ""
+        if neu < self.AB_TOKENS or fertig >= neu:
+            return ""
+        if self.gemeldet is None:
+            self.gemeldet = 0
+            gespeichert = f", {_zahl(cache)} liegen schon im Zwischenspeicher" if cache else ""
+            return (f"Lese den Verlauf ein: {_zahl(neu)} Tokens{gespeichert}. "
+                    "Bei dieser Länge dauert das eine Weile, bevor ich weiterarbeite.\n")
+        prozent = int(100 * fertig / neu)
+        if prozent < self.gemeldet + self.SCHRITT:
+            return ""
+        self.gemeldet = prozent - prozent % self.SCHRITT
+        rest = sekunden * (neu - fertig) / fertig if fertig > 0 else 0
+        return f"… {self.gemeldet} % eingelesen, {_dauer(rest)}\n"
+
+
+def stueck_umschreiben(nutzlast: str, einlesen: Einlesen | None = None) -> tuple[str | None, dict | None, str]:
     """Ein ``data:``-Stück von llama-server für OpenCode aufbereiten.
-    Liefert (SSE-Text, usage, Denktext) — Fortschritt wird zum Kommentar."""
+    Liefert (SSE-Text, usage, Denktext). Fortschritt wird zum Kommentar (hält die
+    Verbindung offen) und mit ``einlesen`` ab und zu zum sichtbaren Denk-Text;
+    der zählt nicht als Denken (kein Denktext zurück)."""
     if nutzlast.strip() == "[DONE]":
         return "data: [DONE]\n\n", None, ""
     try:
@@ -365,12 +415,17 @@ def stueck_umschreiben(nutzlast: str) -> tuple[str | None, dict | None, str]:
         return f"data: {nutzlast}\n\n", None, ""
     if not isinstance(stueck, dict):
         return f"data: {nutzlast}\n\n", None, ""
-    if stueck.get("prompt_progress") and not stueck.get("choices"):
-        p = stueck["prompt_progress"]
-        neu = max(1, (p.get("total") or 1) - (p.get("cache") or 0))
-        return f": liest ein {int(100 * (p.get('processed') or 0) / neu)} %\n\n", None, ""
-    stueck.pop("prompt_progress", None)
-    denk = "".join(((c.get("delta") or {}).get("reasoning_content") or "") for c in stueck.get("choices") or [])
+    p = stueck.pop("prompt_progress", None)
+    deltas = [c.get("delta") or {} for c in stueck.get("choices") or []]
+    # Diese llama-Version legt den Fortschritt in Stücke mit leerem Delta (role, content null).
+    if p and not any(d.get("content") or d.get("reasoning_content") or d.get("tool_calls") for d in deltas):
+        text = einlesen.meldung(p) if einlesen else ""
+        if not text:
+            return ": liest ein\n\n", None, ""
+        stueck["choices"] = [{"index": 0, "finish_reason": None,
+                              "delta": {"role": "assistant", "reasoning_content": text}}]
+        return f"data: {json.dumps(stueck, ensure_ascii=False)}\n\n", None, ""
+    denk = "".join(d.get("reasoning_content") or "" for d in deltas)
     return f"data: {json.dumps(stueck, ensure_ascii=False)}\n\n", stueck.get("usage"), denk
 
 
@@ -445,6 +500,8 @@ async def chat_completions(request: Request):
                     await slotsperre.warten_bis_frei(_client, config.LLAMA_API_URL, slot)
                     await slotsperre.leeren_slot_anstossen(_client, config.LLAMA_API_URL, slot)
                     gedanken, denk_start, geprueft, grund = "", None, 0, None
+                    # Titel und Zusammenfassungen (xera-klein) ohne Denk-Text — der landete sonst im Ergebnis.
+                    einlesen = None if modell == "xera-klein" else Einlesen()
                     async with _client.stream("POST", url, json=anf) as r:
                         if r.status_code != 200:
                             text = (await r.aread()).decode(errors="replace")
@@ -459,7 +516,7 @@ async def chat_completions(request: Request):
                         async for zeile in r.aiter_lines():
                             if not zeile.startswith("data: "):
                                 continue
-                            text, neu, denk = stueck_umschreiben(zeile[6:])
+                            text, neu, denk = stueck_umschreiben(zeile[6:], einlesen)
                             usage = neu or usage
                             if denk and "chat_template_kwargs" in anf:
                                 gedanken += denk

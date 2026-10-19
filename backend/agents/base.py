@@ -362,7 +362,7 @@ def _fortschritt_text(f: dict) -> str:
     p = f.get("einlesen") or {}
     try:
         neu = int(p.get("total", 0)) - int(p.get("cache", 0))
-        fertig = int(p.get("processed", 0))
+        fertig = int(p.get("processed", 0)) - int(p.get("cache", 0))  # processed zählt den Cache mit
     except (TypeError, ValueError):
         neu = fertig = 0
     zeichen = f.get("zeichen", 0)

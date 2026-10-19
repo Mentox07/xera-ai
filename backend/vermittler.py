@@ -646,10 +646,12 @@ def _verlauf_wiederverwenden(session_id, messages: list[dict], slot) -> list[dic
 
 
 def _einlese_meldung(p: dict) -> str:
-    """„liest das Gespräch ein … 46 %“ — nur bei spürbar langem Einlesen."""
+    """„liest das Gespräch ein … 46 %“ — nur bei spürbar langem Einlesen.
+    ``processed`` zählt den Cache mit (bis 2026-10-20 übersehen: mit Cache sprang die
+    Anzeige über 100 % oder blieb ganz weg)."""
     try:
         neu = int(p.get("total", 0)) - int(p.get("cache", 0))
-        fertig = int(p.get("processed", 0))
+        fertig = int(p.get("processed", 0)) - int(p.get("cache", 0))
     except (TypeError, ValueError):
         return ""
     if neu < 1500 or fertig >= neu:
