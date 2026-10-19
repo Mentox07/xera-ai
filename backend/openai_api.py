@@ -18,6 +18,7 @@ import ipaddress
 import json
 import logging
 import os
+import re
 import secrets
 import time
 
@@ -337,6 +338,7 @@ def anfrage_bauen(body: dict) -> tuple[str, dict]:
     modell = body.get("model") if body.get("model") in MODELLE else "xera"
     klein = modell == "xera-klein"
     anfrage = {k: v for k, v in body.items() if k in ERLAUBT}
+    anfrage["messages"] = ohne_fortschritt(anfrage["messages"])
     stufe = "aus" if klein else stufe_aus(body)
     try:
         wunsch = int(anfrage.pop("max_completion_tokens", None) or anfrage.get("max_tokens") or MAX_TOKENS)
@@ -376,6 +378,11 @@ class Einlesen:
     AB_TOKENS = 8000   # ≈ 1 min bei 130–175 Tokens/s Einlesen
     SCHRITT = 10
 
+    # OpenCode schickt Gedanken doch zurück (reasoning_content, getestet 2026-10-20), und die
+    # Vorlage baut sie im laufenden Zug als <think> ein — darum entfernt ohne_fortschritt()
+    # diese Zeilen wieder aus dem Verlauf, sonst passte der Cache ab dort nicht mehr.
+    ZEILEN = re.compile(r"^(?:Lese den Verlauf ein: .*|… \d+ % eingelesen, .*)\n", re.MULTILINE)
+
     def __init__(self) -> None:
         self.gemeldet: int | None = None
 
@@ -400,6 +407,24 @@ class Einlesen:
         self.gemeldet = prozent - prozent % self.SCHRITT
         rest = sekunden * (neu - fertig) / fertig if fertig > 0 else 0
         return f"… {self.gemeldet} % eingelesen, {_dauer(rest)}\n"
+
+
+def ohne_fortschritt(nachrichten: list) -> list:
+    """Die Einlese-Meldungen (Einlesen) aus den Gedanken früherer Schritte entfernen —
+    der Verlauf soll so aussehen, wie Xera ihn erzeugt hat. Leer gewordene Gedanken
+    fallen ganz weg (so kamen Schritte ohne Denken vorher an)."""
+    neu = []
+    for m in nachrichten:
+        gedanken = m.get("reasoning_content") if isinstance(m, dict) else None
+        if isinstance(gedanken, str) and ("Lese den Verlauf ein: " in gedanken or " % eingelesen, " in gedanken):
+            m = dict(m)
+            rest = Einlesen.ZEILEN.sub("", gedanken)
+            if rest.strip():
+                m["reasoning_content"] = rest
+            else:
+                del m["reasoning_content"]
+        neu.append(m)
+    return neu
 
 
 def stueck_umschreiben(nutzlast: str, einlesen: Einlesen | None = None) -> tuple[str | None, dict | None, str]:
